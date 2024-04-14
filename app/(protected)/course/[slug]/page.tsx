@@ -23,6 +23,7 @@ import { getCourse, getCourseNotAuth } from "@/app/actions/course";
 import AccordionLesson from "@/app/components/lessons/accordion";
 import AccordionLessonAdmin from "@/app/components/lessons/accordion-admin";
 import { cookies } from 'next/headers'
+import { Config } from "@/Config";
 export default async function App({ params }: { params: any }) {
   const cookieStore = cookies()
   const hasCookie = cookieStore.has('theme')
@@ -42,7 +43,7 @@ export default async function App({ params }: { params: any }) {
       <Card>
         <CardBody className="grid grid-cols-2 max-md:grid-cols-1 max-md:grid-rows-2">
           <Image
-            src={"http://127.0.0.1:8000/storage/" + course.thumbnail}
+            src={Config.STORAGE_URL +"/" + course.thumbnail}
             className="aspect-video"
           ></Image>
           <div className="p-5 space-y-5">
@@ -55,7 +56,7 @@ export default async function App({ params }: { params: any }) {
             </small>
             <h4 className="font-bold text-large line-clamp-2">{course.name}</h4>
             <small className="text-default-500 line-clamp-2"> {course.description}</small>
-            {cookieStore.has('token') && course.enable === 1 ? <Progress aria-label="Loading..." value={60} className="max-w-md" /> : <Button className="w-full" color="primary">Start course</Button>}
+            {cookieStore.has('token') && course.enable === 1   ? <Progress aria-label="Loading..." value={60} className="max-w-md" /> : <Button className="w-full" color="primary">Start course</Button>}
             
           </div>
         </CardBody>

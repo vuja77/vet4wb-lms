@@ -13,6 +13,7 @@ import {
   ModalFooter,
   useDisclosure,
 } from "@nextui-org/react";
+import { Config } from "@/Config";
 
 export default function ScormModal({ data }: { data: any }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -40,7 +41,7 @@ export default function ScormModal({ data }: { data: any }) {
             <>
               <iframe
                 className="min-h-[95vh]"
-                src={"http://127.0.0.1:8000/storage/files/"+data.file_path+"/res/index.html"}
+                src={Config.STORAGE_URL+"/files/"+data.file_path+"/res/index.html"}
               ></iframe>
             </>
           )}

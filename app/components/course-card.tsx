@@ -3,6 +3,7 @@ import React from "react";
 import { Card, CardHeader, CardBody, Image, Button } from "@nextui-org/react";
 import { HeartIcon } from "./icons/HeartIcon";
 import Link from "next/link";
+import { Config } from "@/Config";
 
 export default function CourseCard({ data }: { data: any }) {
   console.log(data)
@@ -31,7 +32,7 @@ export default function CourseCard({ data }: { data: any }) {
           <Image
             alt="Card background"
             className="object-cover rounded-xl h-[200px]"
-            src={"http://127.0.0.1:8000/storage/" + data.thumbnail}
+            src={Config.STORAGE_URL+"/" + data.thumbnail}
             width={270}
           />
         </CardBody>

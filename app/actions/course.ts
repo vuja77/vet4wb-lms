@@ -1,17 +1,19 @@
+import { Config } from "@/Config";
 import axios from "axios";
 import { cookies } from 'next/headers'
  
 
 async function createCourse(formData: FormData) {
-
+  const cookieStore = cookies()
+  const token = cookieStore.get('token')
   try {
     const res = await axios.post(
-      "http://127.0.0.1:8000/api/courses",
+      Config.API_URL+"/courses",
       formData,
       {
         headers: {
           Authorization:
-            "Bearer 1|i6PiKw3L9CjOKbhUoZ97CRT7mUrVyoBaVxpKBVEW58c98ef3",
+          "Bearer "+token?.value,
         },
       }
     );
@@ -24,13 +26,14 @@ async function createCourse(formData: FormData) {
 
 export async function getCourse(id: number) {
   const cookieStore = cookies()
-  const lang = cookieStore.get('lang')
-  console.log(lang)
+  const token = cookieStore.get('token')
+ 
+  
   try {
-    const res = await axios.get("http://127.0.0.1:8000/api/course/" + id, {
+    const res = await axios.get(Config.API_URL+"/course/" + id, {
       headers: {
         Authorization:
-          "Bearer 1|i6PiKw3L9CjOKbhUoZ97CRT7mUrVyoBaVxpKBVEW58c98ef3",
+        "Bearer "+token?.value,
       },
     });
     console.log(res.data);
@@ -41,10 +44,10 @@ export async function getCourse(id: number) {
 }
 export async function getCourseNotAuth(id: number) {
   const cookieStore = cookies()
-  const lang = cookieStore.get('lang')
-  console.log(lang)
+  const token = cookieStore.get('token')
+  console.log(token)
   try {
-    const res = await axios.get("http://127.0.0.1:8000/api/course-info/" + id, {
+    const res = await axios.get(Config.API_URL+"/course-info/" + id, {
       
     });
     console.log(res.data);
@@ -54,11 +57,13 @@ export async function getCourseNotAuth(id: number) {
   }
 }
 export async function getMineCourse() {
+  const cookieStore = cookies()
+  const token = cookieStore.get('token')
   try {
-    const res = await axios.get("http://127.0.0.1:8000/api/mine-courses/", {
+    const res = await axios.get(Config.API_URL+"/mine-courses/", {
       headers: {
         Authorization:
-          "Bearer 1|i6PiKw3L9CjOKbhUoZ97CRT7mUrVyoBaVxpKBVEW58c98ef3",
+        "Bearer "+token?.value,
       },
     });
     console.log(res.data);
@@ -69,11 +74,13 @@ export async function getMineCourse() {
 }
 
 export async function getAllCourse() {
+  const cookieStore = cookies()
+  const token = cookieStore.get('token')
   try {
-    const res = await axios.get("http://127.0.0.1:8000/api/course/", {
+    const res = await axios.get(Config.API_URL+"/course/", {
       headers: {
         Authorization:
-          "Bearer 1|i6PiKw3L9CjOKbhUoZ97CRT7mUrVyoBaVxpKBVEW58c98ef3",
+        "Bearer "+token?.value,
       },
     });
     console.log(res.data);
