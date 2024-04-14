@@ -23,6 +23,7 @@ import axios from "axios";
 import { Config } from "@/Config";
 import toast, { Toaster } from "react-hot-toast";
 import { Blob } from "buffer";
+import { getCookie } from "cookies-next";
 export default function AddMaterials({id}: {id:number}) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [previewImage, setPreviewImage] = useState(null);
@@ -60,7 +61,7 @@ export default function AddMaterials({id}: {id:number}) {
       .post(Config.API_URL + "/material", formData, {
         headers: {
           Authorization:
-            "Bearer 2|H9UIhAFbwPQhBOTgHJNDo4ugsWeXe9gZCEqWtIcvd449f31a",
+            "Bearer "+getCookie('token'),
         },
       })
       .then((res) => {

@@ -22,6 +22,7 @@ import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import { Config } from "@/Config";
 import toast, { Toaster } from "react-hot-toast";
+import { getCookie } from "cookies-next";
 export default function CreateCourse() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [previewImage, setPreviewImage] = useState(null);
@@ -57,7 +58,7 @@ export default function CreateCourse() {
       .post(Config.API_URL + "/course", formData, {
         headers: {
           Authorization:
-            "Bearer 2|H9UIhAFbwPQhBOTgHJNDo4ugsWeXe9gZCEqWtIcvd449f31a",
+            "Bearer "+getCookie('token'),
         },
       })
       .then((res) => {

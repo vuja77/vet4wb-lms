@@ -21,6 +21,7 @@ import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import { Config } from "@/Config";
 import toast, { Toaster } from "react-hot-toast";
+import { getCookie } from "cookies-next";
 export default function AddUsers({ id, data }: { id: any, data: any }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   console.log("alo");
@@ -40,7 +41,7 @@ export default function AddUsers({ id, data }: { id: any, data: any }) {
       .post(Config.API_URL + "/course-taker", formData, {
         headers: {
           Authorization:
-            "Bearer 2|H9UIhAFbwPQhBOTgHJNDo4ugsWeXe9gZCEqWtIcvd449f31a",
+            "Bearer "+getCookie('token'),
         },
       })
       .then((res) => {
