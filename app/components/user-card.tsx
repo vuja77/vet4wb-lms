@@ -30,7 +30,7 @@ export default function UserCard() {
                   Config.STORAGE_URL +
                   "/" +
                 //@ts-ignore
-                  getCookie('user').user.photo,
+                  JSON.parse(localStorage.getItem('data').user.photo),
               }}
               className="transition-transform py-5 px-4 max"
               //@ts-ignore
