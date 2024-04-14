@@ -27,7 +27,7 @@ export default async function App() {
         <Divider className="my-4" />
       </div>
       <div className="grid grid-cols-3 gap-10 max-lg:grid-cols-2  max-[600px]:grid-cols-1">
-        {courses.map((e:any,index:number) => {
+        {courses && courses.map((e:any,index:number) => {
           return(
             <CourseCard data={e} key={index}></CourseCard>
           )

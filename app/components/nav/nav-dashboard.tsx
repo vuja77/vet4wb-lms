@@ -32,7 +32,6 @@ export default function NavDashboard() {
     "Help & Feedback",
     "Log Out",
   ];
-  setCookie("key", "value");
 
   return (
     <Navbar

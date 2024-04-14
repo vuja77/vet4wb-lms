@@ -1,4 +1,3 @@
-import { Config } from "@/Config";
 import axios from "axios";
 import { cookies } from 'next/headers'
  
@@ -8,7 +7,7 @@ async function createCourse(formData: FormData) {
   const token = cookieStore.get('token')
   try {
     const res = await axios.post(
-      Config.API_URL+"/courses",
+      process.env.API_URL+"/courses",
       formData,
       {
         headers: {
@@ -30,7 +29,7 @@ export async function getCourse(id: number) {
  
   
   try {
-    const res = await axios.get(Config.API_URL+"/course/" + id, {
+    const res = await axios.get(process.env.API_URL+"/course/" + id, {
       headers: {
         Authorization:
         "Bearer "+token?.value,
@@ -47,7 +46,7 @@ export async function getCourseNotAuth(id: number) {
   const token = cookieStore.get('token')
   console.log(token)
   try {
-    const res = await axios.get(Config.API_URL+"/course-info/" + id, {
+    const res = await axios.get(process.env.API_URL+"/course-info/" + id, {
       
     });
     console.log(res.data);
@@ -60,7 +59,7 @@ export async function getMineCourse() {
   const cookieStore = cookies()
   const token = cookieStore.get('token')
   try {
-    const res = await axios.get(Config.API_URL+"/mine-courses/", {
+    const res = await axios.get(process.env.API_URL+"/mine-courses/", {
       headers: {
         Authorization:
         "Bearer "+token?.value,

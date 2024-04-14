@@ -1,24 +1,11 @@
 "use client"
 import React from "react";
-import {
-  Tabs,
-  Tab,
-  Input,
-  Link,
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-} from "@nextui-org/react";
-import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
-import CourseCard from "@/app/components/course-card";
-import { Divider } from "@nextui-org/react";
-import { getMineCourse } from "@/app/actions/course";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import 'react-big-calendar/lib/sass/styles.scss';
+export default function Page() {
 const localizer = momentLocalizer(moment);
-export default function App() {
+
   const events = [
     {
       id: 0,

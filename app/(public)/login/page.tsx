@@ -30,6 +30,7 @@ export default function App() {
       .then((res) => {
         localStorage.setItem("data", JSON.stringify(res.data.data));
         setCookie('token',res.data.data.token)
+        setCookie('user',res.data.data)
         if (res.data.data.user.role_id === 2) {
           router.push("/admin/dashboard");
         } else if (res.data.data.user.role_id === 1) {

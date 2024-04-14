@@ -14,7 +14,7 @@ import CourseCard from "@/app/components/course-card";
 import { Divider } from "@nextui-org/react";
 import CreateCourse from "@/app/components/protected/create-course";
 import { getMineCourse } from "@/app/actions/course";
-export default async function App() {
+export default async function Page() {
   const courses = await getMineCourse();
 
   return (
@@ -33,9 +33,9 @@ export default async function App() {
         <Divider className="my-4" />
       </div>
       <div className="grid grid-cols-3 gap-10 max-lg:grid-cols-2  max-[600px]:grid-cols-1">
-        {courses.map((e: any, index: number) => {
+        {courses ? courses.map((e: any, index: number) => {
           return <CourseCard data={e} key={index}></CourseCard>;
-        })}
+        }) : "none"}
       </div>
     </main>
   );
