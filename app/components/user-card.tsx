@@ -22,6 +22,7 @@ export default function UserCard() {
       <Dropdown placement="bottom-start">
         <DropdownTrigger className="py-5">
           {
+              //@ts-ignore
             JSON.parse(localStorage.getItem('data')).user.photo ? <User
             as="button"
             avatarProps={{
