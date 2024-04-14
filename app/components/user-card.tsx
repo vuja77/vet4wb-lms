@@ -21,25 +21,42 @@ export default function UserCard() {
     <div className="flex items-center gap-4">
       <Dropdown placement="bottom-start">
         <DropdownTrigger className="py-5">
-            <User
-              as="button"
-              avatarProps={{
-                isBordered: true,
-                //@ts-ignore
-                src:
-                  Config.STORAGE_URL +
-                  "/" +
-                //@ts-ignore
-                  JSON.parse(localStorage.getItem('data').user.photo),
-              }}
-              className="transition-transform py-5 px-4 max"
+          {
+            JSON.parse(localStorage.getItem('data')).user.photo ? <User
+            as="button"
+            avatarProps={{
+              isBordered: true,
               //@ts-ignore
-
-              description={user && user.user.email}
+              src:
+                Config.STORAGE_URL +
+                "/" +
               //@ts-ignore
+                JSON.parse(localStorage.getItem('data')).user.photo
+            }}
+            className="transition-transform py-5 px-4 max"
+            //@ts-ignore
 
-              name={user && user.user.name}
-            />
+            description={user && user.user.email}
+            //@ts-ignore
+
+            name={user && user.user.name}
+          /> :  <User
+          as="button"
+          avatarProps={{
+            isBordered: true,
+            //@ts-ignore
+            src:"http://173.212.196.7:8001/storage/1713126470.jpg"
+          }}
+          className="transition-transform py-5 px-4 max"
+          //@ts-ignore
+
+          description={user && user.user.email}
+          //@ts-ignore
+
+          name={user && user.user.name}
+        />
+          }
+           
         </DropdownTrigger>
         <DropdownMenu aria-label="User Actions" variant="flat">
           <DropdownItem key="settings">My Settings</DropdownItem>
