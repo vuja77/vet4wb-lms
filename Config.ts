@@ -1,4 +1,4 @@
 export const Config = {
-    API_URL: "http://127.0.0.1:8000/api",
-    STORAGE_URL: "http://127.0.0.1:8000/storage"
+    API_URL: "http://173.212.196.7:8001/api",
+    STORAGE_URL: "http://173.212.196.7:8001/storage"
 }
