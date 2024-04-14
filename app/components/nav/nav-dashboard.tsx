@@ -57,7 +57,6 @@ export default function NavDashboard() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <UserCard></UserCard>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
