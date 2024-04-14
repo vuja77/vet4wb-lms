@@ -77,11 +77,8 @@ export async function getAllCourse() {
   const cookieStore = cookies()
   const token = cookieStore.get('token')
   try {
-    const res = await axios.get(Config.API_URL+"/course/", {
-      headers: {
-        Authorization:
-        "Bearer "+token?.value,
-      },
+    const res = await axios.get(Config.API_URL+"/courses/", {
+     
     });
     console.log(res.data);
     return res.data;
