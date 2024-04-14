@@ -27,28 +27,8 @@ body {
 }
 
 nav header.max-w-\[1024px\] {
-  min-width: 100%;
+  width: 2000px;
 }
-.Typewriter {
-  min-width: 80%;
-}
-.Typewriter span {
-  font-weight: 800;
-  font-size: 50px;
-  color: white;
-}
-
-@media only screen and (max-width: 768px) {
-  .Typewriter span {
-    font-weight: 800;
-    font-size: 30px;
-    color: white;
-  }
-}
-
-.bg-photo {
-  background-image: url('/IMG_5673.png');
-  object-position: center;
-  object-fit: contain;
-  background-position: center;
+div.go2072408551 {
+  background-color: red;
 }

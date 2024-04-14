@@ -1,0 +1,51 @@
+import React from "react";
+import { Button, Listbox, ListboxItem } from "@nextui-org/react";
+import { IconWrapper } from "./Sidebar/IconWrapper";
+import { ItemCounter } from "./Sidebar/ItemCounter";
+import { LayoutIcon } from "./icons/LayoutIcon";
+import { BookIcon } from "./icons/BookIcon";
+import { PlayCircleIcon } from "./icons/PlayIcon";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+} from "@nextui-org/react";
+
+export default function VideoModal({ data }: { data: any }) {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  return (
+    <>
+      <Button onPress={onOpen} color="primary">
+        Open
+      </Button>
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        className="min-w-[80%] min-h-[85%]"
+        classNames={{
+          body: "py-6",
+          backdrop: "bg-[#292f46]/50 backdrop-opacity-40",
+          base: "border-[#292f46] bg-[#19172c] dark:bg-[#19172c] text-[#a8b0d3]",
+          header: "border-b-[1px] border-[#292f46]",
+          footer: "border-t-[1px] border-[#292f46]",
+          closeButton: "hover:bg-white/5 active:bg-white/10",
+        }}
+      >
+        <p>{data.file_path}</p>
+        <ModalContent className="min-h-[95vh">
+          {(onClose) => (
+            <video className="w-full" controls preload="none" autoPlay>
+              <source
+                src="https://static.videezy.com/system/resources/previews/000/008/445/original/Dark_Haired_Girl_in_disbelief_1.mp4"
+                type="video/mp4"
+              />
+            </video>
+          )}
+        </ModalContent>
+      </Modal>
+    </>
+  );
+}
