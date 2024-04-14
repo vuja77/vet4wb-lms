@@ -65,7 +65,6 @@ export async function getMineCourse() {
         "Bearer "+token?.value,
       },
     });
-    console.log(res.data);
     return res.data;
   } catch (err) {
     console.log(err);
@@ -79,7 +78,6 @@ export async function getAllCourse() {
     const res = await axios.get(process.env.API_URL+"/courses/", {
      
     });
-    console.log(res.data);
     return res.data;
   } catch (err) {
     console.log(err);
