@@ -77,7 +77,7 @@ export async function getAllCourse() {
   const cookieStore = cookies()
   const token = cookieStore.get('token')
   try {
-    const res = await axios.get(Config.API_URL+"/courses/", {
+    const res = await axios.get(process.env.API_URL+"/courses/", {
      
     });
     console.log(res.data);
