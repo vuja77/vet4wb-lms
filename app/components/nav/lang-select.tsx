@@ -5,7 +5,7 @@ import { getCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 export default function LangSelect() {
   //@ts-ignore
-  const [lang, setLang] = React.useState(getCookie("lang-icon").value);
+  const [lang, setLang] = React.useState(getCookie("lang-icon"));
   useEffect(() => {
     setLang(getCookie("lang-icon"));
   }, []);
