@@ -78,7 +78,7 @@ export default function Nav() {
         </NavbarItem>
       </NavbarContent>
       
-      <NavbarMenu>
+      <NavbarMenu hidden className="hidden">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
