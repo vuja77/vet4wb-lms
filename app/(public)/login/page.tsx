@@ -44,7 +44,7 @@ export default function App() {
   return (
     <main className="grid grid-cols-2 min-h-[100vh] p-0 max-md:grid-cols-1">
       <Image
-        src="person.jpg"
+        src="IMG_5673.jpg"
         className="rounded-none max-md:hidden object-cover h-full"
       ></Image>
       <div className="flex justify-center items-center min-h-full">

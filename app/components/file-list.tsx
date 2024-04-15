@@ -23,8 +23,8 @@ export default function FileList({ data }: { data: any }) {
   getCookie("lang");
   useEffect(() => {
     const lang = getCookie("lang");
-    setMat(data.filter((e:any) => e.langague === getCookie("lang")));
-  });
+    setMat(data.filter((e:any) => e.langague === localStorage.getItem("lang")));
+  }, []);
   return (
     <Listbox
       aria-label="User Menu"

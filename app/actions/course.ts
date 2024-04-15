@@ -46,7 +46,7 @@ export async function getCourseNotAuth(id: number) {
   const token = cookieStore.get('token')
   console.log(token)
   try {
-    const res = await axios.get(process.env.API_URL+"/course-info/" + id, {
+    const res = await axios.get(process.env.API_URL+"/course-info/" + id+"/sq", {
       
     });
     console.log(res.data);
@@ -74,8 +74,10 @@ export async function getMineCourse() {
 export async function getAllCourse() {
   const cookieStore = cookies()
   const token = cookieStore.get('token')
+  const lang = cookieStore.get('lang')
+  console.log(lang)
   try {
-    const res = await axios.get(process.env.API_URL+"/courses/", {
+    const res = await axios.get(process.env.API_URL+"/courses/"+lang?.value, {
      
     });
     return res.data;

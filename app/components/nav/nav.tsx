@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -14,6 +14,7 @@ import {
 } from "@nextui-org/react";
 import UserCard from "../user-card";
 import { hasCookie } from "cookies-next";
+import LangSelect from "./lang-select";
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
@@ -29,7 +30,6 @@ export default function Nav() {
     "Help & Feedback",
     "Log Out",
   ];
-
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
@@ -54,8 +54,11 @@ export default function Nav() {
           <Link href="#">Dashboard</Link>
         </NavbarItem>
       </NavbarContent>
+      <NavbarContent justify="end">
+
       {
-        !hasCookie('token')  ? <NavbarContent justify="end">
+        !hasCookie('token')  ?
+        <>
         <NavbarItem className="hidden lg:flex">
           <Link href="/login">Login</Link>
         </NavbarItem>
@@ -64,13 +67,16 @@ export default function Nav() {
             Sign Up
           </Button>
         </NavbarItem>
-      </NavbarContent> : <NavbarContent justify="end">
+        </>
+      : 
         <NavbarItem>
           <UserCard></UserCard>
         </NavbarItem>
-      </NavbarContent>
       }
-      
+        <NavbarItem>
+          <LangSelect></LangSelect>
+        </NavbarItem>
+      </NavbarContent>
       
       <NavbarMenu>
         {menuItems.map((item, index) => (

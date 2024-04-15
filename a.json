@@ -1,0 +1,72 @@
+[
+    {
+      "id": 12,
+      "name": "PEDAGOGJIA DHE DIDAKTIKA NË EDUKIMIN E VETINAVE",
+      "thumbnail": "1713041533.webp",
+      "description": null,
+      "course_type_id": 1,
+      "user_id": 5,
+      "created_at": "2024-04-13T20:52:13.000000Z",
+      "updated_at": "2024-04-13T20:52:13.000000Z",
+      "teacher": "Šolski center Kranj",
+      "lessons": [
+        {
+          "id": 8,
+          "name": "Modul 1",
+          "course_id": 12,
+          "section": "nema",
+          "hide": 1,
+          "created_at": "2024-04-14T10:41:08.000000Z",
+          "updated_at": "2024-04-14T10:41:08.000000Z",
+          "materials": [
+            {
+              "id": 11,
+              "lesson_id": 8,
+              "url": null,
+              "file_path": "171286913457",
+              "post_content": null,
+              "type": "scorm",
+              "created_at": "2024-04-11T20:58:54.000000Z",
+              "updated_at": "2024-04-11T20:58:54.000000Z",
+              "langague": "eng"
+            },
+            {
+              "id": 12,
+              "lesson_id": 8,
+              "url": null,
+              "file_path": "171286913457",
+              "post_content": null,
+              "type": "scorm",
+              "created_at": "2024-04-11T20:58:54.000000Z",
+              "updated_at": "2024-04-11T20:58:54.000000Z",
+              "langague": "me"
+            }
+          ]
+        }
+      ],
+      "users": [
+        {
+          "id": 4,
+          "name": "Djordjije Vujovic",
+          "email": "djordjijevujovic210306@gmail.com",
+          "photo": "1713017480.jpg",
+          "email_verified_at": "2024-04-03T22:26:49.000000Z",
+          "role_id": 1,
+          "created_at": "2024-04-01T20:26:38.000000Z",
+          "updated_at": "2024-04-13T14:11:20.000000Z",
+          "pivot": {
+            "course_id": 12,
+            "user_id": 4,
+            "created_at": "2024-04-13T19:52:41.000000Z",
+            "updated_at": "2024-04-13T19:52:41.000000Z"
+          }
+        }
+      ],
+      "course_type": {
+        "id": 1,
+        "name": "Generic and transversal skills",
+        "created_at": null,
+        "updated_at": null
+      }
+    }
+  ]

@@ -52,7 +52,7 @@ export default async function App({ params }: { params: any }) {
                {course.course_type.name}
             </p>
             <small className="text-default-500">
-            Teacher: {course.course_type.name}
+            Teacher: {course.teacher}
             </small>
             <h4 className="font-bold text-large line-clamp-2">{course.name}</h4>
             <small className="text-default-500 line-clamp-2"> {course.description}</small>

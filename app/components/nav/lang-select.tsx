@@ -1,24 +1,33 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { Select, SelectItem, Avatar } from "@nextui-org/react";
-import { setCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 export default function LangSelect() {
+        //@ts-ignore
+  const [lang, setLang] = React.useState(getCookie('lang-icon'));
+  const router = useRouter();
   return (
     <Select
-      className="min-w-[100px]"
+      className="min-w-[90px]"
       label="Select lagague"
-      onChange={(e) => setCookie("lang", e.target.value)}
-      value={"me"}
+      onChange={(e) => {
+        setLang(e.target.value);
+        setCookie("lang", e.target.value === "al" ? "sq" : e.target.value);
+        setCookie("lang-icon", e.target.value);
+        router.refresh();
+      }}
       startContent={
         <Avatar
           alt="Argentina"
-          className="w-14 h-6 aspect-square"
-          src="https://flagcdn.com/gb.svg"
+          className="w-16 h-6 aspect-square"
+          src={"https://flagcdn.com/" + lang + ".svg"}
         />
       }
     >
       <SelectItem
-        key={"eng"}
-        value={"eng"}
+        key={"gb"}
+        value={"gb"}
         startContent={
           <Avatar
             alt="Argentina"
@@ -40,7 +49,7 @@ export default function LangSelect() {
       ></SelectItem>
       <SelectItem
         value={"al"}
-        key="brazil"
+        key="al"
         startContent={
           <Avatar
             alt="al"
