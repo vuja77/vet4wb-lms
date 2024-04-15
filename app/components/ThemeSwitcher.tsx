@@ -11,6 +11,8 @@ export function ThemeSwitcher() {
 
   useEffect(() => {
     setMounted(true);
+    setTheme("light");
+
   }, []);
   const [isSelected, setIsSelected] = useState(false);
   function change(e: any) {
