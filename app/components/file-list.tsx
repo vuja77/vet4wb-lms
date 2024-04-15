@@ -19,12 +19,9 @@ import { getCookie } from "cookies-next";
 
 export default function FileList({ data }: { data: any }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [mat, setMat] = useState();
-  getCookie("lang");
   useEffect(() => {
-    const lang = getCookie("lang");
-    setMat(data.filter((e:any) => e.langague === localStorage.getItem("lang")));
-  }, []);
+  console.log(getCookie("lang") )
+  })
   return (
     <Listbox
       aria-label="User Menu"
@@ -35,7 +32,7 @@ export default function FileList({ data }: { data: any }) {
       }}
     >
       {//@ts-ignore
-      mat?.map((e: any, index: any) => {
+      data.filter((e:any) => e.langague === getCookie("lang")).map((e: any, index: any) => {
         if (e.type === "scorm") {
           return (
             <ListboxItem

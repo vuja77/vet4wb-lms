@@ -41,7 +41,7 @@ export default function ScormModal({ data }: { data: any }) {
             <>
               <iframe
                 className="min-h-[95vh]"
-                src={Config.STORAGE_URL+"/files/"+data.file_path+"/res/index.html"}
+                src={Config.STORAGE_URL+"/files/"+data.file_path+"/index.html"}
               ></iframe>
             </>
           )}
