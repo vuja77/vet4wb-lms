@@ -21,7 +21,6 @@ export default async function Home() {
         <div className="space-y-1">
           <h4 className="text-3xl font-medium text-center">Social Networks</h4>
           <p className="text-small text-default-400">
-            Beautiful, fast and modern React UI library.
           </p>
         </div>
         <Divider className="my-4" />
