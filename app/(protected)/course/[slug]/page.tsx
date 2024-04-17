@@ -19,7 +19,7 @@ import CreateCourse from "@/app/components/protected/create-course";
 import FileList from "@/app/components/file-list";
 import CreateLesson from "@/app/components/protected/lesson-create";
 import { PlusIcon } from "@/app/components/icons/PlusIcon";
-import { getCourse, getCourseNotAuth } from "@/app/actions/course";
+import { getCourse, getCourseNotAuth, startCourse } from "@/app/actions/course";
 import AccordionLesson from "@/app/components/lessons/accordion";
 import AccordionLessonAdmin from "@/app/components/lessons/accordion-admin";
 import { cookies } from "next/headers";
@@ -37,7 +37,7 @@ export default async function App({ params }: { params: any }) {
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
   return (
-    <main className=" min-h-[100vh] pt-[100px] p-32 space-y-10 max-md:p-5 max-md:pt-[100px] mr-[100px] max-md:min-w-full">
+    <main className=" min-h-[100vh] pt-[100px] p-32 space-y-10 max-md:p-5 max-md:pt-[100px] mr-[100px] w-[80%]  max-md:min-w-full">
       <Card>
         <CardBody className="grid grid-cols-2 max-md:grid-cols-1 max-md:grid-rows-2 max-md:w-full ">
           <Image
@@ -63,10 +63,19 @@ export default async function App({ params }: { params: any }) {
                 value={60}
                 className="max-w-md"
               />
+            ) : cookieStore.has("token") && course.enable === 0 ? (
+              <form action={startCourse}>
+                <Input type="number" value={params.slug} hidden name="course_id" className="hidden"></Input>
+                <Button className="w-full" color="primary" type="submit">
+                  Start course
+                </Button>
+              </form>
             ) : (
-              <Button className="w-full" color="primary">
-                Start course
-              </Button>
+              <Link className="w-full" href="/login">
+                <Button className="w-full" color="primary" href="/login">
+                  Start course
+                </Button>
+              </Link>
             )}
           </div>
         </CardBody>
@@ -83,7 +92,10 @@ export default async function App({ params }: { params: any }) {
 
         <Divider className="my-4" />
       </div>
-      <AccordionLesson lessons={course.lessons}></AccordionLesson>
+      <AccordionLesson
+        lessons={course.lessons}
+        enable={course.enable}
+      ></AccordionLesson>
     </main>
   );
 }

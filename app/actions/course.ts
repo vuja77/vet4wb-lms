@@ -23,6 +23,29 @@ async function createCourse(formData: FormData) {
   }
 }
 
+
+export async function startCourse(formData: FormData) {
+  "use server"
+  const cookieStore = cookies()
+  const token = cookieStore.get('token')
+  try {
+    const res = await axios.post(
+      process.env.API_URL+"/course-taker",
+      formData,
+      {
+        headers: {
+          Authorization:
+          "Bearer "+token?.value,
+        },
+      }
+    );
+    console.log(res.data);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
 export async function getCourse(id: number) {
   const cookieStore = cookies()
   const token = cookieStore.get('token')

@@ -15,9 +15,10 @@ import {
 } from "@nextui-org/react";
 import ScormModal from "./scorm-modal";
 import VideoModal from "./video-modal";
-import { getCookie } from "cookies-next";
+import { getCookie, hasCookie } from "cookies-next";
 
-export default function FileList({ data }: { data: any }) {
+export default function FileList({ data,enable }: { data: any, enable:any }) {
+
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   useEffect(() => {
   console.log(getCookie("lang") )
@@ -39,7 +40,7 @@ export default function FileList({ data }: { data: any }) {
               key="issues"
               className="w-full"
               onPress={onOpen}
-              endContent={<ScormModal data={e}></ScormModal>}
+              endContent={hasCookie("token") && enable ===1 ? <ScormModal data={e}></ScormModal> : null}
               startContent={
                 <IconWrapper className="bg-success/10 text-success">
                   <BookIcon />

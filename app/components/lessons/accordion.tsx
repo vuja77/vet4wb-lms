@@ -17,7 +17,7 @@ import CourseCard from "@/app/components/course-card";
 import { Divider } from "@nextui-org/react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import FileList from "../file-list";
-export default function AccordionLesson({ lessons }: { lessons: any }) {
+export default function AccordionLesson({ lessons, enable }: { lessons: any, enable:any }) {
   const [selected, setSelected] = React.useState<string | number>("login");
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";

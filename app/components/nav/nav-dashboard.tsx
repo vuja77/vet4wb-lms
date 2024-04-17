@@ -44,7 +44,7 @@ export default function NavDashboard() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link href="/dashboard">
+          <Link href="/">
             <Image src="/logo.png" width={70}></Image>
           </Link>
         </NavbarBrand>
