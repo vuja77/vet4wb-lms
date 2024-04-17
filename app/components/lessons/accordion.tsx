@@ -19,6 +19,7 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 import FileList from "../file-list";
 export default function AccordionLesson({ lessons, enable }: { lessons: any, enable:any }) {
   const [selected, setSelected] = React.useState<string | number>("login");
+  console.log(enable)
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
   return (
@@ -26,7 +27,7 @@ export default function AccordionLesson({ lessons, enable }: { lessons: any, ena
       {lessons.map((e: any, index: number) => {
         return (
           <AccordionItem key={index} aria-label="Accordion 1" title={e.name}>
-            <FileList data={e.materials}></FileList>
+            <FileList data={e.materials} enable={enable}></FileList>
           </AccordionItem>
         );
       })}

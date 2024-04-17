@@ -22,9 +22,11 @@ import axios from "axios";
 import { Config } from "@/Config";
 import toast, { Toaster } from "react-hot-toast";
 import { getCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 export default function CreateLesson({id}:{id:number}) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [name, setName] = useState("");
+  const Router = useRouter()
   function handleSubmit() {
     const formData = new FormData();
     //@ts-ignore
@@ -49,6 +51,7 @@ export default function CreateLesson({id}:{id:number}) {
             </CardBody>
           </Card>
         ));
+        Router.refresh();
       })
       .catch((error) => {
         console.log(error);

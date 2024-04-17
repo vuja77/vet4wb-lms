@@ -22,6 +22,7 @@ import { PlusIcon } from "@/app/components/icons/PlusIcon";
 import { getCourse } from "@/app/actions/course";
 import AccordionLesson from "@/app/components/lessons/accordion";
 import AccordionLessonAdmin from "@/app/components/lessons/accordion-admin";
+import { Config } from "@/Config";
 
 export default async function App({ params }: { params: any }) {
   const course = await getCourse(params.slug);
@@ -33,7 +34,7 @@ export default async function App({ params }: { params: any }) {
       <Card>
         <CardBody className="grid grid-cols-2 max-md:grid-cols-1 max-md:grid-rows-2">
           <Image
-            src={"http://127.0.0.1:8000/storage/" + course.thumbnail}
+            src={Config.STORAGE_URL+"/" + course.thumbnail}
             className="aspect-video"
           ></Image>
           <div className="p-5 space-y-5">
@@ -55,7 +56,6 @@ export default async function App({ params }: { params: any }) {
           <div className="space-y-1">
             <h4 className="text-3xl font-medium">Lessons</h4>
             <p className="text-small text-default-400">
-              Beautiful, fast and modern React UI library.
             </p>
           </div>
           <CreateLesson id={params.slug}></CreateLesson>

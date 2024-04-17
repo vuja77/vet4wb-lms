@@ -24,14 +24,18 @@ import { Config } from "@/Config";
 import toast, { Toaster } from "react-hot-toast";
 import { Blob } from "buffer";
 import { getCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 export default function AddMaterials({id}: {id:number}) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [previewImage, setPreviewImage] = useState(null);
   const [name, setName] = useState("");
+  const [lang, setLang] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState();
   const [file, setFile] = useState<Blob>();
   const [type, setType] = useState("");
+  const router = useRouter()
+  console.log(id)
   const { getRootProps, getInputProps } = useDropzone({
     //@ts-ignore
     accept: "image/*",
@@ -56,6 +60,7 @@ export default function AddMaterials({id}: {id:number}) {
     formData.append("file", file);
     //@ts-ignore
     formData.append("lesson_id", id);
+    formData.append("lang", lang);
     console.log(formData);
     await axios
       .post(Config.API_URL + "/material", formData, {
@@ -73,6 +78,7 @@ export default function AddMaterials({id}: {id:number}) {
             </CardBody>
           </Card>
         ));
+        router.refresh()
       })
       .catch((error) => {
         console.log(error);
@@ -112,6 +118,25 @@ export default function AddMaterials({id}: {id:number}) {
                 >
                   <SelectItem value="scorm" key="scorm">
                     Scorm
+                  </SelectItem>
+                </Select>
+
+
+                <Select
+                  label="Type"
+                  placeholder="Select an lang"
+                  className="max-w-full"
+                  variant="bordered"
+                  onChange={(e) => setLang(e.target.value)}
+                >
+                  <SelectItem value="scorm" key="gb">
+                    English
+                  </SelectItem>
+                  <SelectItem value="scorm" key="me">
+                    Montenegrin
+                  </SelectItem>
+                  <SelectItem value="scorm" key="sq">
+                    Albanian
                   </SelectItem>
                 </Select>
               </ModalBody>
