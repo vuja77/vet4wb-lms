@@ -37,7 +37,7 @@ export default async function App({ params }: { params: any }) {
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
   return (
-    <main className=" min-h-[100vh] pt-[100px] p-32 space-y-10 max-md:p-5 max-md:pt-[100px] mr-[100px] w-[80%]  max-md:min-w-full">
+    <main className=" min-h-[100vh] pt-[100px] p-32 space-y-10 max-md:p-5 max-md:pt-[100px] w-[80%]  max-md:min-w-full">
       <Card>
         <CardBody className="grid grid-cols-2 max-md:grid-cols-1 max-md:grid-rows-2 max-md:w-full ">
           <Image
@@ -85,7 +85,6 @@ export default async function App({ params }: { params: any }) {
           <div className="space-y-1">
             <h4 className="text-3xl font-medium">Lessons</h4>
             <p className="text-small text-default-400">
-              Beautiful, fast and modern React UI library.
             </p>
           </div>
         </div>
