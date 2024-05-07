@@ -15,7 +15,7 @@ import {
 import UserCard from "../user-card";
 import { hasCookie } from "cookies-next";
 import LangSelect from "./lang-select";
-export default function Nav() {
+export default function Nav({lang}:any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -48,10 +48,10 @@ export default function Nav() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem isActive>
-          <Link href="#">Home</Link>
+          <Link href="#">{lang.home}</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#">Dashboard</Link>
+          <Link href="#">{lang.dashboard}</Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
@@ -60,11 +60,11 @@ export default function Nav() {
         !hasCookie('token')  ?
         <>
         <NavbarItem className="hidden lg:flex">
-          <Link href="/login">Login</Link>
+          <Link href="/login">{lang.login}</Link>
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} color="primary" href="/login" variant="flat">
-            Sign Up
+            {lang.signup}
           </Button>
         </NavbarItem>
         </>

@@ -24,6 +24,7 @@ import AccordionLesson from "@/app/components/lessons/accordion";
 import AccordionLessonAdmin from "@/app/components/lessons/accordion-admin";
 import { cookies } from "next/headers";
 import { Config } from "@/Config";
+import { getLang } from "@/utils/lang";
 export default async function App({ params }: { params: any }) {
   const cookieStore = cookies();
   const hasCookie = cookieStore.has("theme");
@@ -33,7 +34,7 @@ export default async function App({ params }: { params: any }) {
   } else {
     course = await getCourseNotAuth(params.slug);
   }
-
+  const langague = getLang()
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
   return (
@@ -50,7 +51,7 @@ export default async function App({ params }: { params: any }) {
               {course.course_type.name}
             </p>
             <small className="text-default-500">
-              Teacher: {course.teacher}
+              {langague?.author}: {course.teacher}
             </small>
             <h4 className="font-bold text-large line-clamp-2">{course.name}</h4>
             <small className="text-default-500 line-clamp-2">
@@ -67,13 +68,13 @@ export default async function App({ params }: { params: any }) {
               <form action={startCourse}>
                 <Input type="number" value={params.slug} hidden name="course_id" className="hidden"></Input>
                 <Button className="w-full" color="primary" type="submit">
-                  Start course
+                {langague?.start}
                 </Button>
               </form>
             ) : (
               <Link className="w-full" href="/login">
                 <Button className="w-full" color="primary" href="/login">
-                  Start course
+                {langague?.start}
                 </Button>
               </Link>
             )}
@@ -83,7 +84,7 @@ export default async function App({ params }: { params: any }) {
       <div className="">
         <div className="space-y-1 flex justify-between">
           <div className="space-y-1">
-            <h4 className="text-3xl font-medium">Lessons</h4>
+            <h4 className="text-3xl font-medium">{langague?.Lessons}</h4>
             <p className="text-small text-default-400">
             </p>
           </div>

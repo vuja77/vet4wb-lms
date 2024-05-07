@@ -20,7 +20,7 @@ import {
   Image,
 } from "@nextui-org/react";
 import { Config } from "@/Config";
-export default function Footer() {
+export default function Footer({lang}:any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
@@ -31,33 +31,15 @@ export default function Footer() {
             <Image src="/logo.png" width={100}></Image>
             <Image src="/co-funded-vertical3.png" width={200}></Image>
           </div>
-          <ul className="space-y-3">
-            <li className="font-bold text-xl">Pages</li>
-            <div className="ml-1 space-y-3">
-              <li className="text-small">Courses</li>
-              <li className="text-small">Courses</li>
-           </div>
-          </ul>
-          <ul className="space-y-3">
-            <li className="font-bold text-xl">Pages</li>
-            <div className="ml-1 space-y-3">
-              <li className="text-small">Courses</li>
-              <li className="text-small">Courses</li>
-              <li className="text-small">Courses</li>
-            </div>
-          </ul>
-          <ul className="space-y-3">
-            <li className="font-bold text-xl">Pages</li>
-            <div className="ml-1 space-y-3">
-              <li className="text-small">Courses</li>
-              <li className="text-small">Courses</li>
-              <li className="text-small">Courses</li>
-            </div>
-          </ul>
+          <p className="w-full col-span-3">
+            {lang.footer}
+          </p>
         </div>
-        <div >
-          <small>Copyright © 2023 Vet4WesternBalkans| All Rights Reserved
-</small>
+
+        <div>
+          <small>
+            Copyright © 2023 Vet4WesternBalkans| All Rights Reserved
+          </small>
         </div>
       </footer>
     </>

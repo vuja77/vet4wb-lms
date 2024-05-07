@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Tabs,
   Tab,
@@ -15,7 +15,9 @@ import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
 import { Config } from "@/Config";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { setCookie } from "cookies-next";
+import { setCookie, getCookie } from "cookies-next";
+import translations from "@/langs.json";
+
 export default function App() {
   const [selected, setSelected] = React.useState<string | number>("login");
   const [email, setEmail] = useState("");
@@ -29,8 +31,8 @@ export default function App() {
       })
       .then((res) => {
         localStorage.setItem("data", JSON.stringify(res.data.data));
-        setCookie('token',res.data.data.token)
-        setCookie('user',res.data.data)
+        setCookie("token", res.data.data.token);
+        setCookie("user", res.data.data);
         if (res.data.data.user.role_id === 2) {
           router.push("/admin/dashboard");
         } else if (res.data.data.user.role_id === 1) {
@@ -41,6 +43,21 @@ export default function App() {
         console.log(error);
       });
   }
+  const [lang, setLang] = useState(getCookie("lang"));
+  let [langague, setLangague] = useState()
+  useEffect(() => {
+    if (lang === "gb") {
+      //@ts-ignore
+      setLangague(translations.gb);
+    } else if (lang === "me") {
+      //@ts-ignore
+      setLangague(translations.me);
+    } else if (lang === "sq") {
+      //@ts-ignore
+      setLangague(translations.al);
+    }
+  });
+
   return (
     <main className="grid grid-cols-2 min-h-[100vh] p-0 max-md:grid-cols-1">
       <Image
@@ -50,7 +67,9 @@ export default function App() {
       <div className="flex justify-center items-center min-h-full">
         <Card className="w-[340px] h-[450px]">
           <CardBody className="overflow-hidden  space-y-5 pt-5">
-            <h1 className="text-center font-bold text-2xl ">Login to Lms</h1>
+            <h1 className="text-center font-bold text-2xl ">{
+            //@ts-ignore
+            langague && langague.login}</h1>
             <Tabs
               fullWidth
               size="md"
@@ -77,12 +96,16 @@ export default function App() {
                   <p className="text-center text-small">
                     Need to create an account?{" "}
                     <Link size="sm" onPress={() => setSelected("sign-up")}>
-                      Sign up
+                    {//@ts-ignore
+                    langague && langague.signup}
                     </Link>
                   </p>
                   <div className="flex gap-2 justify-end">
                     <Button fullWidth color="primary" onClick={() => login()}>
-                      Login
+
+      
+                    {//@ts-ignore
+                    langague && langague.login}
                     </Button>
                   </div>
                 </form>
@@ -110,12 +133,16 @@ export default function App() {
                   <p className="text-center text-small">
                     Already have an account?{" "}
                     <Link size="sm" onPress={() => setSelected("login")}>
-                      Login
+                    {//@ts-ignore
+                    langague && langague.login}
+                      
                     </Link>
                   </p>
                   <div className="flex gap-2 justify-end">
                     <Button fullWidth color="primary">
-                      Sign up
+                    {//@ts-ignore
+                    langague && langague.signup}
+
                     </Button>
                   </div>
                 </form>

@@ -7,7 +7,7 @@ export default function LangSelect() {
   //@ts-ignore
   const [lang, setLang] = React.useState(getCookie("lang-icon"));
   useEffect(() => {
-    setLang(getCookie("lang-icon"));
+    setLang(getCookie("lang-icon") ? getCookie("lang-icon") : "gb");
   }, []);
   const router = useRouter();
   return (
@@ -23,11 +23,15 @@ export default function LangSelect() {
         <Avatar
           alt="Argentina"
           className="min-w-[22px] object-cover h-5 aspect-square"
-          src={"https://flagcdn.com/" + lang + ".svg"}
+          src={lang && "https://flagcdn.com/" + lang + ".svg"}
         />
       }
     >
-      <SelectItem key={"gb"} value={"gb"} className="p-0 py-2 pl-2 flex justify-center">
+      <SelectItem
+        key={"gb"}
+        value={"gb"}
+        className="p-0 py-2 pl-2 flex justify-center"
+      >
         <Avatar
           alt="Argentina"
           className="w-6 h-6"

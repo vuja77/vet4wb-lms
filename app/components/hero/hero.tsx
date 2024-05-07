@@ -14,7 +14,7 @@ import {
 } from "@nextui-org/react";
 import Typewriter from "typewriter-effect";
 
-export default function Hero() {
+export default function Hero({lang}:any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -34,10 +34,11 @@ export default function Hero() {
     <div className="bg-photo min-w-full  rounded-3xl px-12 max-md:px-3 max-md:flex max-md:flex-col grid grid-cols-3 h-[680px] max-md:h-space-y-10 max-md:mt-[100px]">
       
       <div className="py-24 space-y-10 col-span-2 max-md:col-span-3 items-center mt-[120px]">
+       
         <Typewriter
           onInit={(typewriter) => {
             typewriter
-              .typeString("Welcome to VET4WB learning platform")
+              .typeString(lang.welcome)
               .callFunction(() => {})
               .pauseFor(500)
               .callFunction(() => {})
@@ -47,7 +48,7 @@ export default function Hero() {
 
         <div className="space-x-10">
           <Button className="text-white bg-white text-primary">
-            Learn now
+            {lang.home}
           </Button>
         </div>
       </div>
