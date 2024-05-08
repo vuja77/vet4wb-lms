@@ -44,7 +44,7 @@ export default function UserCard() {
                 className="transition-transform py-5 px-4 max"
                 //@ts-ignore
 
-                description={user && user.user.email}
+                description={""}
                 //@ts-ignore
 
                 name={user && user.user.name}
