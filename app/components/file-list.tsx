@@ -39,7 +39,6 @@ export default function FileList({ data,enable }: { data: any, enable:any }) {
             <ListboxItem
               key="issues"
               className="w-full"
-              onPress={onOpen}
               endContent={hasCookie("token") && enable ===1 ? <>{e.langague}<ScormModal data={e}></ScormModal></> : null}
               startContent={
                 <IconWrapper className="bg-success/10 text-success">
