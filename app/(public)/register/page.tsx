@@ -19,6 +19,7 @@ import { setCookie, getCookie } from "cookies-next";
 import translations from "@/langs.json";
 import toast from "react-hot-toast";
 import LangSelect from "@/app/components/nav/lang-select";
+import Nav from "@/app/components/nav/nav";
 
 export default function App() {
   const [selected, setSelected] = React.useState<string | number>("login");
@@ -29,18 +30,20 @@ export default function App() {
   const router = useRouter();
   async function login() {
     await axios
-      .post(Config.API_URL + "/register", {
-        name: name,
-        email: email,
-        password: password,
-      }, {
-        headers: {
-          referrerPolicy: "unsafe_url"
+      .post(
+        Config.API_URL + "/register",
+        {
+          name: name,
+          email: email,
+          password: password,
+        },
+        {
+          headers: {
+            referrerPolicy: "unsafe_url",
+          },
         }
-        
-      })
+      )
       .then((res) => {
-       
         localStorage.setItem("data", JSON.stringify(res.data.data));
         setCookie("token", res.data.data.token);
         setCookie("user", res.data.data);
@@ -71,10 +74,14 @@ export default function App() {
     } else if (lang === "sq") {
       //@ts-ignore
       setLangague(translations.al);
+    } else {
+      //@ts-ignore
+      setLangague(translations.gb);
     }
   });
 
   return (
+    <>
     <main className="grid grid-cols-2 min-h-[100vh] p-0 max-md:grid-cols-1">
       <Image
         src="IMG_5673.jpg"
@@ -89,7 +96,7 @@ export default function App() {
             <h1 className="text-center font-bold text-2xl ">
               {
                 //@ts-ignore
-                langague && langague.login
+                langague && langague.signup
               }
             </h1>
 
@@ -189,5 +196,7 @@ export default function App() {
         </Card>
       </div>
     </main>
+    </>
+
   );
 }

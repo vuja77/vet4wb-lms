@@ -1,5 +1,6 @@
 import axios from "axios";
 import { cookies } from 'next/headers'
+import toast from "react-hot-toast";
  
 
 async function createCourse(formData: FormData) {
@@ -39,6 +40,7 @@ export async function startCourse(formData: FormData) {
         },
       }
     );
+    
     console.log(res.data);
   } catch (err) {
     console.log(err);

@@ -65,7 +65,7 @@ export default function Nav({lang}:any) {
           <Link href="/login">{lang.login}</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="/login" variant="flat">
+          <Button as={Link} color="primary" href="/register" variant="flat">
             {lang.signup}
           </Button>
         </NavbarItem>

@@ -45,6 +45,8 @@ import { Select, SelectItem } from "@nextui-org/react";
 import CreateCourse from "@/app/components/protected/create-course";
 import AddUsers from "@/app/components/protected/add-users";
 import course from "@/lib/types";
+import { Config } from "@/Config";
+import { getCookie } from "cookies-next";
 
 const statusColorMap: Record<string, ChipProps["color"]> = {
   active: "success",
@@ -79,10 +81,11 @@ export default function App({ params }: { params: any }) {
 
   async function getUsers() {
     await axios
-      .get("http://127.0.0.1:8000/api/course/" + params.slug, {
+      .get(Config.API_URL+"/course/" + params.slug, {
         headers: {
           Authorization:
-            "Bearer 2|H9UIhAFbwPQhBOTgHJNDo4ugsWeXe9gZCEqWtIcvd449f31a",
+          //@ts-ignore
+            "Bearer "+ getCookie("token").value,
         },
       })
       .then((e) => {
@@ -98,14 +101,16 @@ export default function App({ params }: { params: any }) {
   async function deleteUsers(id: number) {
     await axios
       .post(
-        "http://127.0.0.1:8000/api/delete-user/",
+        Config.API_URL+"/delete-user/",
         {
           user_id: id,
           course_id: params.slug,
         }, {
           headers: {
             Authorization:
-              "Bearer 2|H9UIhAFbwPQhBOTgHJNDo4ugsWeXe9gZCEqWtIcvd449f31a",
+          //@ts-ignore
+
+            "Bearer "+ getCookie("token").value,
           },
         }
       )
@@ -118,10 +123,11 @@ export default function App({ params }: { params: any }) {
 
   async function getAllUsers() {
     await axios
-      .get("http://127.0.0.1:8000/api/users", {
+      .get(Config.API_URL+"/users", {
         headers: {
           Authorization:
-            "Bearer 2|H9UIhAFbwPQhBOTgHJNDo4ugsWeXe9gZCEqWtIcvd449f31a",
+          //@ts-ignore
+          "Bearer "+ getCookie("token").value,
         },
       })
       .then((e) => {

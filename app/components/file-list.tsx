@@ -34,20 +34,20 @@ export default function FileList({ data,enable }: { data: any, enable:any }) {
     >
       {//@ts-ignore
       data.filter((e:any) => e.langague === getCookie("lang")).map((e: any, index: any) => {
-        if (e.type === "scorm") {
+        if (e.type === "scorm1" || e.type === "scorm2") {
           return (
             <ListboxItem
               key="issues"
               className="w-full"
               onPress={onOpen}
-              endContent={hasCookie("token") && enable ===1 ? <ScormModal data={e}></ScormModal> : null}
+              endContent={hasCookie("token") && enable ===1 ? <>{e.langague}<ScormModal data={e}></ScormModal></> : null}
               startContent={
                 <IconWrapper className="bg-success/10 text-success">
                   <BookIcon />
                 </IconWrapper>
               }
             >
-              {e.file_path}
+              {e.type}
             </ListboxItem>
           );
         } else if (e.type === "video") {

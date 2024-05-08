@@ -60,21 +60,27 @@ export default async function App({ params }: { params: any }) {
             </small>
             {cookieStore.has("token") && course.enable === 1 ? (
               <Progress
-                aria-label="Loading..."
-                value={60}
+                value={course.progress}
                 className="max-w-md"
+                showValueLabel={true}
               />
             ) : cookieStore.has("token") && course.enable === 0 ? (
               <form action={startCourse}>
-                <Input type="number" value={params.slug} hidden name="course_id" className="hidden"></Input>
+                <Input
+                  type="number"
+                  value={params.slug}
+                  hidden
+                  name="course_id"
+                  className="hidden"
+                ></Input>
                 <Button className="w-full" color="primary" type="submit">
-                {langague?.start}
+                  {langague?.start}
                 </Button>
               </form>
             ) : (
               <Link className="w-full" href="/login">
                 <Button className="w-full" color="primary" href="/login">
-                {langague?.start}
+                  {langague?.start}
                 </Button>
               </Link>
             )}
@@ -85,8 +91,7 @@ export default async function App({ params }: { params: any }) {
         <div className="space-y-1 flex justify-between">
           <div className="space-y-1">
             <h4 className="text-3xl font-medium">{langague?.Lessons}</h4>
-            <p className="text-small text-default-400">
-            </p>
+            <p className="text-small text-default-400"></p>
           </div>
         </div>
 

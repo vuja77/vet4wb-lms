@@ -24,6 +24,8 @@ export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const [error, setError] = useState("");
+
   async function login() {
     await axios
       .post(Config.API_URL + "/login", {
@@ -42,6 +44,8 @@ export default function App() {
       })
       .catch((error) => {
         console.log(error);
+        setError(error && error.response.data);
+
       });
   }
   const [lang, setLang] = useState(getCookie("lang"));
@@ -56,6 +60,9 @@ export default function App() {
     } else if (lang === "sq") {
       //@ts-ignore
       setLangague(translations.al);
+    } else {
+      //@ts-ignore
+      setLangague(translations.gb);
     }
   });
 
@@ -69,7 +76,7 @@ export default function App() {
         <div className="absolute top-0 right-0 m-10">
           <LangSelect></LangSelect>
         </div>
-        <Card className="w-[340px] h-[450px]">
+        <Card className="w-[340px] max-h-[450px]">
           <CardBody className="overflow-hidden  space-y-5 pt-5">
             <h1 className="text-center font-bold text-2xl ">
               {
@@ -79,20 +86,61 @@ export default function App() {
             </h1>
 
             <form className="flex flex-col gap-4">
-              <Input
-                isRequired
-                label="Email"
-                placeholder="Enter your email"
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-              />
+            {
+                //@ts-ignore
+                error.email ? (
+                  <Input
+                    isRequired
+                    label="Email"
+                    placeholder="Enter your email"
+                    type="email"
+                    color="danger"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                ) : (
+                  <Input
+                    isRequired
+                    label="Email"
+                    placeholder="Enter your email"
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                )
+              }
+              {
+                //@ts-ignore
+                error.email && (
+                  <p className="text-red-600 text-xs">
+                    {
+                      //@ts-ignore
+                      error.email[0]
+                    }
+                  </p>
+                )
+              }
               <Input
                 isRequired
                 label="Password"
                 placeholder="Enter your password"
-                onChange={(e) => setPassword(e.target.value)}
                 type="password"
+                color={
+                  //@ts-ignore
+                  error.password ? "danger" : "default"
+                }
+                onChange={(e) => setPassword(e.target.value)}
               />
+
+              {
+                //@ts-ignore
+                error.password && (
+                  <p className="text-red-600 text-xs">
+                    {
+                      //@ts-ignore
+                      error.password[0]
+                    }
+                  </p>
+                )
+              }
               <p className="text-center text-small">
                 Need to create an account?{" "}
                 <Link size="sm" onPress={() => router.push("register")}>
@@ -102,6 +150,17 @@ export default function App() {
                   }
                 </Link>
               </p>
+              {
+                //@ts-ignore
+                error.message && (
+                  <p className="text-red-600 text-xs">
+                    {
+                      //@ts-ignore
+                      error.message
+                    }
+                  </p>
+                )
+              }
               <div className="flex gap-2 justify-end">
                 <Button fullWidth color="primary" onClick={() => login()}>
                   {

@@ -62,6 +62,7 @@ export default function AddMaterials({id}: {id:number}) {
     formData.append("lesson_id", id);
     formData.append("lang", lang);
     console.log(formData);
+    console.log(type)
     await axios
       .post(Config.API_URL + "/material", formData, {
         headers: {
@@ -116,8 +117,11 @@ export default function AddMaterials({id}: {id:number}) {
                   variant="bordered"
                   onChange={(e) => setType(e.target.value)}
                 >
-                  <SelectItem value="scorm" key="scorm">
-                    Scorm
+                  <SelectItem value="scorm1" key="scorm1">
+                    Scorm 1
+                  </SelectItem>
+                  <SelectItem value="scorm2" key="scorm2">
+                    Scorm 2
                   </SelectItem>
                 </Select>
 
