@@ -34,7 +34,7 @@ export default async function App({ params }: { params: any }) {
   } else {
     course = await getCourseNotAuth(params.slug);
   }
-  const langague = getLang()
+  const langague = getLang();
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
   return (

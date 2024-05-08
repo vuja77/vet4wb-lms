@@ -41,8 +41,10 @@ export default function Nav({lang}:any) {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand>
+        <NavbarBrand >
+          <Link href="/">
           <Image src="/logo.png" width={70}></Image>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 

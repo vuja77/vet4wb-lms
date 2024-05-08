@@ -17,16 +17,20 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { setCookie, getCookie } from "cookies-next";
 import translations from "@/langs.json";
+import toast from "react-hot-toast";
 import LangSelect from "@/app/components/nav/lang-select";
 
 export default function App() {
   const [selected, setSelected] = React.useState<string | number>("login");
   const [email, setEmail] = useState("");
+  const [error, setError] = useState<any>("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
   async function login() {
     await axios
-      .post(Config.API_URL + "/login", {
+      .post(Config.API_URL + "/register", {
+        name: name,
         email: email,
         password: password,
       })
@@ -34,14 +38,19 @@ export default function App() {
         localStorage.setItem("data", JSON.stringify(res.data.data));
         setCookie("token", res.data.data.token);
         setCookie("user", res.data.data);
-        if (res.data.data.user.role_id === 2) {
-          router.push("/admin/dashboard");
-        } else if (res.data.data.user.role_id === 1) {
-          router.push("dashboard");
-        }
+        router.push("/");
+        console.log(res);
+        toast.custom((t) => (
+          <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
+            <CardBody>
+              <p>👏, {res.data.data.user.name} Welcome</p>
+            </CardBody>
+          </Card>
+        ));
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data.email[0]);
+        setError(error.response.data);
       });
   }
   const [lang, setLang] = useState(getCookie("lang"));
@@ -78,35 +87,64 @@ export default function App() {
               }
             </h1>
 
-            <form className="flex flex-col gap-4">
+            <form className="flex flex-col gap-4 h-[300px]">
               <Input
                 isRequired
-                label="Email"
-                placeholder="Enter your email"
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
+                label="Name"
+                placeholder="Enter your name"
+                onChange={(e) => setName(e.target.value)}
               />
+              {error.name && (
+                <p className="text-red-600 text-xs">{error.name[0]}</p>
+              )}
+              {error.email ? (
+                <Input
+                  isRequired
+                  label="Email"
+                  placeholder="Enter your email"
+                  type="email"
+                  color="danger"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              ) : (
+                <Input
+                  isRequired
+                  label="Email"
+                  placeholder="Enter your email"
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              )}
+              {error.email && (
+                <p className="text-red-600 text-xs">{error.email[0]}</p>
+              )}
               <Input
                 isRequired
                 label="Password"
                 placeholder="Enter your password"
-                onChange={(e) => setPassword(e.target.value)}
                 type="password"
+                color={error.password ? "danger" : "default"}
+                onChange={(e) => setPassword(e.target.value)}
               />
+
+              {error.password && (
+                <p className="text-red-600 text-xs">{error.password[0]}</p>
+              )}
+
               <p className="text-center text-small">
-                Need to create an account?{" "}
-                <Link size="sm" onPress={() => router.push("register")}>
+                Already have an account?{" "}
+                <Link size="sm" onPress={() => router.push("login")}>
                   {
                     //@ts-ignore
-                    langague && langague.signup
+                    langague && langague.login
                   }
                 </Link>
               </p>
               <div className="flex gap-2 justify-end">
-                <Button fullWidth color="primary" onClick={() => login()}>
+                <Button fullWidth color="primary" onPress={() => login()}>
                   {
                     //@ts-ignore
-                    langague && langague.login
+                    langague && langague.signup
                   }
                 </Button>
               </div>

@@ -31,6 +31,9 @@ export default function CourseLayout({
     langague = translations.me;
   } else if (lang?.value === "sq") {
     langague = translations.al;
+  } else {
+    langague = translations.gb;
+
   }
   return (
     <div>
