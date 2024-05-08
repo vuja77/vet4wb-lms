@@ -51,10 +51,10 @@ export async function startCourse(formData: FormData) {
 export async function getCourse(id: number) {
   const cookieStore = cookies()
   const token = cookieStore.get('token')
- 
+  const lang = cookieStore.get('lang')
   
   try {
-    const res = await axios.get(process.env.API_URL+"/course/" + id, {
+    const res = await axios.get(process.env.API_URL+"/course/" + id+"?lang="+lang?.value, {
       headers: {
         Authorization:
         "Bearer "+token?.value,
