@@ -25,6 +25,7 @@ import AccordionLessonAdmin from "@/app/components/lessons/accordion-admin";
 import { cookies } from "next/headers";
 import { Config } from "@/Config";
 import { getLang } from "@/utils/lang";
+import StartCourse from "@/app/components/StartCourse";
 export default async function App({ params }: { params: any }) {
   const cookieStore = cookies();
   const hasCookie = cookieStore.has("theme");
@@ -65,18 +66,7 @@ export default async function App({ params }: { params: any }) {
                 showValueLabel={true}
               />
             ) : cookieStore.has("token") && course.enable === 0 ? (
-              <form action={startCourse}>
-                <Input
-                  type="number"
-                  value={params.slug}
-                  hidden
-                  name="course_id"
-                  className="hidden"
-                ></Input>
-                <Button className="w-full" color="primary" type="submit">
-                  {langague?.start}
-                </Button>
-              </form>
+              <StartCourse id={params.slug} lang={langague}></StartCourse>
             ) : (
               <Link className="w-full" href="/login">
                 <Button className="w-full" color="primary" href="/login">
