@@ -33,6 +33,11 @@ export default function App() {
         name: name,
         email: email,
         password: password,
+      }, {
+        headers: {
+          referrerPolicy: "unsafe_url"
+        }
+        
       })
       .then((res) => {
        
