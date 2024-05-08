@@ -23,7 +23,7 @@ import LangSelect from "@/app/components/nav/lang-select";
 export default function App() {
   const [selected, setSelected] = React.useState<string | number>("login");
   const [email, setEmail] = useState("");
-  const [error, setError] = useState<any>("");
+  const [error, setError] = useState<any>();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
