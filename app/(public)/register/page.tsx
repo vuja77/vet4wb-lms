@@ -35,6 +35,7 @@ export default function App() {
         password: password,
       })
       .then((res) => {
+       
         localStorage.setItem("data", JSON.stringify(res.data.data));
         setCookie("token", res.data.data.token);
         setCookie("user", res.data.data);
@@ -50,7 +51,7 @@ export default function App() {
       })
       .catch((error) => {
         console.log(error.response.data.email[0]);
-        setError(error.response.data);
+        setError(error && error.response.data);
       });
   }
   const [lang, setLang] = useState(getCookie("lang"));
