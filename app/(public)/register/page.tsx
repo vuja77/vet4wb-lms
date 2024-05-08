@@ -23,7 +23,7 @@ import LangSelect from "@/app/components/nav/lang-select";
 export default function App() {
   const [selected, setSelected] = React.useState<string | number>("login");
   const [email, setEmail] = useState("");
-  const [error, setError] = useState<any>();
+  const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -43,7 +43,7 @@ export default function App() {
         toast.custom((t) => (
           <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
             <CardBody>
-              <p>👏, {res.data.data.user.name} Welcome</p>
+              <p>👏, {res.data.data.user && res.data.data.user.name} Welcome</p>
             </CardBody>
           </Card>
         ));
@@ -94,42 +94,72 @@ export default function App() {
                 placeholder="Enter your name"
                 onChange={(e) => setName(e.target.value)}
               />
-              {error.name && (
-                <p className="text-red-600 text-xs">{error.name[0]}</p>
-              )}
-              {error.email ? (
-                <Input
-                  isRequired
-                  label="Email"
-                  placeholder="Enter your email"
-                  type="email"
-                  color="danger"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              ) : (
-                <Input
-                  isRequired
-                  label="Email"
-                  placeholder="Enter your email"
-                  type="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              )}
-              {error.email && (
-                <p className="text-red-600 text-xs">{error.email[0]}</p>
-              )}
+              {
+                //@ts-ignore
+                error.name && (
+                  <p className="text-red-600 text-xs">
+                    {
+                      //@ts-ignore
+                      error.name[0]
+                    }
+                  </p>
+                )
+              }
+              {
+                //@ts-ignore
+                error.email ? (
+                  <Input
+                    isRequired
+                    label="Email"
+                    placeholder="Enter your email"
+                    type="email"
+                    color="danger"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                ) : (
+                  <Input
+                    isRequired
+                    label="Email"
+                    placeholder="Enter your email"
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                )
+              }
+              {
+                //@ts-ignore
+                error.email && (
+                  <p className="text-red-600 text-xs">
+                    {
+                      //@ts-ignore
+                      error.email[0]
+                    }
+                  </p>
+                )
+              }
               <Input
                 isRequired
                 label="Password"
                 placeholder="Enter your password"
                 type="password"
-                color={error.password ? "danger" : "default"}
+                color={
+                  //@ts-ignore
+                  error.password ? "danger" : "default"
+                }
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              {error.password && (
-                <p className="text-red-600 text-xs">{error.password[0]}</p>
-              )}
+              {
+                //@ts-ignore
+                error.password && (
+                  <p className="text-red-600 text-xs">
+                    {
+                      //@ts-ignore
+                      error.password[0]
+                    }
+                  </p>
+                )
+              }
 
               <p className="text-center text-small">
                 Already have an account?{" "}
