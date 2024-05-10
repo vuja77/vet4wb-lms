@@ -44,7 +44,7 @@ export default function Featured({
             <Link href={"/course/" + e.id} key={index}>
               <Card
                 radius="md"
-                className="py-4 p-0 border hover:border-primary transition-all cursor-pointer rounded-none h-[430px]"
+                className="py-4 p-0 border border-orange-400 dark:border-orange-400 hover:border-primary transition-all cursor-pointer rounded-none h-[430px]"
               >
                 <CardBody className="overflow-visible rounded-[0px] py-2 p-0">
                   {/* <p className="text-tiny uppercase font-bold absolute z-20 m-2 self-end bg-primary rounded-full p-2 w-[240px] text-center text-white">

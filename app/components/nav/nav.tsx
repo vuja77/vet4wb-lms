@@ -16,21 +16,10 @@ import UserCard from "../user-card";
 import { hasCookie } from "cookies-next";
 import LangSelect from "./lang-select";
 import { ThemeSwitcher } from "../ThemeSwitcher";
-export default function Nav({lang}:any) {
+export default function Nav({ lang }: any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
+  const menuItems = ["Dashboard", "My courses", "Profile", "Site", "Log Out"];
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
@@ -42,9 +31,9 @@ export default function Nav({lang}:any) {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand >
+        <NavbarBrand>
           <Link href="/">
-          <Image src="/logo.png" width={70}></Image>
+            <Image src="/logo.png" width={70}></Image>
           </Link>
         </NavbarBrand>
       </NavbarContent>
@@ -53,39 +42,40 @@ export default function Nav({lang}:any) {
         <NavbarItem isActive>
           <Link href="/">{lang.home}</Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link href="#">{lang.dashboard}</Link>
-        </NavbarItem>
+        {hasCookie("token") && (
+          <NavbarItem>
+            <Link href="/dashboard">{lang.dashboard}</Link>
+          </NavbarItem>
+        )}
+
         <NavbarItem>
           <Link href="https://vet4wb.com">Site</Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-
-      {
-        !hasCookie('token')  ?
-        <>
-        <NavbarItem className="hidden lg:flex">
-          <Link href="/login">{lang.login}</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="/register" variant="flat">
-            {lang.signup}
-          </Button>
-        </NavbarItem>
-        </>
-      : 
-        <NavbarItem>
-          <UserCard></UserCard>
-        </NavbarItem>
-      }
+        {!hasCookie("token") ? (
+          <>
+            <NavbarItem className="hidden lg:flex">
+              <Link href="/login">{lang.login}</Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Button as={Link} color="primary" href="/register" variant="flat">
+                {lang.signup}
+              </Button>
+            </NavbarItem>
+          </>
+        ) : (
+          <NavbarItem>
+            <UserCard></UserCard>
+          </NavbarItem>
+        )}
         <NavbarItem>
           {/* <LangSelect></LangSelect> */}
           <ThemeSwitcher></ThemeSwitcher>
         </NavbarItem>
       </NavbarContent>
-      
-      <NavbarMenu hidden className="hidden">
+
+      <NavbarMenu className="gap-10 pt-10">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link

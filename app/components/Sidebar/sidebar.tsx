@@ -32,47 +32,30 @@ export default function SideBar() {
         >
           Dashboard
         </ListboxItem>
-        
+
         <ListboxItem
           key="discussions"
-          href="/calendar"
+          href="/my-course"
           className="px-10"
           startContent={
             <IconWrapper className="bg-secondary/10 text-secondary">
-              <CalendarIcon />
+              <BookIcon></BookIcon>
             </IconWrapper>
           }
         >
-          Calendar
+          My courses
         </ListboxItem>
         <ListboxItem
           key="actions"
           className="px-10"
-        href="/profile"
-
+          href="/profile"
           startContent={
             <IconWrapper className="bg-warning/10 text-warning">
-              <FileIcon></FileIcon>
+              <BookIcon></BookIcon>
             </IconWrapper>
           }
         >
           Profile
-        </ListboxItem>
-        <ListboxItem
-        href="/settings"
-          key="projects"
-          className="px-10"
-          startContent={
-            <IconWrapper className="bg-default/50 text-foreground">
-              <BookIcon />
-            </IconWrapper>
-          }
-        >
-          Settings
-        </ListboxItem>
-
-        <ListboxItem key="theme">
-          <ThemeSwitcher></ThemeSwitcher>
         </ListboxItem>
       </Listbox>
 

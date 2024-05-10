@@ -27,6 +27,7 @@ export default async function Home() {
   } else {
     langague = translations.gb;
   }
+  console.log(courses)
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 pt-24 pb-5 gap-20 max-md:p-5">
       <Nav lang={langague}></Nav>

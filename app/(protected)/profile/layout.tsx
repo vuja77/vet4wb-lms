@@ -4,8 +4,12 @@ import NavDashboard from "@/app/components/nav/nav-dashboard";
 import UserCard from "@/app/components/user-card";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { cookies } from "next/headers";
 import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
+import translations from "@/langs.json";
+import { lazy } from "react";
+import Nav from "@/app/components/nav/nav";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,9 +21,22 @@ export default function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = cookies();
+  const lang = cookieStore.get("lang");
+  let langague = null;
+
+  if (lang?.value === "gb") {
+    langague = translations.gb;
+  } else if (lang?.value === "me") {
+    langague = translations.me;
+  } else if (lang?.value === "sq") {
+    langague = translations.al;
+  } else {
+    langague = translations.gb;
+  }
   return (
     <div>
-      <NavDashboard></NavDashboard>
+     <Nav lang={langague}></Nav>
 
       <div className="flex">
         <SideBar></SideBar>

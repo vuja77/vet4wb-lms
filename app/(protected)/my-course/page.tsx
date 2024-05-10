@@ -12,10 +12,9 @@ import {
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
 import CourseCard from "@/app/components/course-card";
 import { Divider } from "@nextui-org/react";
-import { getMineCourse,getAllCourse } from "@/app/actions/course";
+import { getMineCourse } from "@/app/actions/course";
 export default async function App() {
-  const courses = await getAllCourse();
-console.log(courses)
+  const courses = await getMineCourse()
   return (
     <main className=" min-h-[100vh] pt-[100px] p-12">
       <div className="max-w-md">
@@ -30,7 +29,7 @@ console.log(courses)
       <div className="grid grid-cols-3 gap-10 max-lg:grid-cols-2  max-[600px]:grid-cols-1">
         {courses && courses.map((e:any,index:number) => {
           return(
-            <CourseCard data={e} key={index}></CourseCard>
+            <CourseCard data={e} key={index} progress></CourseCard>
           )
         })}
      
