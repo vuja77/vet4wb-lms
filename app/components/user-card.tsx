@@ -28,6 +28,7 @@ export default function UserCard() {
           {
             //@ts-ignore
             JSON.parse(localStorage.getItem("data")).user ? (
+              <>
               <User
                 as="button"
                 avatarProps={{
@@ -41,7 +42,28 @@ export default function UserCard() {
                       //@ts-ignore
                       JSON.parse(localStorage.getItem("data")).user.photo,
                 }}
-                className="transition-transform py-5 px-4 max"
+                className="transition-transform py-5 px-4 max hidden max-md:flex"
+                //@ts-ignore
+
+                description={""}
+                //@ts-ignore
+
+                name={""}
+              />
+              <User
+                as="button"
+                avatarProps={{
+                  isBordered: true,
+                  //@ts-ignore
+                  src:
+                    //@ts-ignore
+                    JSON.parse(localStorage.getItem("data")).user.photo &&
+                    Config.STORAGE_URL +
+                      "/" +
+                      //@ts-ignore
+                      JSON.parse(localStorage.getItem("data")).user.photo,
+                }}
+                className="transition-transform py-5 px-4 max max-md:hidden"
                 //@ts-ignore
 
                 description={""}
@@ -49,6 +71,7 @@ export default function UserCard() {
 
                 name={user && user.user.name}
               />
+              </>
             ) : (
               <User
                 as="button"
@@ -62,7 +85,7 @@ export default function UserCard() {
 
                 description={""}
                 //@ts-ignore
-
+                
                 name={user && user.user.name}
               />
             )
