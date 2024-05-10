@@ -22,7 +22,7 @@ export function ThemeSwitcher() {
       setIsSelected(true);
     } else {
       setIsSelected(false);
-      setTheme("light");
+      setTheme("dark");
 
 
     }

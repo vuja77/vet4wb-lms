@@ -45,7 +45,6 @@ export default function App() {
       .catch((error) => {
         console.log(error);
         setError(error && error.response.data);
-
       });
   }
   const [lang, setLang] = useState(getCookie("lang"));
@@ -86,12 +85,14 @@ export default function App() {
             </h1>
 
             <form className="flex flex-col gap-4">
-            {
+              {
                 //@ts-ignore
                 error.email ? (
                   <Input
                     isRequired
-                    label="Email"
+                    //@ts-ignore
+
+                    label={langague && langague.email}
                     placeholder="Enter your email"
                     type="email"
                     color="danger"
@@ -100,7 +101,9 @@ export default function App() {
                 ) : (
                   <Input
                     isRequired
-                    label="Email"
+                    //@ts-ignore
+
+                    label={langague && langague.email}
                     placeholder="Enter your email"
                     type="email"
                     onChange={(e) => setEmail(e.target.value)}
@@ -120,9 +123,10 @@ export default function App() {
               }
               <Input
                 isRequired
-                label="Password"
                 placeholder="Enter your password"
                 type="password"
+                //@ts-ignore
+                label={langague && langague.password}
                 color={
                   //@ts-ignore
                   error.password ? "danger" : "default"
@@ -142,7 +146,10 @@ export default function App() {
                 )
               }
               <p className="text-center text-small">
-                Need to create an account?{" "}
+                {
+                  //@ts-ignore
+                  langague && langague.need
+                }{" "}
                 <Link size="sm" onPress={() => router.push("register")}>
                   {
                     //@ts-ignore

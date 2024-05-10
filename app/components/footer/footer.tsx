@@ -28,7 +28,9 @@ export default function Footer({lang}:any) {
       <footer className="flex flex-col gap-10 w-full">
         <div className="grid grid-cols-5">
           <div className="col-span-2 flex">
+            <Link href="https://vet4wb.com">
             <Image src="/logo.png" width={100}></Image>
+            </Link>
             <Image src="/co-funded-vertical3.png" width={200}></Image>
           </div>
           <p className="w-full col-span-3">

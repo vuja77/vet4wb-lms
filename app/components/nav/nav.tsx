@@ -15,6 +15,7 @@ import {
 import UserCard from "../user-card";
 import { hasCookie } from "cookies-next";
 import LangSelect from "./lang-select";
+import { ThemeSwitcher } from "../ThemeSwitcher";
 export default function Nav({lang}:any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
@@ -50,10 +51,13 @@ export default function Nav({lang}:any) {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem isActive>
-          <Link href="#">{lang.home}</Link>
+          <Link href="/">{lang.home}</Link>
         </NavbarItem>
         <NavbarItem>
           <Link href="#">{lang.dashboard}</Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="https://vet4wb.com">Site</Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
@@ -76,7 +80,8 @@ export default function Nav({lang}:any) {
         </NavbarItem>
       }
         <NavbarItem>
-          <LangSelect></LangSelect>
+          {/* <LangSelect></LangSelect> */}
+          <ThemeSwitcher></ThemeSwitcher>
         </NavbarItem>
       </NavbarContent>
       

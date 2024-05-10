@@ -38,20 +38,24 @@ export default function Featured({
         </div>
         <Divider className="my-4" />
       </div>
-      <div className="grid grid-cols-3 w-full gap-10 max-md:grid-cols-1 max-md:p-0">
+      <div className="grid grid-cols-4 w-full gap-0 max-md:grid-cols-1 max-md:p-0 max-md:gap-10">
         {courses.map((e: any, index: number) => {
           return (
             <Link href={"/course/" + e.id} key={index}>
-              <Card className="py-4 p-0 border hover:border-primary transition-all cursor-pointer h-[420px]">
-                <CardBody className="overflow-visible py-2 p-0">
-                  <p className="text-tiny uppercase font-bold absolute z-20 m-2 self-end bg-primary rounded-full p-2 w-[240px] text-center text-white">
+              <Card
+                radius="md"
+                className="py-4 p-0 border hover:border-primary transition-all cursor-pointer rounded-none h-[430px]"
+              >
+                <CardBody className="overflow-visible rounded-[0px] py-2 p-0">
+                  {/* <p className="text-tiny uppercase font-bold absolute z-20 m-2 self-end bg-primary rounded-full p-2 w-[240px] text-center text-white">
                     {e.course_type.name}
-                  </p>
+                  </p> */}
 
                   <Image
                     alt="Card background"
-                    className="object-cover rounded-xl min-w-full h-[300px]"
+                    className="object-cover rounded-none rounded-[0px] z-10 min-w-full h-[300px]"
                     width={1000}
+                    radius="none"
                     src={Config.STORAGE_URL + "/" + e.thumbnail}
                     isZoomed
                   />
