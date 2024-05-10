@@ -17,7 +17,7 @@ export default function CourseCard({
   progress,
 }: {
   data: any;
-  progress: any;
+  progress?: any;
 }) {
   console.log(data);
   return (
