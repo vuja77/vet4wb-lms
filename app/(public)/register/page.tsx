@@ -29,6 +29,9 @@ export default function App() {
   const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [school, setSchool] = useState("");
+  const [phone, setPhone] = useState("");
+  const [social, SetSocial] = useState("");
+  const [country, setCountry] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
   async function login() {
@@ -38,6 +41,11 @@ export default function App() {
         {
           name: name,
           email: email,
+          school: school,
+          phone: phone,
+          language: "gb",
+          social: social,
+          country: country,
           password: password,
         },
         {
@@ -61,7 +69,7 @@ export default function App() {
         ));
       })
       .catch((error) => {
-        console.log(error.response.data.email[0]);
+        console.log(error);
         setError(error && error.response.data);
         if (error.name || error.email || error.password) {
           setStep(1);
@@ -139,6 +147,10 @@ export default function App() {
                       isRequired
                       label="Name"
                       placeholder="Enter your name"
+                      color={
+                        //@ts-ignore
+                        error.name ? "danger" : "default"
+                      }
                       onChange={(e) => setName(e.target.value)}
                     />
                     {
@@ -223,9 +235,9 @@ export default function App() {
                       type="number"
                       color={
                         //@ts-ignore
-                        error.password ? "danger" : "default"
+                        error.phone ? "danger" : "default"
                       }
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => setPhone(e.target.value)}
                     />
                     <Input
                       isRequired
@@ -234,21 +246,26 @@ export default function App() {
                       type="text"
                       color={
                         //@ts-ignore
-                        error.password ? "danger" : "default"
+                        error.social ? "danger" : "default"
                       }
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => SetSocial(e.target.value)}
                     />
                     <Select
                       placeholder="Select Contry"
+                      onChange={(e) => setCountry(e.target.value)}
                     >
                       <SelectItem key={"me"}>Montengro</SelectItem>
-                      <SelectItem key={"me"}>Bosna i Hercegovina</SelectItem>
-                      <SelectItem key={"sq"}>Albanian</SelectItem>
-                      <SelectItem key={"sq"}>Kosovo</SelectItem>
+                      <SelectItem key={"ba"}>Bosna i Hercegovina</SelectItem>
+                      <SelectItem key={"al"}>Albanian</SelectItem>
+                      <SelectItem key={"al"}>Kosovo</SelectItem>
                     </Select>
-                    <Select placeholder="Select Scholl"
+                    <Select
+                      placeholder="Select Scholl"
                       onChange={(e) => setSchool(e.target.value)}
-                    
+                      color={
+                        //@ts-ignore
+                        error.school ? "danger" : "default"
+                      }
                     >
                       <SelectItem key={"1"} value={"other"}>
                         Etš “Vaso Aligrudić“
@@ -281,9 +298,9 @@ export default function App() {
                         type="text"
                         color={
                           //@ts-ignore
-                          error.password ? "danger" : "default"
+                          error.school ? "danger" : "default"
                         }
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => setSchool(e.target.value)}
                       />
                     )}
                   </motion.div>
