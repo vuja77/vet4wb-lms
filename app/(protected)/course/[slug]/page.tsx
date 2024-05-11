@@ -44,7 +44,7 @@ export default async function App({ params }: { params: any }) {
         <CardBody className="grid grid-cols-2 max-md:grid-cols-1 max-md:grid-rows-2 max-md:w-full ">
           <Image
             src={Config.STORAGE_URL + "/" + course.thumbnail}
-            className="aspect-video"
+            className="aspect-video object-cover"
           ></Image>
           <div className="p-5 space-y-5 max-md:p-1">
             <p className="text-tiny uppercase font-bold ">
