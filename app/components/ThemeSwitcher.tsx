@@ -12,7 +12,7 @@ export function ThemeSwitcher() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  const [isSelected, setIsSelected] = useState(theme === "dark" ? false: "true");
+  const [isSelected, setIsSelected] = useState(theme === "dark" ? false: true);
   function change(e: any) {
     if (e) {
       setTheme("light");
