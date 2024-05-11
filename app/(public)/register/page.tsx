@@ -22,11 +22,13 @@ import toast from "react-hot-toast";
 import LangSelect from "@/app/components/nav/lang-select";
 import { motion } from "framer-motion";
 import { MoveLeft, MoveRight } from "lucide-react";
+import ImageSlider from "@/app/components/image-slider";
 export default function App() {
   const [selected, setSelected] = React.useState<string | number>("login");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [name, setName] = useState("");
+  const [school, setSchool] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
   async function login() {
@@ -84,13 +86,33 @@ export default function App() {
     }
   });
   const [step, setStep] = useState(1);
+  const images = [
+    "IMG_5673.jpg",
+    "1713126423.webp",
+    "1713126470.jpg",
+    "1713126456.webp",
+    "1713126443.jpg",
+  ];
+  const [activeImage, setIamage] = useState("IMG_5673.jpg");
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [
+    { url: "IMG_5673.jpg", caption: "Slika 1" },
+    { url: "1713126423.webp", caption: "Slika 2" },
+    { url: "viber_slika_2024-05-11_13-34-39-081.jpg", caption: "Slika 3" },
+    { url: "1713126470.jpg", caption: "Slika 3" },
+  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((currentSlide + 1) % slides.length);
+    }, 3000);
+
+    return () => clearInterval(interval); // Očisti interval prije nego što se komponenta unmounta
+  }, [currentSlide, slides.length]);
+
   return (
     <>
-      <main className="grid grid-cols-2 min-h-[100vh] p-0 max-md:grid-cols-1">
-        <Image
-          src="IMG_5673.jpg"
-          className="rounded-none max-md:hidden object-cover h-full"
-        ></Image>
+      <main className="grid grid-cols-2 h-[100vh] p-0 max-md:grid-cols-1 overflow-hidden">
+        <ImageSlider></ImageSlider>
         <div className="flex justify-center items-center min-h-full">
           <div className="absolute top-0 right-0 m-10">
             <LangSelect></LangSelect>
@@ -216,11 +238,54 @@ export default function App() {
                       }
                       onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Select placeholder="Select langague">
-                      <SelectItem key={"gb"}>English</SelectItem>
-                      <SelectItem key={"me"}>Montenegrin</SelectItem>
+                    <Select
+                      placeholder="Select Contry"
+                    >
+                      <SelectItem key={"me"}>Montengro</SelectItem>
+                      <SelectItem key={"me"}>Bosna i Hercegovina</SelectItem>
                       <SelectItem key={"sq"}>Albanian</SelectItem>
+                      <SelectItem key={"sq"}>Kosovo</SelectItem>
                     </Select>
+                    <Select placeholder="Select Scholl"
+                      onChange={(e) => setSchool(e.target.value)}
+                    
+                    >
+                      <SelectItem key={"1"} value={"other"}>
+                        Etš “Vaso Aligrudić“
+                      </SelectItem>
+                      <SelectItem key={"2"} value={"other"}>
+                        Rifat Gojota
+                      </SelectItem>
+                      <SelectItem key={"3"} value={"other"}>
+                        High school of Metalworking crafts Country: Bosnia and
+                        Herzegovina
+                      </SelectItem>
+                      <SelectItem key={"4"} value={"other"}>
+                        Alternative Pro
+                      </SelectItem>
+                      <SelectItem key={"5"} value={"other"}>
+                        Shkolla e Mesme Teknologjike “Hysen Çela”
+                      </SelectItem>
+                      <SelectItem key={"6"} value={"other"}>
+                        “Hamdi Bushati” Technological High School
+                      </SelectItem>
+                      <SelectItem key={"other"} value={"other"}>
+                        Other
+                      </SelectItem>
+                    </Select>
+                    {school === "other" && (
+                      <Input
+                        isRequired
+                        label="School"
+                        placeholder="Enter your school"
+                        type="text"
+                        color={
+                          //@ts-ignore
+                          error.password ? "danger" : "default"
+                        }
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    )}
                   </motion.div>
                 )}
                 <p className="text-center text-small">
@@ -245,7 +310,6 @@ export default function App() {
                           "Next"
                         }
                         <MoveRight size={30} />
-
                       </Button>
                     </>
                   ) : (
@@ -256,14 +320,13 @@ export default function App() {
                         onPress={() => setStep(1)}
                       >
                         <MoveLeft size={20} />
-                       Back
+                        Back
                       </Button>
                       <Button fullWidth color="primary" onPress={() => login()}>
                         {
                           //@ts-ignore
                           langague && langague.signup
                         }
-
                       </Button>
                     </div>
                   )}

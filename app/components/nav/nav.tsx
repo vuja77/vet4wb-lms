@@ -49,7 +49,7 @@ export default function Nav({ lang }: any) {
         )}
 
         <NavbarItem>
-          <Link href="https://vet4wb.com">Site</Link>
+          <Link href="https://vet4wb.com/news/">Activities</Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">

@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { setCookie, getCookie } from "cookies-next";
 import translations from "@/langs.json";
 import LangSelect from "@/app/components/nav/lang-select";
+import ImageSlider from "@/app/components/image-slider";
 
 export default function App() {
   const [selected, setSelected] = React.useState<string | number>("login");
@@ -66,11 +67,8 @@ export default function App() {
   });
 
   return (
-    <main className="grid grid-cols-2 min-h-[100vh] p-0 max-md:grid-cols-1">
-      <Image
-        src="IMG_5673.jpg"
-        className="rounded-none max-md:hidden object-cover h-full"
-      ></Image>
+    <main className="grid grid-cols-2 h-[100vh] p-0 max-md:grid-cols-1 overflow-hidden">
+      <ImageSlider/>
       <div className="flex justify-center items-center min-h-full">
         <div className="absolute top-0 right-0 m-10">
           <LangSelect></LangSelect>

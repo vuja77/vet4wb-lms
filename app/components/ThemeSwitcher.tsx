@@ -11,10 +11,8 @@ export function ThemeSwitcher() {
 
   useEffect(() => {
     setMounted(true);
-    setTheme("light");
-
   }, []);
-  const [isSelected, setIsSelected] = useState(false);
+  const [isSelected, setIsSelected] = useState(theme === "dark" ? false: "true");
   function change(e: any) {
     if (e) {
       setTheme("light");
@@ -23,8 +21,6 @@ export function ThemeSwitcher() {
     } else {
       setIsSelected(false);
       setTheme("dark");
-
-
     }
   }
   if (!mounted) return null;
@@ -39,8 +35,7 @@ export function ThemeSwitcher() {
         onValueChange={change}
         startContent={<SunIcon />}
         endContent={<MoonIcon />}
-      >
-      </Switch>
+      ></Switch>
     </div>
   );
 }
