@@ -13,7 +13,7 @@ import {
   Image,
 } from "@nextui-org/react";
 import UserCard from "../user-card";
-import { hasCookie } from "cookies-next";
+import { getCookie, hasCookie } from "cookies-next";
 import LangSelect from "./lang-select";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { link } from "fs";
@@ -22,12 +22,16 @@ export default function Nav({ lang }: any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const pathname = usePathname();
-  const menuItems = [
-    { name: "Dashboard", link: "dashboard" },
-    { name: "My courses", link: "my-course" },
-    { name: "Profile", link: "profile" },
-    { name: "Site", link: "https://vet4wb.com/news/" },
-  ];
+  const menuItems = getCookie("token")
+    ? [
+        { name: "Dashboard", link: "dashboard" },
+        { name: "My courses", link: "my-course" },
+        { name: "Profile", link: "profile" },
+        { name: "Site", link: "https://vet4wb.com/news/" },
+      ]
+    : [
+        { name: "Site", link: "https://vet4wb.com/news/" },
+      ];
   console.log(pathname.split("/"));
   return (
     <Navbar
@@ -83,15 +87,10 @@ export default function Nav({ lang }: any) {
           <ThemeSwitcher></ThemeSwitcher>
         </NavbarItem>
       </NavbarContent>
-
       <NavbarMenu className="gap-10 pt-10">
         <NavbarMenuItem key={"pocetna"}>
           <Link
-            color={
-              pathname.split("/")[1] === ""
-                ? "primary"
-                : "secondary"
-            }
+            color={pathname.split("/")[1] === "" ? "primary" : "secondary"}
             className="w-full"
             href={"/"}
             size="lg"

@@ -17,11 +17,28 @@ export default function UserProfile({ data }: { data: any }) {
   //@ts-ignore
   return (
     <CardBody className="flex flex-row justify-between  max-md:flex-col  max-sm:items-center">
-      <Image
-        width={190}
-        className="rounded-full self-center aspect-square object-cover h-full"
-        src={Config.STORAGE_URL + "/" + data.photo}
-      ></Image>
+      <User
+        as="button"
+        avatarProps={{
+          size: "lg",
+          className: "w-24 aspect-square h-24",
+          isBordered: true,
+          //@ts-ignore
+          src:
+            //@ts-ignore
+            JSON.parse(localStorage.getItem("data")).user.photo &&
+            Config.STORAGE_URL +
+              "/" +
+              //@ts-ignore
+              JSON.parse(localStorage.getItem("data")).user.photo,
+        }}
+        className="transition-transform py-5 px-4 max max-md:hidden"
+        //@ts-ignore
+
+        description={""}
+        //@ts-ignore
+        name=""
+      />
       <div className="p-5 space-y-5 w-full max-md:text-center">
         <h4 className="font-bold text-large line-clamp-2">{data.name}</h4>
         <small className="text-default-500 line-clamp-2"> {data.email}</small>
