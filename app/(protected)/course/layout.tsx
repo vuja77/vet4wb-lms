@@ -45,7 +45,7 @@ export default function CourseLayout({
 
         {children}
       </div>
-      <div className="p-12 px-24">
+      <div className="p-12 px-24 max-md:px-2 max-md:p-2">
         <Footer lang={langague}></Footer>
       </div>
     </div>
