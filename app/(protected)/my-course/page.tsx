@@ -21,7 +21,6 @@ export default async function App() {
         <div className="space-y-1">
           <h4 className="text-3xl font-medium">My courses</h4>
           <p className="text-small text-default-400">
-            Beautiful, fast and modern React UI library.
           </p>
         </div>
         <Divider className="my-4" />

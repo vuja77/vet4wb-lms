@@ -10,6 +10,7 @@ import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 import translations from "@/langs.json";
 import { cookies } from "next/headers";
+import Footer from "@/app/components/footer/footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -33,7 +34,6 @@ export default function CourseLayout({
     langague = translations.al;
   } else {
     langague = translations.gb;
-
   }
   return (
     <div>
@@ -44,6 +44,9 @@ export default function CourseLayout({
         <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-green-200 after:via-green-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-green-700 before:dark:opacity-10 after:dark:from-green-900 after:dark:via-green-500 after:dark:opacity-40 before:lg:h-[360px] z-[-1]"></div>
 
         {children}
+      </div>
+      <div className="p-12 px-24">
+        <Footer lang={langague}></Footer>
       </div>
     </div>
   );

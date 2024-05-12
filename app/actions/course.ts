@@ -101,7 +101,7 @@ export async function getMineCourse() {
 export async function getAllCourse() {
   const cookieStore = cookies()
   const token = cookieStore.get('token')
-  const lang = cookieStore.get('lang')
+  const lang = cookieStore.get('lang')?.value ? cookieStore.get('lang') : {value:"gb"}
   console.log(lang)
   try {
     const res = await axios.get(process.env.API_URL+"/courses/"+lang?.value, {

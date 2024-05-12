@@ -16,10 +16,19 @@ import UserCard from "../user-card";
 import { hasCookie } from "cookies-next";
 import LangSelect from "./lang-select";
 import { ThemeSwitcher } from "../ThemeSwitcher";
+import { link } from "fs";
+import { usePathname } from "next/navigation";
 export default function Nav({ lang }: any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = ["Dashboard", "My courses", "Profile", "Site", "Log Out"];
+  const pathname = usePathname();
+  const menuItems = [
+    { name: "Dashboard", link: "dashboard" },
+    { name: "My courses", link: "my-course" },
+    { name: "Profile", link: "profile" },
+    { name: "Site", link: "https://vet4wb.com/news/" },
+  ];
+  console.log(pathname.split("/"));
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
@@ -76,21 +85,33 @@ export default function Nav({ lang }: any) {
       </NavbarContent>
 
       <NavbarMenu className="gap-10 pt-10">
+        <NavbarMenuItem key={"pocetna"}>
+          <Link
+            color={
+              pathname.split("/")[1] === ""
+                ? "primary"
+                : "secondary"
+            }
+            className="w-full"
+            href={"/"}
+            size="lg"
+          >
+            Početna
+          </Link>
+        </NavbarMenuItem>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               color={
-                index === 2
+                pathname.split("/")[1].includes(item.link)
                   ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
+                  : "secondary"
               }
               className="w-full"
-              href="#"
+              href={item.link}
               size="lg"
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}

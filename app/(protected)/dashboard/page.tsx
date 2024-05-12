@@ -20,10 +20,8 @@ console.log(courses)
     <main className=" min-h-[100vh] pt-[100px] p-12">
       <div className="max-w-md">
         <div className="space-y-1">
-          <h4 className="text-3xl font-medium">My courses</h4>
-          <p className="text-small text-default-400">
-            Beautiful, fast and modern React UI library.
-          </p>
+          <h4 className="text-3xl font-medium">Eduction space</h4>
+          
         </div>
         <Divider className="my-4" />
       </div>

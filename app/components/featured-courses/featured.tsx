@@ -33,13 +33,13 @@ export default function Featured({
     <>
       <div className="max-w-md">
         <div className="space-y-1">
-          <h4 className="text-3xl font-medium text-center">{lang.courses}</h4>
+          <h4 className="text-3xl font-bold text-center ">{lang.courses}</h4>
           <p className="text-small text-default-400"></p>
         </div>
         <Divider className="my-4" />
       </div>
       <div className="grid grid-cols-4 w-full gap-0 max-md:grid-cols-1 max-md:p-0 max-md:gap-10">
-        {courses.map((e: any, index: number) => {
+        {courses && courses.map((e: any, index: number) => {
           return (
             <Link href={"/course/" + e.id} key={index}>
               <Card
