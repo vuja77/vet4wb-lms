@@ -32,7 +32,7 @@ export default function UserProfile({ data }: { data: any }) {
               //@ts-ignore
               JSON.parse(localStorage.getItem("data")).user.photo,
         }}
-        className="transition-transform py-5 px-4 max max-md:hidden"
+        className="transition-transform py-5 px-4 "
         //@ts-ignore
 
         description={""}
