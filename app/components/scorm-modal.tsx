@@ -48,7 +48,7 @@ export default function ScormModal({ data }: { data: any }) {
                       Config.STORAGE_URL +
                       "/files/" +
                       data.file_path +
-                      "/index.html"
+                      "/guidance-to-vet-leadership-scorm12-S2dftBCN/scormcontent/index.html"
                     }
                   ></iframe>
                 ) : (
