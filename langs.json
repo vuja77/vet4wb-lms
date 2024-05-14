@@ -12,7 +12,9 @@
     "start": "Start course",
     "Lessons": "Lessons",
     "need": "Need to create an account?",
-    "already": "Already have an account?"
+    "already": "Already have an account?",
+    "email": "Email",
+    "password": "Password"
   },
   "me": {
     "home": "Početna",

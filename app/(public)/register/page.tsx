@@ -123,7 +123,9 @@ export default function App() {
         <ImageSlider></ImageSlider>
         <div className="flex justify-center items-center min-h-full">
           <div className="absolute top-0 right-0 m-10">
-            <LangSelect></LangSelect>
+            <Link href="/">
+              <Image src="/logo.png" className="w-20"></Image>
+            </Link>
           </div>
           <Card className="w-[340px]">
             <CardBody className="overflow-hidden  space-y-5 pt-5">
@@ -257,7 +259,7 @@ export default function App() {
                       <SelectItem key={"me"}>Montengro</SelectItem>
                       <SelectItem key={"ba"}>Bosna i Hercegovina</SelectItem>
                       <SelectItem key={"al"}>Albanian</SelectItem>
-                      <SelectItem key={"al"}>Kosovo</SelectItem>
+                      <SelectItem key={"ks"}>Kosovo</SelectItem>
                     </Select>
                     <Select
                       placeholder="Select Scholl"

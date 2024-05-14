@@ -49,7 +49,7 @@ export default function App() {
       });
   }
   const [lang, setLang] = useState(getCookie("lang"));
-  let [langague, setLangague] = useState();
+  let [langague, setLangague] = useState("gb");
   useEffect(() => {
     if (lang === "gb") {
       //@ts-ignore
@@ -68,17 +68,19 @@ export default function App() {
 
   return (
     <main className="grid grid-cols-2 h-[100vh] p-0 max-md:grid-cols-1 overflow-hidden">
-      <ImageSlider/>
+      <ImageSlider />
       <div className="flex justify-center items-center min-h-full">
         <div className="absolute top-0 right-0 m-10">
-          <LangSelect></LangSelect>
+          <Link href="/">
+            <Image src="/logo.png" className="w-20"></Image>
+          </Link>
         </div>
         <Card className="w-[340px] max-h-[450px]">
           <CardBody className="overflow-hidden  space-y-5 pt-5">
             <h1 className="text-center font-bold text-2xl ">
               {
                 //@ts-ignore
-                langague && langague.login
+                langague ? langague.login : translations.gb.login
               }
             </h1>
 

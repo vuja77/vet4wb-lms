@@ -83,7 +83,7 @@ export default function Nav({ lang }: any) {
           </NavbarItem>
         )}
         <NavbarItem>
-          <LangSelect></LangSelect> 
+          {/* <LangSelect></LangSelect>   */}
           <ThemeSwitcher></ThemeSwitcher>
         </NavbarItem>
       </NavbarContent>
