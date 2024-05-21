@@ -16,7 +16,7 @@ import {
 } from "@nextui-org/react";
 import { Config } from "@/Config";
 
-export default function ScormModal({ data }) {
+export default function ScormModal({ data }:{data:any}) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -46,11 +46,7 @@ export default function ScormModal({ data }) {
                 (data.type === "scorm1" ? (
                   <iframe
                     className="min-h-[95vh]"
-                    src={
-                      Config.STORAGE_URL +
-                      "/files/" +
-                      data.file_path +
-                      "/scormcontent/index.html"
+                    src={"https://edu4wb.com/files/a.html"
                     }
                   ></iframe>
                 ) : (
