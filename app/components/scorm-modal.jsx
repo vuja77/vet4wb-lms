@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { Button, Listbox, ListboxItem } from "@nextui-org/react";
 import { IconWrapper } from "./Sidebar/IconWrapper";
@@ -15,7 +16,7 @@ import {
 } from "@nextui-org/react";
 import { Config } from "@/Config";
 
-export default function ScormModal({ data }: { data: any }) {
+export default function ScormModal({ data }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
