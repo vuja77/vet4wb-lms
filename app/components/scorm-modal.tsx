@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { Button, Listbox, ListboxItem } from "@nextui-org/react";
 import { IconWrapper } from "./Sidebar/IconWrapper";
@@ -15,8 +15,9 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { Config } from "@/Config";
+import { getCookie } from "cookies-next";
 
-export default function ScormModal({ data }:{data:any}) {
+export default function ScormModal({ data }: { data: any }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -42,26 +43,29 @@ export default function ScormModal({ data }:{data:any}) {
         <ModalContent className="min-h-[95vh">
           {(onClose) => (
             <>
-              {
-                (data.type === "scorm1" ? (
-                  <iframe
-                    className="min-h-[95vh]"
-                    src={"https://edu4wb.com/files/a.html?filename="+data.file_path
-
-                    }
-                  ></iframe>
-                ) : (
-                  <iframe
-                    className="min-h-[95vh]"
-                    src={
-                      Config.STORAGE_URL +
-                      "/files/" +
-                      data.file_path +
-                      "/res/index.html"
-                    }
-                  ></iframe>
-                ))
-              }
+              {data.type === "scorm1" ? (
+                <iframe
+                  className="min-h-[95vh]"
+                  src={
+                    "https://edu4wb.com/files/a.html?filename=" +
+                    data.file_path +
+                    "&material=" +
+                    data.id +
+                    "&token=" +
+                    getCookie("token")
+                  }
+                ></iframe>
+              ) : (
+                <iframe
+                  className="min-h-[95vh]"
+                  src={
+                    Config.STORAGE_URL +
+                    "/files/" +
+                    data.file_path +
+                    "/res/index.html"
+                  }
+                ></iframe>
+              )}
             </>
           )}
         </ModalContent>
