@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Listbox, ListboxItem } from "@nextui-org/react";
 import { IconWrapper } from "./Sidebar/IconWrapper";
 import { ItemCounter } from "./Sidebar/ItemCounter";
@@ -21,7 +21,7 @@ export default function ScormModal({ data }) {
   let setup = async () => {
     window.SetDataChunk = (a) => {
       let b = JSON.parse(a).d;
-      console.log(b)
+      console.log(b);
       // fetch("../api/set-value", {
       //   method: "POST",
       //   headers: {
@@ -55,13 +55,10 @@ export default function ScormModal({ data }) {
     //   console.log(aloo);
     //   return result;
     // };
-
-    window.ConcedeControl = window.history.back;
-
-    console.log(document.getElementById("ifr").contentDocument.title);
   };
-
-  setup();
+  useEffect(() => {
+    setup();
+  });
 
   return (
     <>
