@@ -46,7 +46,8 @@ export default function ScormModal({ data }:{data:any}) {
                 (data.type === "scorm1" ? (
                   <iframe
                     className="min-h-[95vh]"
-                    src={"https://edu4wb.com/files/a.html"
+                    src={"https://edu4wb.com/files/a.html?filename="+data.file_path
+
                     }
                   ></iframe>
                 ) : (
