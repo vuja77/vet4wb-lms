@@ -41,7 +41,7 @@ export default function ScormModal({ data }) {
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        className="min-w-[80%] min-h-[85%]"
+        className="min-w-[80%] min-h-[85vh]"
         classNames={{
           body: "py-6",
           backdrop: "bg-primary/20 backdrop-opacity-10",
