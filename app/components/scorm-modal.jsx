@@ -18,47 +18,20 @@ import { Config } from "@/Config";
 export default function ScormModal({ data }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  let setup = async () => {
-    window.SetDataChunk = (a) => {
-      let b = JSON.parse(a).d;
-      console.log(b);
-      // fetch("../api/set-value", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     Authorization: `Bearer ${token}`,
-      //   },
-      //   body: JSON.stringify({
-      //     scorm_filename: scormFilename,
-      //     data: JSON.parse(a).d,
-      //   }),
-      // })
-      //   .then((response, error) => {
-      //     console.log(response);
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.data.type === "SetDataChunk") {
+        console.log("Received data from iframe:", event.data.data);
+      }
     };
 
-    // window.GetDataChunk = () => {
-    //   let result = null;
+    window.addEventListener("message", handleMessage);
 
-    //   const xhttp = new XMLHttpRequest();
-    //   xhttp.onload = function () {
-    //     let data = JSON.parse(this.responseText);
-    //     result = JSON.stringify({ d: data[0].data });
-    //   };
-    //   xhttp.open("GET", "../api/get-value/" + scormFilename, false);
-    //   xhttp.setRequestHeader("Authorization", `Bearer ${token}`);
-    //   xhttp.send();
-    //   console.log(aloo);
-    //   return result;
-    // };
-  };
-  useEffect(() => {
-    setup();
-  });
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
 
   return (
     <>
@@ -80,7 +53,7 @@ export default function ScormModal({ data }) {
       >
         <p>{data.file_path}</p>
         <p>{data.type}</p>
-        <ModalContent className="min-h-[95vh">
+        <ModalContent className="min-h-[95vh]">
           {(onClose) => (
             <>
               {data.type === "scorm1" ? (
