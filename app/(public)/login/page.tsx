@@ -21,57 +21,11 @@ import LangSelect from "@/app/components/nav/lang-select";
 import ImageSlider from "@/app/components/image-slider";
 
 export default function App() {
-  const [selected, setSelected] =
-    (React.useState < string) | (number > "login");
+  const [selected, setSelected] = React.useState<string | number>("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
   const [error, setError] = useState("");
-
-  let setup = async () => {
-    window.SetDataChunk = (a) => {
-      let b = JSON.parse(a).d;
-
-      fetch("../api/set-value", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          scorm_filename: scormFilename,
-          data: JSON.parse(a).d,
-        }),
-      })
-        .then((response, error) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-
-    window.GetDataChunk = () => {
-      let result = null;
-
-      const xhttp = new XMLHttpRequest();
-      xhttp.onload = function () {
-        let data = JSON.parse(this.responseText);
-        result = JSON.stringify({ d: data[0].data });
-      };
-      xhttp.open("GET", "../api/get-value/" + scormFilename, false);
-      xhttp.setRequestHeader("Authorization", `Bearer ${token}`);
-      xhttp.send();
-      console.log(aloo);
-      return result;
-    };
-
-    window.ConcedeControl = window.history.back;
-
-    console.log(document.getElementById("ifr").contentDocument.title);
-  };
-
-  setup();
 
   async function login() {
     await axios
