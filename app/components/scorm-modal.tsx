@@ -17,9 +17,14 @@ import {
 import { Config } from "@/Config";
 import { getCookie } from "cookies-next";
 
-export default function ScormModal({ data }: { data: any }) {
+export default function ScormModal({
+  data,
+  course,
+}: {
+  data: any;
+  course: any;
+}) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
   return (
     <>
       <Button onPress={onOpen} color="primary">
@@ -52,7 +57,9 @@ export default function ScormModal({ data }: { data: any }) {
                     "&material=" +
                     data.id +
                     "&token=" +
-                    getCookie("token")
+                    getCookie("token") +
+                    "&course=" +
+                    course
                   }
                 ></iframe>
               ) : (

@@ -17,7 +17,7 @@ import ScormModal from "./scorm-modal";
 import VideoModal from "./video-modal";
 import { getCookie, hasCookie } from "cookies-next";
 
-export default function FileList({ data,enable }: { data: any, enable:any }) {
+export default function FileList({ data,enable, course }: { data: any, enable:any, course:any }) {
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function FileList({ data,enable }: { data: any, enable:any }) {
             <ListboxItem
               key="issues"
               className="w-full"
-              endContent={hasCookie("token") && enable ===1 ? <>{e.langague}<ScormModal data={e}></ScormModal></> : null}
+              endContent={hasCookie("token") && enable ===1 ? <>{e.langague}<ScormModal data={e} course={course}></ScormModal></> : null}
               startContent={
                 <IconWrapper className="bg-success/10 text-success">
                   <BookIcon />

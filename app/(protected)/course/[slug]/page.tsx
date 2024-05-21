@@ -90,6 +90,7 @@ export default async function App({ params }: { params: any }) {
       <AccordionLesson
         lessons={course.lessons}
         enable={course.enable}
+        course={params.slug}
       ></AccordionLesson>
     </main>
   );

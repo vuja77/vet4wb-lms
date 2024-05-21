@@ -17,7 +17,7 @@ import CourseCard from "@/app/components/course-card";
 import { Divider } from "@nextui-org/react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import FileList from "../file-list";
-export default function AccordionLesson({ lessons, enable }: { lessons: any, enable:any }) {
+export default function AccordionLesson({ lessons, enable, course }: { lessons: any, enable:any, course:any }) {
   const [selected, setSelected] = React.useState<string | number>("login");
   console.log(enable)
   const defaultContent =
@@ -27,7 +27,7 @@ export default function AccordionLesson({ lessons, enable }: { lessons: any, ena
       {lessons.map((e: any, index: number) => {
         return (
           <AccordionItem key={index} aria-label="Accordion 1" title={e.name}>
-            <FileList data={e.materials} enable={enable}></FileList>
+            <FileList data={e.materials} enable={enable} course={course}></FileList>
           </AccordionItem>
         );
       })}
