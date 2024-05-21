@@ -21,40 +21,40 @@ export default function ScormModal({ data }) {
   let setup = async () => {
     window.SetDataChunk = (a) => {
       let b = JSON.parse(a).d;
-
-      fetch("../api/set-value", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          scorm_filename: scormFilename,
-          data: JSON.parse(a).d,
-        }),
-      })
-        .then((response, error) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      console.log(b)
+      // fetch("../api/set-value", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: `Bearer ${token}`,
+      //   },
+      //   body: JSON.stringify({
+      //     scorm_filename: scormFilename,
+      //     data: JSON.parse(a).d,
+      //   }),
+      // })
+      //   .then((response, error) => {
+      //     console.log(response);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
     };
 
-    window.GetDataChunk = () => {
-      let result = null;
+    // window.GetDataChunk = () => {
+    //   let result = null;
 
-      const xhttp = new XMLHttpRequest();
-      xhttp.onload = function () {
-        let data = JSON.parse(this.responseText);
-        result = JSON.stringify({ d: data[0].data });
-      };
-      xhttp.open("GET", "../api/get-value/" + scormFilename, false);
-      xhttp.setRequestHeader("Authorization", `Bearer ${token}`);
-      xhttp.send();
-      console.log(aloo);
-      return result;
-    };
+    //   const xhttp = new XMLHttpRequest();
+    //   xhttp.onload = function () {
+    //     let data = JSON.parse(this.responseText);
+    //     result = JSON.stringify({ d: data[0].data });
+    //   };
+    //   xhttp.open("GET", "../api/get-value/" + scormFilename, false);
+    //   xhttp.setRequestHeader("Authorization", `Bearer ${token}`);
+    //   xhttp.send();
+    //   console.log(aloo);
+    //   return result;
+    // };
 
     window.ConcedeControl = window.history.back;
 
