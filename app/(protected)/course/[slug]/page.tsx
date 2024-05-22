@@ -46,17 +46,16 @@ export default async function App({ params }: { params: any }) {
             src={Config.STORAGE_URL + "/" + course.thumbnail}
             className="aspect-video object-cover"
           ></Image>
-          <div className="p-5 space-y-5 max-md:p-1">
-            <p className="text-tiny uppercase font-bold ">
-              {" "}
+          <div className="p-5 space-y-5 max-md:p-1 flex flex-col justify-between">
+            {/* <p className="text-tiny uppercase font-bold ">
               {course.course_type.name}
-            </p>
-            <small className="text-default-500">
+            </p> */}
+
+            <small className="text-default-500 text-sm">
               {langague?.author}: {course.teacher}
             </small>
             <h4 className="font-bold text-large line-clamp-2">{course.name}</h4>
             <small className="text-default-500 line-clamp-2">
-              {" "}
               {course.description}
             </small>
             {cookieStore.has("token") && course.enable === 1 ? (

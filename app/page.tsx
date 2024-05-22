@@ -37,17 +37,17 @@ export default async function Home() {
           <Featured lang={langague} courses={courses}></Featured>
           <div className="max-w-md">
             <div className="space-y-1">
-              <h4 className="text-3xl font-medium text-center">
+              <h4 className="text-2xl font-medium text-center">
                 {langague && langague.social}
               </h4>
               <p className="text-small text-default-400"></p>
             </div>
             <Divider className="my-4" />
             <div className="flex flex-row gap-x-12">
-              <SocialIcon url="https://www.facebook.com/VET4WesternBalkans/" />
-              <SocialIcon url="https://www.linkedin.com/company/vet-4-western-balkans/" />
-              <SocialIcon url="https://www.instagram.com/vet4westernbalkans/" />
-              <SocialIcon url="https://www.youtube.com/channel/UCX-vqSTcldihITTGAVL4oIg" />
+              <SocialIcon url="https://www.facebook.com/VET4WesternBalkans/" className="max-w-9 max-h-9 rounded-full"/>
+              <SocialIcon url="https://www.linkedin.com/company/vet-4-western-balkans/" className="max-w-9 max-h-9 rounded-full"/>
+              <SocialIcon url="https://www.instagram.com/vet4westernbalkans/" className="max-w-9 max-h-9 rounded-full"/>
+              <SocialIcon url="https://www.youtube.com/channel/UCX-vqSTcldihITTGAVL4oIg" className="max-w-9 max-h-9 rounded-full"/>
             </div>
           </div>
           <Footer lang={langague}></Footer>

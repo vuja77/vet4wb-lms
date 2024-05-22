@@ -33,7 +33,7 @@ export default function FileList({ data,enable, course }: { data: any, enable:an
       }}
     >
       {//@ts-ignore
-      data.filter((e:any) => e.langague === getCookie("lang")).map((e: any, index: any) => {
+      data.filter((e:any) => e.langague === getCookie("lang") ? getCookie("lang") : "gb").map((e: any, index: any) => {
         if (e.type === "scorm1" || e.type === "scorm2") {
           return (
             <ListboxItem

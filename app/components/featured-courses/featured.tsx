@@ -60,8 +60,8 @@ export default function Featured({
                     isZoomed
                   />
                   <CardFooter className="flex flex-col items-start gap-2">
-                    <small className="text-default-500">
-                      {lang.author}: {e.teacher}
+                    <small className="text-default-500 flex gap-1">
+                      {lang.author}: <div dangerouslySetInnerHTML={{ __html: e.teacher }}></div>
                     </small>
                     <h4 className="font-bold text-large">{e.name}</h4>
                   </CardFooter>
