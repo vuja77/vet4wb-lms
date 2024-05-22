@@ -36,9 +36,10 @@ export default function ScormModal({
         setFinish(true);
         confetti({
           shapes: [triangle],
-          particleCount: 500,
+          particleCount: 1000,
           spread: 200,
         });
+        
       }
     };
 
@@ -59,13 +60,14 @@ export default function ScormModal({
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         className="min-w-[80%] h-[90vh] overflow-hidden p-0 my-0"
+        closeButton={<button>Close</button>}
         classNames={{
           body: "py-24 my-0",
           backdrop: "bg-primary/20 backdrop-opacity-10",
           base: "border-[#292f46] bg-[#19172c] dark:bg-[#19172c] text-[#a8b0d3] py-0 my-0",
           header: "border-b-[1px] border-[#292f46]",
           footer: "border-t-[1px] border-[#292f46]",
-          closeButton: "hover:bg-white/5 bg-white active:bg-white/10 z-30",
+          closeButton: "hover:bg-red-500 transition-all w-[120px] h-[30px]  hover:text-white text-center flex justify-center items-center  text-white bg-red-500 active:bg-white/10 z-30 ",
         }}
       >
         <ModalContent className="my-0">
@@ -98,11 +100,11 @@ export default function ScormModal({
               )}
             </>
             {finish && (
-              <div className="absolute w-full h-full z-20  backdrop:opacity-40 backdrop-brightness-50  flex justify-center items-center">
-                <h1 className="uppercase text-success-500 font-extrabold text-5xl">
-                  congartuletions
+              <button className="absolute w-full h-full z-20  backdrop:opacity-100  backdrop-brightness-50 backdrop-blur-sm  flex justify-center items-center" onClick={() => setFinish(false)}>
+                <h1 className="uppercase text-white font-extrabold text-3xl">
+                Congratulations,<br/> you have successfully completed the course
                 </h1>
-              </div>
+              </button>
             )}
           </>
         </ModalContent>
