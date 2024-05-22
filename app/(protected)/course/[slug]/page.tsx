@@ -51,8 +51,8 @@ export default async function App({ params }: { params: any }) {
               {course.course_type.name}
             </p> */}
 
-            <small className="text-default-500 text-sm">
-              {langague?.author}: {course.teacher}
+            <small className="text-default-500 text-sm flex flex-row gap-1">
+              {langague?.author}: <div dangerouslySetInnerHTML={{ __html: course.teacher }}></div>
             </small>
             <h4 className="font-bold text-large line-clamp-2">{course.name}</h4>
             <small className="text-default-500 line-clamp-2">
