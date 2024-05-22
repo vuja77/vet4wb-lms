@@ -25,7 +25,8 @@ export default function CourseCard({
       <Card className="py-4 max-w-[295px] cursor-pointer hover:border-primary border border-content1 transition-all">
         <CardHeader className="pb-0 pt-2 px-4 flex items-start">
           <div>
-            <small className="text-default-500">Author: {data.teacher}</small>
+            <small className="text-default-500 flex items-center gap-1">Author: <div dangerouslySetInnerHTML={{ __html: data.teacher }}></div></small>
+           
             <h4 className="font-bold text-large line-clamp-2">{data.name}</h4>
           </div>
           {/* <Button
