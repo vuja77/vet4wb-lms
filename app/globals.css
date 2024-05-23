@@ -50,7 +50,7 @@ nav header.max-w-\[1024px\] {
 }
 
 .bg-photo {
-  background-image: url('/IMG_5673.png');
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/IMG_5673.jpg');
   object-position: center;
   object-fit: contain;
   background-position: center;
