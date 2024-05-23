@@ -134,14 +134,14 @@ export default function ScormModal({
                 className="absolute w-full h-full z-20  backdrop:opacity-100  backdrop-brightness-50 backdrop-blur-sm  flex flex-col justify-center items-center"
                 
               >
-                <h1 className="uppercase text-white font-extrabold text-3xl">
+                <h1 className="uppercase text-white font-extrabold text-3xl max-sm:text-2xl">
                   Congratulations,
                   <br /> you have successfully completed the course
                 </h1>
-                <p>Certificate was sent to your email!</p>
+                <p className="text-white font-semibold">Certificate was sent to your email!</p>
                 <div className="space-x-5 mt-3">
                   <Button color="primary" onPress={() => download()}>Download certificate<DownloadIcon></DownloadIcon></Button>
-                  <Button color="primary" onPress={() => setFinish(false)}>Resume<PlayIcon></PlayIcon></Button>
+                  <Button color="primary" onPress={() => setFinish(false)}>Resume course</Button>
                 </div>
               </button>
             )}
