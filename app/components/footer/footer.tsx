@@ -45,7 +45,7 @@ export default function Footer({ lang }: any) {
 
         <div>
           <p className="text-center text-xs">
-            Copyright © 2023 <span className="text-secondary">Vet</span>4
+            Copyright © 2024 <span className="text-secondary">Vet</span>4
             <span className="text-primary">Western</span>
             <span className="text-secondary">Balkans</span>| All Rights Reserved
           </p>

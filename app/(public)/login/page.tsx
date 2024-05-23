@@ -36,9 +36,9 @@ export default function App() {
       .then((res) => {
         localStorage.setItem("data", JSON.stringify(res.data.data));
         localStorage.setItem("user", JSON.stringify(res.data.data.user));
-        setCookie("token", res.data.data.token);
-        setCookie("user", res.data.data);
-        setCookie("lang", res.data.data.user.language);
+        setCookie("token", res.data.data.token, { maxAge: 31536000 });
+        setCookie("user", res.data.data, { maxAge: 31536000 });
+        setCookie("lang", res.data.data.user.language, { maxAge: 31536000 });
 
         if (res.data.data.user.role_id === 2) {
           router.push("/admin/dashboard");
