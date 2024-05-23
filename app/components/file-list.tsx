@@ -26,7 +26,6 @@ export default function FileList({ data,enable, course }: { data: any, enable:an
   return (
     <Listbox
       aria-label="User Menu"
-      onAction={(key) => alert(key)}
       className="p-0 gap-0 w-full divide-y divide-default-300/50 dark:divide-default-100/80  overflow-visible rounded-medium pb-5"
       itemClasses={{
         base: "px-3 first:rounded-t-medium last:rounded-b-medium rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80",
