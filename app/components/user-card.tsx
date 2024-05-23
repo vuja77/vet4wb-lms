@@ -27,7 +27,7 @@ export default function UserCard() {
         <DropdownTrigger className="py-5 z-10">
           {
             //@ts-ignore
-            JSON.parse(localStorage.getItem("data")).user ? (
+            JSON.parse(localStorage.getItem("user")) ? (
               <User
                 as="button"
                 avatarProps={{
@@ -35,11 +35,11 @@ export default function UserCard() {
                   //@ts-ignore
                   src:
                     //@ts-ignore
-                    JSON.parse(localStorage.getItem("data")).user.photo &&
+                    JSON.parse(localStorage.getItem("user")) &&
                     Config.STORAGE_URL +
                       "/" +
                       //@ts-ignore
-                      JSON.parse(localStorage.getItem("data")).user.photo,
+                      JSON.parse(localStorage.getItem("user")).photo,
                 }}
                 className="transition-transform py-5 px-4  user"
                 //@ts-ignore

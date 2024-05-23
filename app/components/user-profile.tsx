@@ -14,6 +14,8 @@ import EditProfile from "./edit-profile";
 import { Config } from "@/Config";
 
 export default function UserProfile({ data }: { data: any }) {
+  localStorage.removeItem("user");
+  localStorage.setItem("user", JSON.stringify(data));
   //@ts-ignore
   return (
     <CardBody className="flex flex-row justify-between  max-md:flex-col  max-sm:items-center">
@@ -26,11 +28,11 @@ export default function UserProfile({ data }: { data: any }) {
           //@ts-ignore
           src:
             //@ts-ignore
-            JSON.parse(localStorage.getItem("data")).user.photo &&
+            data &&
             Config.STORAGE_URL +
               "/" +
               //@ts-ignore
-              JSON.parse(localStorage.getItem("data")).user.photo,
+              data.photo,
         }}
         className="transition-transform py-5 px-4 "
         //@ts-ignore

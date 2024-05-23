@@ -56,6 +56,8 @@ export default function App() {
       )
       .then((res) => {
         localStorage.setItem("data", JSON.stringify(res.data.data));
+        localStorage.setItem("user", JSON.stringify(res.data.data.user));
+
         setCookie("token", res.data.data.token);
         setCookie("user", res.data.data);
         router.push("/");

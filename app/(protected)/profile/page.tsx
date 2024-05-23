@@ -21,6 +21,7 @@ import UserProfile from "@/app/components/user-profile";
 import { getDetails } from "@/app/actions/user";
 export default async function Page({ params }: { params: any }) {
   const user = await getDetails();
+  
 
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";

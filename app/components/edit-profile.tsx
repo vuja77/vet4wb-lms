@@ -18,13 +18,14 @@ import axios from "axios";
 import { Config } from "@/Config";
 import toast from "react-hot-toast";
 import { useDropzone } from "react-dropzone";
+import { useRouter } from "next/navigation";
 
 export default function EditProfile({data} : {data:any}) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   //@ts-ignore
   const [name, setName] = useState(JSON.parse(localStorage.getItem("data")).user.name);
   const [previewImage, setPreviewImage] = useState(Config.STORAGE_URL+"/"+data.photo);
-
+const router = useRouter()
   const [photo, setPhoto] = useState();
   const [category, setCategory] = useState("");
   const { getRootProps, getInputProps } = useDropzone({
@@ -59,10 +60,11 @@ export default function EditProfile({data} : {data:any}) {
       })
       .then((res) => {
         console.log(res);
+        router.refresh()
         toast.custom((t) => (
           <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
             <CardBody>
-              <p>👏, Blog created successfuly</p>
+              <p>👏, Profile updated successfuly</p>
             </CardBody>
           </Card>
         ));
