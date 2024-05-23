@@ -95,7 +95,7 @@ export default function Nav({ lang }: any) {
             href={"/"}
             size="lg"
           >
-            Početna
+            {lang.home}
           </Link>
         </NavbarMenuItem>
         {menuItems.map((item, index) => (
