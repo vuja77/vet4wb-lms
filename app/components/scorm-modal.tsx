@@ -91,7 +91,7 @@ export default function ScormModal({
         className="min-w-[80%] h-[90vh] overflow-hidden p-0 my-0"
         closeButton={<button>Close</button>}
         classNames={{
-          body: "py-24 my-0",
+          body: "py-0",
           backdrop: "bg-primary/20 backdrop-opacity-10",
           base: "border-[#292f46] bg-[#19172c] dark:bg-[#19172c] text-[#a8b0d3] py-0 my-0",
           header: "border-b-[1px] border-[#292f46]",
