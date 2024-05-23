@@ -31,8 +31,8 @@ export default function Hero({ lang }: any) {
   ];
 
   return (
-    <div className="bg-photo min-w-full   rounded-3xl px-12 max-md:px-3 max-md:flex max-md:flex-col grid grid-cols-3 h-[680px] max-sm:max-h-[550px] max-md:h-space-y-10 max-md:mt-[100px]">
-      <div className="py-24 space-y-10 col-span-2 max-md:col-span-3 items-center mt-[120px] ">
+    <div className="bg-photo min-w-full   rounded-3xl px-12 max-md:px-3 max-md:flex max-md:flex-col grid grid-cols-3 h-[680px] max-sm:max-h-[500px] max-md:h-space-y-10 max-md:mt-[100px]">
+      <div className="py-24 space-y-10 col-span-2 max-md:col-span-3 items-center mt-[120px] max-sm:text-center">
         <Typewriter
                 onInit={(typewriter) => {
             typewriter
@@ -46,7 +46,7 @@ export default function Hero({ lang }: any) {
 
         <div className="space-x-10">
           <Button className="text-white bg-white text-primary">
-            {lang.home}
+            {lang.start}
           </Button>
         </div>
       </div>
