@@ -38,7 +38,7 @@ export default function Featured({
         </div>
         <Divider className="my-4" />
       </div>
-      <div className="grid grid-cols-4 w-full gap-0 max-md:grid-cols-1 max-md:p-0 max-md:gap-10">
+      <div className="grid grid-cols-4 w-full gap-0 max-md:grid-cols-1 max-xl:grid-cols-2 max-md:p-0 max-md:gap-10">
         {courses && courses.map((e: any, index: number) => {
           return (
             <Link href={"/course/" + e.id} key={index}>

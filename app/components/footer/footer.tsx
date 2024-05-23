@@ -20,28 +20,27 @@ import {
   Image,
 } from "@nextui-org/react";
 import { Config } from "@/Config";
-export default function Footer({lang}:any) {
+export default function Footer({ lang }: any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
     <>
-      <footer className="flex flex-col gap-10 w-full">
+      <footer className="flex flex-col gap-10 w-full items-center justify-center">
         <div className="grid grid-cols-5">
-          <div className="col-span-2 flex">
+          <div className="col-span-2 max-sm:col-span-5 flex max-md:flex-col items-center gap-3 ">
             <Link href="https://vet4wb.com">
-            <Image src="/logo.png" width={100}></Image>
+              <Image src="/logo.png" width={100}></Image>
             </Link>
-            <Image src="/co-funded-vertical3.png" width={200}></Image>
+            <p className="w-full col-span-3 max-md:text-[13px] hidden max-sm:block">{lang.footer}</p>
+            <Image src="/co-funded-vertical3.png" width={250}></Image>
           </div>
-          <p className="w-full col-span-3">
-            {lang.footer}
-          </p>
+          <p className="w-full col-span-3 max-md:text-small max-sm:hidden">{lang.footer}</p>
         </div>
 
         <div>
-          <small>
-            Copyright © 2023 Vet4WesternBalkans| All Rights Reserved
-          </small>
+          <p className="text-center text-xs">
+            Copyright © 2023 <span className="text-secondary">Vet</span>4<span className="text-primary">Western</span><span className="text-secondary">Balkans</span>| All Rights Reserved
+          </p>
         </div>
       </footer>
     </>
