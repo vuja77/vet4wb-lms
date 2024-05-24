@@ -12,30 +12,32 @@ export function ThemeSwitcher() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  const [isSelected, setIsSelected] = useState(theme === "dark" ? false: true);
+  const [isSelected, setIsSelected] = useState(theme === "dark" ? false : true);
   function change(e: any) {
     if (e) {
-      setTheme("light");
-
       setIsSelected(true);
+    } else {
+    }
+  }
+  useEffect(() => {
+    if (isSelected) {
+      setTheme("light");
     } else {
       setIsSelected(false);
       setTheme("dark");
     }
-  }
+  });
   if (!mounted) return null;
 
   return (
     <div>
-      <Switch
-        defaultSelected
-        size="lg"
-        color="success"
-        isSelected={isSelected}
-        onValueChange={change}
-        startContent={<SunIcon />}
-        endContent={<MoonIcon />}
-      ></Switch>
+      <button
+        onClick={() => setIsSelected(!isSelected)}
+        className="border-border border rounded-lg flex justify-center items-center aspect-square w-12"
+      >
+        {isSelected ? <SunIcon /> : <MoonIcon />}
+      </button>
+    
     </div>
   );
 }
