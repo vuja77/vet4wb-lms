@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Edu4Wb",
-  description: "Welcome to VET4WB learning platrofm",
+  description: "The “VET for Western Balkans” project aims to contribute to the improvement and modernization of VET systems in four partner countries in the Western Balkans: Albania, Bosnia and Herzegovina, Montenegro and Kosovo, and reinforcement of the links between VET and labour market.",
 };
 
 export default function RootLayout({
