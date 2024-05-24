@@ -18,7 +18,7 @@ export default function UserProfile({ data }: { data: any }) {
   localStorage.setItem("user", JSON.stringify(data));
   //@ts-ignore
   return (
-    <CardBody className="flex flex-row justify-between  max-md:flex-col  max-sm:items-center">
+    <CardBody className="flex flex-row justify-between items-center  max-md:flex-col  max-sm:items-center">
       <User
         as="button"
         avatarProps={{
@@ -41,11 +41,14 @@ export default function UserProfile({ data }: { data: any }) {
         //@ts-ignore
         name=""
       />
-      <div className="p-5 space-y-5 w-full max-md:text-center">
+      <div className="p-3 space-y-2 w-full max-md:text-center">
         <h4 className="font-bold text-large line-clamp-2">{data.name}</h4>
+        <small className="text-default-500 line-clamp-2"> Student</small>
+
         <small className="text-default-500 line-clamp-2"> {data.email}</small>
-        <EditProfile data={data}></EditProfile>
       </div>
+      <EditProfile data={data}></EditProfile>
+
     </CardBody>
   );
 }

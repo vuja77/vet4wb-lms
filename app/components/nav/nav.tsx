@@ -29,15 +29,13 @@ export default function Nav({ lang }: any) {
         { name: "Profile", link: "profile" },
         { name: "Site", link: "https://vet4wb.com/news/" },
       ]
-    : [
-        { name: "Site", link: "https://vet4wb.com/news/" },
-      ];
+    : [{ name: "Site", link: "https://vet4wb.com/news/" }];
   console.log(pathname.split("/"));
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
       shouldHideOnScroll
-      className="fixed top-0 py-2 w-full "
+      className="fixed top-0 py-2 w-full backdrop-blur-0 bg-transparent"
     >
       <NavbarContent>
         <NavbarMenuToggle

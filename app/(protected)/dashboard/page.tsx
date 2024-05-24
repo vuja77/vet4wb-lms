@@ -17,15 +17,15 @@ export default async function App() {
   const courses = await getAllCourse();
 console.log(courses)
   return (
-    <main className=" min-h-[100vh] pt-[100px] p-12">
-      <div className="max-w-md">
+    <main className=" min-h-[100vh] pt-[100px] p-24 max-sm:p-2 max-sm:pt-24 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:w-full">
+      <div className="">
         <div className="space-y-1">
-          <h4 className="text-3xl font-medium">Eduction space</h4>
+          <h4 className="text-3xl font-medium">Education space</h4>
           
         </div>
         <Divider className="my-4" />
       </div>
-      <div className="grid grid-cols-3 gap-10 max-lg:grid-cols-2  max-[600px]:grid-cols-1">
+      <div className="grid grid-cols-2 max-sm:w-full justify-items-center gap-10 max-lg:grid-cols-2 max-[600px]:grid-cols-1">
         {courses && courses.map((e:any,index:number) => {
           return(
             <CourseCard data={e} key={index}></CourseCard>
@@ -33,6 +33,7 @@ console.log(courses)
         })}
      
       </div>
+      
     </main>
   );
 }

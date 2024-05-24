@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Listbox, ListboxItem, Navbar } from "@nextui-org/react";
+import { Button, Listbox, ListboxItem, Navbar } from "@nextui-org/react";
 import { IconWrapper } from "./IconWrapper";
 
 import { BookIcon } from "../icons/BookIcon";
@@ -9,23 +9,32 @@ import UserCard from "../user-card";
 import { CalendarIcon } from "../icons/CalendarIcon";
 import { FileIcon } from "../icons/FileIcon";
 import { ThemeSwitcher } from "../ThemeSwitcher";
+import { usePathname } from "next/navigation";
 
 export default function SideBar() {
+  const pathname = usePathname();
   return (
     <>
       <Listbox
         aria-label="User Menu"
-        className="p-0 gap-0  data-[menu-open=true]:border-none sticky  inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/10 max-w-[270px] pt-[100px] max-md:hidden"
+        className="p-0 px-5 gap-4 space-y-5  data-[menu-open=true]:border-none sticky  inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/10 max-w-[270px] pt-[100px] max-md:hidden border-r border-border"
         itemClasses={{
-          base: "px-3 rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80",
+          base: "px-3 rounded-none gap-3 h-12 data-[hover=true]:bg-transparent",
         }}
+        classNames={{ list: "space-y-2" }}
       >
         <ListboxItem
           key="issues"
-          className="px-10"
+          className={`${
+            pathname === "/dashboard" && "bg-primary text-white"
+          } rounded-2xl  `}
           href="/dashboard"
           startContent={
-            <IconWrapper className="bg-success/10 text-success">
+            <IconWrapper
+              className={`${
+                pathname === "/dashboard" && "bg-transparent text-white"
+              } bg-success/10 text-success`}
+            >
               <LayoutIcon />
             </IconWrapper>
           }
@@ -36,9 +45,13 @@ export default function SideBar() {
         <ListboxItem
           key="discussions"
           href="/my-course"
-          className="px-10"
+          className={`${
+            pathname === "/my-course" && "bg-primary text-white"
+          } rounded-2xl  `}
           startContent={
-            <IconWrapper className="bg-secondary/10 text-secondary">
+            <IconWrapper className={`${
+              pathname === "/my-course" && "bg-transparent text-white"
+            } bg-success/10 text-success`}>
               <BookIcon></BookIcon>
             </IconWrapper>
           }
@@ -47,65 +60,53 @@ export default function SideBar() {
         </ListboxItem>
         <ListboxItem
           key="actions"
-          className="px-10"
+          href="/profile"
+          className={`${
+            pathname === "/certificates" && "bg-primary text-white"
+          } rounded-2xl  `}
+          startContent={
+            <IconWrapper className={`${
+              pathname === "/certificates" && "bg-transparent text-white"
+            } bg-success/10 text-success`}>
+              <BookIcon></BookIcon>
+            </IconWrapper>
+          }
+        >
+          Certificates
+        </ListboxItem>
+        <ListboxItem
+          key="actions"
+          className={`${
+            pathname === "/profile" && "bg-primary text-white"
+          } rounded-2xl  `}
           href="/profile"
           startContent={
-            <IconWrapper className="bg-warning/10 text-warning">
+            <IconWrapper className={`${
+              pathname === "/profile" && "bg-transparent text-white"
+            } bg-success/10 text-success`}>
               <BookIcon></BookIcon>
             </IconWrapper>
           }
         >
           Profile
         </ListboxItem>
-      </Listbox>
-
-      <Listbox
-        aria-label="User Menu"
-        className="p-0 gap-0 divide-y divide-default-300/50 dark:divide-default-100/80 bg-content1 max-w-[250px] overflow-visible shadow-small pt-[60px] max-lg:w-[60px] hidden max-lg:flex flex-col items-center max-sm:hidden"
-        itemClasses={{
-          base: "rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80",
-        }}
-      >
-        <ListboxItem
-          key="issues"
-          startContent={
-            <IconWrapper className="bg-success/10 text-success">
-              <LayoutIcon />
-            </IconWrapper>
-          }
-        ></ListboxItem>
-        <ListboxItem
-          key="pull_requests"
-          startContent={
-            <IconWrapper className="bg-primary/10 text-primary">
-              <BookIcon />
-            </IconWrapper>
-          }
-        ></ListboxItem>
-        <ListboxItem
-          key="discussions"
-          startContent={
-            <IconWrapper className="bg-secondary/10 text-secondary">
-              <CalendarIcon />
-            </IconWrapper>
-          }
-        ></ListboxItem>
         <ListboxItem
           key="actions"
-          startContent={
-            <IconWrapper className="bg-warning/10 text-warning">
-              <FileIcon></FileIcon>
-            </IconWrapper>
-          }
-        ></ListboxItem>
-        <ListboxItem
-          key="projects"
-          startContent={
-            <IconWrapper className="bg-default/50 text-foreground">
-              <BookIcon />
-            </IconWrapper>
-          }
-        ></ListboxItem>
+          className="h-[250px] hover:bg-red-200 w-full justify-self-end relative top-[50%] flex flex-col hover:bg-transparent hover:backdrop-blur-0 justify-center items-center text-center"
+        >
+          <div className="w-full gap-5 p-5 flex  justify-center flex-col items-center text-center rounded-2xl hover:bg-white bg-white  border border-border pb-12">
+            <h1 className="font-medium text-xl">Upgrade to Pro🚀</h1>
+            <p className="text-wrap text-center text-small">
+              Get 1 month free and unlock all the features of the pro plan.
+            </p>
+          </div>
+          <Button
+            variant="shadow"
+            className="bg-primary z-10 relative top-[-25px] justify-self-center text-white rounded-full"
+          >
+            Upgrade to pro
+          </Button>
+        </ListboxItem>
       </Listbox>
     </>
   );
