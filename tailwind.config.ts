@@ -40,6 +40,7 @@ const config = {
       },
     },
   },
+  darkMode: "class",
   plugins: [nextui(), addVariablesForColors,],
 };
 function addVariablesForColors({ addBase, theme }: any) {

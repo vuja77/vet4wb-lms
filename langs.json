@@ -14,7 +14,23 @@
     "need": "Need to create an account?",
     "already": "Already have an account?",
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "all_courses": "All courses",
+    "my_courses": "My courses",
+    "certificates": "Certificates",
+    "profile": "Profile",
+    "education_space": "Education space",
+    "have_a_question": "Have a question?",
+    "have_a_question2": "If you have any questions, please contact us",
+    "contact_us": "Contact us",
+    "my_profile": "My profile",
+    "select_lang": "Select language",
+    "theme": "Theme",
+    "settings_desc":"Customize settings, email preferences, and web appearance.",
+    "lang_desc":"Change the appearance of the web.",
+    "theme_desc":"Change the language of the web.",
+    "settings": "Settings"
+
   },
   "me": {
     "home": "Početna",
@@ -32,7 +48,22 @@
     "already": "Already have an account?",
     "name": "Name",
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "all_courses": "Svi kursevi",
+    "my_courses": "Moji kursevi",
+    "certificates": "Sertifikati",
+    "profile": "Profil",
+    "education_space": "Obrazovni prostor",
+    "have_a_question": "Imate pitanje?",
+    "have_a_question2": "Ako imate pitanje kontaktirajte nas",
+    "contact_us": "Kontaktiraj nas",
+    "my_profile": "Moj nalog",
+    "select_lang": "Izaberi jezik",
+    "theme": "Tema",
+    "settings_desc":"Prilagodite nalog, jezik i temu",
+    "lang_desc":"Prilagodite izgled sajta.",
+    "theme_desc":"Prilagotite jezik na sajtu",
+    "settings": "Podešavanja"
   },
   "al": {
     "home": "Shtëpi",
@@ -44,43 +75,33 @@
     "signup": "Regjistrohu",
     "social": "Rrjete sociale",
     "footer": "Mbështetja e Komisionit Evropian për prodhimin e këtij publikimi nuk përbën një miratim të përmbajtjes, e cila pasqyron vetëm pikëpamjet e autorëve, dhe Komisioni nuk mund të mbahet përgjegjës për çdo përdorim që mund të bëhet i informacionit që përmban.",
-    
     "start": "Filloni kursin",
     "Lessons": "Mësimet",
-
     "need": "Keni nevojë për të krijuar një llogari?",
-
     "already": "Posedoni një llogari?",
-
     "name": "Emri",
-
     "email": "Postë",
-
     "password": "Fjalëkalimi",
-
-    "education-space": "Education space",
-
-    "my-courses": "My courses",
-
-    "certificates": "Certificates",
-
-    "my-profile": "My Profile",
-
-    "have-a-question": "Have a question?",
-
-    "If you have any questions, please contact us!": "If you have any questions, please contact us!",
-
-    "contac-us": "contact-us",
-
-    "log-out": "log out",
-
-    "Congratulations-you-have successfully completed the course": "Congratulations, you have successfully completed the course",
-
+    "education_space": "Hapësira arsimore",
+    "my_courses": "Kurset e mia",
+    "all_courses": "Të gjitha kurset",
+    "certificates": "Certifikata",
+    "my_profile": "Profili im",
+    "profile": "Profil",
+    "have_a_question": "Keni një pyetje?",
+    "have_a_question2": "Nëse keni ndonjë pyetje, ju lutemi na kontaktoni!",
+    "contact_us": "na kontaktoni",
+    "log_out": "log out",
+    "Congratulations_you_have successfully completed the course": "Congratulations, you have successfully completed the course",
     "Certificate was sent to your email!": "Certificate was sent to your email!",
-
     "Download certificate": "Download certificate",
+    "Resume course": "Resume course",
+    "select_lang": "Izaberi jezik",
+    "theme": "Tema",
+    "settings_desc":"Personalizo cilësimet, preferencat e postës elektronike dhe pamjen në ueb.",
+    "lang_desc":"Ndryshoni pamjen e uebit.",
+    "theme_desc":"Ndryshoni gjuhën e uebit.",
+    "settings": "Cilësimet"
 
-    "Resume course": "Resume course"
-                
   }
 }

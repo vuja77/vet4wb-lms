@@ -11,7 +11,7 @@ import { FileIcon } from "../icons/FileIcon";
 import { usePathname } from "next/navigation";
 import { LayoutDashboard, LayoutDashboardIcon, LucideGraduationCap, UserIcon } from "lucide-react";
 
-export default function SideBar() {
+export default function SideBar({lang}:any) {
   const pathname = usePathname();
   return (
     <>
@@ -39,7 +39,7 @@ export default function SideBar() {
             </IconWrapper>
           }
         >
-          All courses
+         {lang && lang.all_courses}
         </ListboxItem>
 
         <ListboxItem
@@ -56,7 +56,8 @@ export default function SideBar() {
             </IconWrapper>
           }
         >
-          My courses
+                  {lang && lang.my_courses}
+
         </ListboxItem>
         <ListboxItem
           key="actions"
@@ -72,7 +73,8 @@ export default function SideBar() {
             </IconWrapper>
           }
         >
-          Certificates
+                   {lang && lang.certificates}
+
         </ListboxItem>
         <ListboxItem
           key="actions"
@@ -88,23 +90,24 @@ export default function SideBar() {
             </IconWrapper>
           }
         >
-          Profile
+                  {lang && lang.profile}
+
         </ListboxItem>
         <ListboxItem
           key="actions"
           className="h-[250px]  w-full justify-self-end relative top-[50%] flex flex-col hover:bg-transparent  hover:backdrop-blur-0 justify-center items-center text-center"
         >
           <div className="w-full gap-5 p-5 flex  justify-center flex-col items-center text-center rounded-2xl  bg-white/10 backdrop-blur-md border-1  dark:border-gray-400/20 pb-12">
-            <h1 className="font-medium text-xl">Have a question?</h1>
+            <h1 className="font-medium text-xl">{lang && lang.have_a_question}</h1>
             <p className="text-wrap text-center text-small">
-            If you have any questions, please contact us!
+            {lang && lang.have_a_question2}
             </p>
           </div>
           <Button
             variant="shadow"
             className="bg-primary z-10 relative top-[-25px] justify-self-center text-white rounded-full"
           >
-            Contact us
+           {lang.contact_us}
           </Button>
         </ListboxItem>
       </Listbox>
