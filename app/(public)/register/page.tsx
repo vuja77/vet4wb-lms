@@ -276,6 +276,17 @@ export default function App() {
                       }
                       onChange={(e) => SetSocial(e.target.value)}
                     />
+                    {
+                      //@ts-ignore
+                      error.social && (
+                        <p className="text-red-600 text-xs">
+                          {
+                            //@ts-ignore
+                            error.social[0]
+                          }
+                        </p>
+                      )
+                    }
                     <Select
                       placeholder="Select Contry"
                       onChange={(e) => setCountry(e.target.value)}
