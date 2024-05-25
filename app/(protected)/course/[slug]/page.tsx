@@ -82,7 +82,7 @@ export default async function App({ params }: { params: any }) {
                     }
                     progress={course.progress}
                     course={params.slug}
-                  ></ScormModal> : <Button>No course on your langague</Button>}
+                  ></ScormModal> : <Button>No course on your language</Button>}
                
               </>
             ) : cookieStore.has("token") && course.enable === 0 ? (

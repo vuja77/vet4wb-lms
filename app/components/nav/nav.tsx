@@ -24,9 +24,9 @@ export default function Nav({ lang }: any) {
   const pathname = usePathname();
   const menuItems = getCookie("token")
     ? [
-        { name: "Dashboard", link: "dashboard" },
-        { name: "My courses", link: "my-course" },
-        { name: "Profile", link: "profile" },
+        { name: "Dashboard", link: "/dashboard" },
+        { name: "My courses", link: "/my-course" },
+        { name: "Profile", link: "/profile" },
         { name: "Site", link: "https://vet4wb.com/news/" },
       ]
     : [{ name: "Site", link: "https://vet4wb.com/news/" }];
