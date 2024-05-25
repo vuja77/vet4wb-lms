@@ -97,7 +97,7 @@ export default function SideBar() {
           <div className="w-full gap-5 p-5 flex  justify-center flex-col items-center text-center rounded-2xl  bg-white/10 backdrop-blur-md border-1  dark:border-gray-400/20 pb-12">
             <h1 className="font-medium text-xl">Have a question?</h1>
             <p className="text-wrap text-center text-small">
-              Get 1 month free and unlock all the features of the pro plan.
+            If you have any questions, please contact us!
             </p>
           </div>
           <Button
