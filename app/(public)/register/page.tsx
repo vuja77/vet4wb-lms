@@ -81,6 +81,7 @@ export default function App() {
         console.log(error['name']);
         console.log(error.email);
         if (
+          
           error.response.data.name[0] ||
           error.response.data.email[0] ||
           error.response.data.password[0]

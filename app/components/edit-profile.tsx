@@ -118,14 +118,7 @@ export default function EditProfile({ data }: { data: any }) {
                   onChange={(e) => setName(e.target.value)}
                   variant="bordered"
                 />
-                <Input
-                  autoFocus
-                  label="Social Link"
-                  placeholder="Enter your email"
-                  name="name"
-                  onChange={(e) => setName(e.target.value)}
-                  variant="bordered"
-                />
+              
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="flat" onPress={onClose}>

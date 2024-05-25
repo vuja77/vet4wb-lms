@@ -8,7 +8,6 @@ import { LayoutIcon } from "../icons/LayoutIcon";
 import UserCard from "../user-card";
 import { CalendarIcon } from "../icons/CalendarIcon";
 import { FileIcon } from "../icons/FileIcon";
-import { ThemeSwitcher } from "../ThemeSwitcher";
 import { usePathname } from "next/navigation";
 import { LayoutDashboard, LayoutDashboardIcon, LucideGraduationCap, UserIcon } from "lucide-react";
 

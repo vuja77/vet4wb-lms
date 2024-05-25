@@ -19,9 +19,10 @@ import { getCourse, getMineCourse } from "@/app/actions/course";
 import EditProfile from "@/app/components/edit-profile";
 import UserProfile from "@/app/components/user-profile";
 import { getDetails } from "@/app/actions/user";
+import ProfilePage from "@/app/components/profile.page";
 export default async function Page({ params }: { params: any }) {
   const user = await getDetails();
-  const courses = await getMineCourse()
+  const courses = await getMineCourse();
 
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -39,27 +40,7 @@ export default async function Page({ params }: { params: any }) {
           
         </Tab>
       </Tabs> */}
-      <Card className="lg:w-[700px]">
-        <UserProfile data={user}></UserProfile>
-      </Card>
-      <div className="">
-        <div className="space-y-1 flex justify-between">
-          <div className="space-y-1">
-            <h4 className="text-2xl font-medium">Own courses</h4>
-            <p className="text-small text-default-400"></p>
-          </div>
-        </div>
-
-        <Divider className="my-4" />
-    <div className="grid grid-cols-3 max-sm:w-full justify-items-center gap-10 max-lg:grid-cols-2 max-[600px]:grid-cols-1">
-        
-        {courses && courses.map((e:any,index:number) => {
-        return(
-          <CourseCard data={e} key={index}></CourseCard>
-        )
-      })}
-   </div>
-      </div>
+      <ProfilePage courses={courses} user={user}></ProfilePage>
     </main>
   );
 }
