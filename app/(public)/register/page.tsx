@@ -29,10 +29,13 @@ export default function App() {
   const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [school, setSchool] = useState("");
+  const [otherschool, setotherSchool] = useState("");
   const [phone, setPhone] = useState("");
   const [social, SetSocial] = useState("");
   const [country, setCountry] = useState("");
   const [password, setPassword] = useState("");
+  const [langauth, setLangauth] = useState("");
+
   const router = useRouter();
   async function login() {
     await axios
@@ -41,7 +44,7 @@ export default function App() {
         {
           name: name,
           email: email,
-          school: school,
+          school: school === "other" ? otherschool : school,
           phone: phone,
           language: "gb",
           social: social,
@@ -152,6 +155,7 @@ export default function App() {
                     <Input
                       isRequired
                       label="Name"
+                      defaultValue={name}
                       placeholder="Enter your name"
                       color={
                         //@ts-ignore
@@ -176,6 +180,7 @@ export default function App() {
                         <Input
                           isRequired
                           label="Email"
+                          defaultValue={email}
                           placeholder="Enter your email"
                           type="email"
                           color="danger"
@@ -185,6 +190,7 @@ export default function App() {
                         <Input
                           isRequired
                           label="Email"
+                          defaultValue={email}
                           placeholder="Enter your email"
                           type="email"
                           onChange={(e) => setEmail(e.target.value)}
@@ -208,6 +214,7 @@ export default function App() {
                       label="Password"
                       placeholder="Enter your password"
                       type="password"
+                      defaultValue={password}
                       color={
                         //@ts-ignore
                         error.password ? "danger" : "default"
@@ -237,8 +244,9 @@ export default function App() {
                     <Input
                       isRequired
                       label="Phone number"
+                      defaultValue={phone}
                       placeholder="Enter your number"
-                      type="number"
+                      type="text"
                       color={
                         //@ts-ignore
                         error.phone ? "danger" : "default"
@@ -250,6 +258,7 @@ export default function App() {
                       label="Social network"
                       placeholder="Enter your social link"
                       type="text"
+                      defaultValue={social}
                       color={
                         //@ts-ignore
                         error.social ? "danger" : "default"
@@ -266,6 +275,14 @@ export default function App() {
                       <SelectItem key={"ks"}>Kosovo</SelectItem>
                     </Select>
                     <Select
+                      placeholder="Select Langague"
+                      onChange={(e) => setLangauth(e.target.value)}
+                    >
+                      <SelectItem key={"hr"}>Montengrin - Bosnian</SelectItem>
+                      <SelectItem key={"sq"}>Albanian</SelectItem>
+                      <SelectItem key={"gb"}>English</SelectItem>
+                    </Select>
+                    <Select
                       placeholder="Select Scholl"
                       onChange={(e) => setSchool(e.target.value)}
                       color={
@@ -273,23 +290,34 @@ export default function App() {
                         error.school ? "danger" : "default"
                       }
                     >
-                      <SelectItem key={"1"} value={"other"}>
+                      <SelectItem key={"Etš “Vaso Aligrudić“"} value={"other"}>
                         Etš “Vaso Aligrudić“
                       </SelectItem>
-                      <SelectItem key={"2"} value={"other"}>
+                      <SelectItem key={"Rifat Gojota"} value={"other"}>
                         Rifat Gojota
                       </SelectItem>
-                      <SelectItem key={"3"} value={"other"}>
+                      <SelectItem
+                        key={
+                          "High school of Metalworking crafts Country: Bosnia and Herzegovina"
+                        }
+                        value={"other"}
+                      >
                         High school of Metalworking crafts Country: Bosnia and
                         Herzegovina
                       </SelectItem>
-                      <SelectItem key={"4"} value={"other"}>
+                      <SelectItem key={"Alternative Pro"} value={"other"}>
                         Alternative Pro
                       </SelectItem>
-                      <SelectItem key={"5"} value={"other"}>
+                      <SelectItem
+                        key={"Shkolla e Mesme Teknologjike “Hysen Çela”"}
+                        value={"other"}
+                      >
                         Shkolla e Mesme Teknologjike “Hysen Çela”
                       </SelectItem>
-                      <SelectItem key={"6"} value={"other"}>
+                      <SelectItem
+                        key={"“Hamdi Bushati” Technological High School"}
+                        value={"other"}
+                      >
                         “Hamdi Bushati” Technological High School
                       </SelectItem>
                       <SelectItem key={"other"} value={"other"}>
@@ -306,7 +334,7 @@ export default function App() {
                           //@ts-ignore
                           error.school ? "danger" : "default"
                         }
-                        onChange={(e) => setSchool(e.target.value)}
+                        onChange={(e) => setotherSchool(e.target.value)}
                       />
                     )}
                   </motion.div>

@@ -75,6 +75,8 @@ export default function UserCard() {
             color="danger"
             onPress={() => {
               deleteCookie("token");
+              deleteCookie("user");
+              deleteCookie("lang");
               router.refresh();
               toast.custom((t) => (
                 <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">

@@ -44,12 +44,43 @@
     "signup": "Regjistrohu",
     "social": "Rrjete sociale",
     "footer": "Mbështetja e Komisionit Evropian për prodhimin e këtij publikimi nuk përbën një miratim të përmbajtjes, e cila pasqyron vetëm pikëpamjet e autorëve, dhe Komisioni nuk mund të mbahet përgjegjës për çdo përdorim që mund të bëhet i informacionit që përmban.",
+    
     "start": "Filloni kursin",
     "Lessons": "Mësimet",
+
     "need": "Keni nevojë për të krijuar një llogari?",
+
     "already": "Posedoni një llogari?",
+
     "name": "Emri",
+
     "email": "Postë",
-    "password": "Fjalëkalimi"
+
+    "password": "Fjalëkalimi",
+
+    "education-space": "Education space",
+
+    "my-courses": "My courses",
+
+    "certificates": "Certificates",
+
+    "my-profile": "My Profile",
+
+    "have-a-question": "Have a question?",
+
+    "If you have any questions, please contact us!": "If you have any questions, please contact us!",
+
+    "contac-us": "contact-us",
+
+    "log-out": "log out",
+
+    "Congratulations-you-have successfully completed the course": "Congratulations, you have successfully completed the course",
+
+    "Certificate was sent to your email!": "Certificate was sent to your email!",
+
+    "Download certificate": "Download certificate",
+
+    "Resume course": "Resume course"
+                
   }
 }
