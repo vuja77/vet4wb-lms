@@ -78,8 +78,16 @@ export default function App() {
       .catch((error) => {
         console.log(error);
         setError(error && error.response.data);
-        if (error.name || error.email || error.password) {
+        console.log(error['name']);
+        console.log(error.email);
+        if (
+          error.response.data.name[0] ||
+          error.response.data.email[0] ||
+          error.response.data.password[0]
+        ) {
           setStep(1);
+        } else {
+          setStep(2);
         }
       });
   }
@@ -356,6 +364,7 @@ export default function App() {
                         //@ts-ignore
                         error.school ? "danger" : "default"
                       }
+                      defaultSelectedKeys={school}
                     >
                       <SelectItem key={"Etš “Vaso Aligrudić“"} value={"other"}>
                         Etš “Vaso Aligrudić“
