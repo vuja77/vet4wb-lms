@@ -24,9 +24,11 @@ import axios from "axios";
 export default function ScormModal({
   data,
   course,
+  progress,
 }: {
   data: any;
   course: any;
+  progress: any;
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   var triangle = confetti.shapeFromPath({ path: "M0 10 L5 0 L10 10z" });
@@ -50,38 +52,37 @@ export default function ScormModal({
       window.removeEventListener("message", handleIframeMessage);
     };
   }, []);
-    async function download() {
-      try {
-        const response = await axios.get(Config.API_URL+'/download/'+course, {
-            responseType: 'blob',
-            headers: {
-              Authorization:
-                "Bearer "+getCookie("token"),
-            },  
-        });
-  
-        const url = window.URL.createObjectURL(new Blob([response.data]));
-  
-        // Kreiramo link za preuzimanje
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', 'certificate.pdf'); // Postavljamo naziv datoteke za preuzimanje
-  
-        // Dodajemo link u DOM i simuliramo klik
-        document.body.appendChild(link);
-        link.click();
-  
-        // Čistimo URL i uklanjamo link iz DOM-a
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(link);
+  async function download() {
+    try {
+      const response = await axios.get(Config.API_URL + "/download/" + course, {
+        responseType: "blob",
+        headers: {
+          Authorization: "Bearer " + getCookie("token"),
+        },
+      });
+
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+
+      // Kreiramo link za preuzimanje
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "certificate.pdf"); // Postavljamo naziv datoteke za preuzimanje
+
+      // Dodajemo link u DOM i simuliramo klik
+      document.body.appendChild(link);
+      link.click();
+
+      // Čistimo URL i uklanjamo link iz DOM-a
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(link);
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
-    }
+  }
   return (
     <>
       <Button onPress={onOpen} color="primary">
-        Open
+        {progress > 0 ? "Resume course" : "Start course"}
       </Button>
 
       <Modal
@@ -130,18 +131,21 @@ export default function ScormModal({
               )}
             </>
             {finish && (
-              <button
-                className="absolute w-full h-full z-20  backdrop:opacity-100  backdrop-brightness-50 backdrop-blur-sm  flex flex-col justify-center items-center"
-                
-              >
+              <button className="absolute w-full h-full z-20  backdrop:opacity-100  backdrop-brightness-50 backdrop-blur-sm  flex flex-col justify-center items-center">
                 <h1 className="uppercase text-white font-extrabold text-3xl max-sm:text-2xl">
                   Congratulations,
                   <br /> you have successfully completed the course
                 </h1>
-                <p className="text-white font-semibold">Certificate was sent to your email!</p>
+                <p className="text-white font-semibold">
+                  Certificate was sent to your email!
+                </p>
                 <div className="space-x-5 mt-3">
-                  <Button color="primary" onPress={() => download()}>Download certificate<DownloadIcon></DownloadIcon></Button>
-                  <Button color="primary" onPress={() => setFinish(false)}>Resume course</Button>
+                  <Button color="primary" onPress={() => download()}>
+                    Download certificate<DownloadIcon></DownloadIcon>
+                  </Button>
+                  <Button color="primary" onPress={() => setFinish(false)}>
+                    Resume course
+                  </Button>
                 </div>
               </button>
             )}

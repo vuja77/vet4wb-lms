@@ -60,6 +60,8 @@ export default function App() {
 
         setCookie("token", res.data.data.token);
         setCookie("user", res.data.data);
+        setCookie("lang", res.data.data.user.language);
+
         router.push("/");
         console.log(res);
         toast.custom((t) => (

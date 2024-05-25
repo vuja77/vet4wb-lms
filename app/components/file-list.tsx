@@ -17,12 +17,19 @@ import ScormModal from "./scorm-modal";
 import VideoModal from "./video-modal";
 import { getCookie, hasCookie } from "cookies-next";
 
-export default function FileList({ data,enable, course }: { data: any, enable:any, course:any }) {
-
+export default function FileList({
+  data,
+  enable,
+  course,
+}: {
+  data: any;
+  enable: any;
+  course: any;
+}) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   useEffect(() => {
-  console.log(getCookie("lang") )
-  })
+    console.log(getCookie("lang"));
+  });
   return (
     <Listbox
       aria-label="User Menu"
@@ -31,40 +38,56 @@ export default function FileList({ data,enable, course }: { data: any, enable:an
         base: "px-3 first:rounded-t-medium last:rounded-b-medium rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80",
       }}
     >
-      {//@ts-ignore
-      data.filter((e:any) => e.langague === getCookie("lang") ? getCookie("lang") : "gb").map((e: any, index: any) => {
-        if (e.type === "scorm1" || e.type === "scorm2") {
-          return (
-            <ListboxItem
-              key="issues"
-              className="w-full"
-              endContent={hasCookie("token") && enable ===1 ? <>{e.langague}<ScormModal data={e} course={course}></ScormModal></> : null}
-              startContent={
-                <IconWrapper className="bg-success/10 text-success">
-                  <BookIcon />
-                </IconWrapper>
-              }
-            >
-              {e.type}
-            </ListboxItem>
-          );
-        } else if (e.type === "video") {
-          return (
-            <ListboxItem
-              key="issues"
-              className="w-full"
-              endContent={<VideoModal data={e}></VideoModal>}
-              startContent={
-                <IconWrapper className="bg-success/10 text-success">
-                  <PlayCircleIcon></PlayCircleIcon>
-                </IconWrapper>
-              }
-            >
-              {e.file_path}
-            </ListboxItem>
-          );
-        }
-      })}
+      {
+        //@ts-ignore
+        data
+          .filter((e: any) =>
+            getCookie("lang")
+              ? e.langague === getCookie("lang")
+              : e.langague === "gb"
+          )
+          .map((e: any, index: any) => {
+            console.log(e);
+            if (e.type === "scorm1" || e.type === "scorm2") {
+              return (
+                <ListboxItem
+                  key="issues"
+                  className="w-full"
+                  endContent={
+                    hasCookie("token") && enable === 1 ? (
+                      <>
+                        {e.langague}
+                        <ScormModal progress={0}data={e} course={course}></ScormModal>
+                      </>
+                    ) : null
+                  }
+                  startContent={
+                    <IconWrapper className="bg-success/10 text-success">
+                      <BookIcon />
+                    </IconWrapper>
+                  }
+                >
+                  {e.type}
+                </ListboxItem>
+              );
+            } else if (e.type === "video") {
+              return (
+                <ListboxItem
+                  key="issues"
+                  className="w-full"
+                  endContent={<VideoModal data={e}></VideoModal>}
+                  startContent={
+                    <IconWrapper className="bg-success/10 text-success">
+                      <PlayCircleIcon></PlayCircleIcon>
+                    </IconWrapper>
+                  }
+                >
+                  {e.file_path}
+                </ListboxItem>
+              );
+            }
+          })
+      }
     </Listbox>
   );
 }
