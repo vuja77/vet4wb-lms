@@ -43,6 +43,7 @@ export default function ScormModal({
           particleCount: 1000,
           spread: 200,
         });
+        send();
       }
     };
 
@@ -52,6 +53,25 @@ export default function ScormModal({
       window.removeEventListener("message", handleIframeMessage);
     };
   }, []);
+  async function send() {
+    await axios
+      .post(
+        "https://moodle.edu4wb.com/api/send-mail/" + course,
+        {},
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${getCookie("token")}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   async function download() {
     try {
       const response = await axios.get(Config.API_URL + "/download/" + course, {
