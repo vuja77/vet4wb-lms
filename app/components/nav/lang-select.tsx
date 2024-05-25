@@ -10,11 +10,13 @@ export default function LangSelect({className}:{className?: string}) {
     setLang(getCookie("lang-icon") ? getCookie("lang-icon") : "gb");
   }, []);
   const router = useRouter();
+  console.log(getCookie('lang'))
   return (
     <Select
       className={className}
       defaultSelectedKeys={"gb"}
       onChange={(e) => {
+        console.log(e.target.value)
         deleteCookie('lang')
         setLang(e.target.value);
         setCookie("lang", e.target.value === "al" ? "sq" : e.target.value);

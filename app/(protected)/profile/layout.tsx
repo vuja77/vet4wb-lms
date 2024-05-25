@@ -24,7 +24,7 @@ export default function DashboardLayout({
   const cookieStore = cookies();
   const lang = cookieStore.get("lang");
   let langague = null;
-
+  console.log(lang)
   if (lang?.value === "gb") {
     langague = translations.gb;
   } else if (lang?.value === "me") {
@@ -36,7 +36,6 @@ export default function DashboardLayout({
   }
   return (
     <div>
-     <Nav lang={langague}></Nav>
 
       <div className="flex">
         <SideBar></SideBar>

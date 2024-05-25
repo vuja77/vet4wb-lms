@@ -20,6 +20,7 @@ import {
   Image,
 } from "@nextui-org/react";
 import { Config } from "@/Config";
+import LangSelect from "../nav/lang-select";
 export default function Footer({ lang }: any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 

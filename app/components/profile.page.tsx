@@ -72,19 +72,17 @@ export default async function ProfilePage({
             <p className="text-small   ">
               Change the appearance of the web.
             </p>
-            <div className="grid grid-cols-2 gap-5">
-              
-            </div>
+              <ThemeSwitcher variant="big"></ThemeSwitcher>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex max-sm:flex-col max-sm:gap-5 justify-between">
             <div>
               <h2 className="text-xl">Select language</h2>
               <p className="text-small ">
-                Change the appearance of the web.
+                Change the language of the web.
               </p>
             </div>
-            <LangSelect className="w-[200px]"></LangSelect>
+            <LangSelect className="w-[200px] max-sm:w-full"></LangSelect>
           </div>
         </Tab>
       </Tabs>

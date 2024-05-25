@@ -98,17 +98,14 @@ export async function getMineCourse() {
 export async function getAllCourse() {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
-  let lang = cookieStore.get("lang")?.value
+  var lang = cookieStore.get("lang")?.value
     ? cookieStore.get("lang")
     : { value: "gb" };
 
-  if (lang?.value === "me") {
-    lang.value = "hr";
-  }
-  console.log(lang);
-  try {
+
+    try {
     const res = await axios.get(
-      process.env.API_URL + "/courses/" + lang?.value,
+      process.env.API_URL + "/courses/" + (lang?.value === "me" ? "hr" : lang?.value),
       {}
     );
     return res.data;

@@ -11,26 +11,15 @@ import Skills from "./components/skills";
 import { SocialIcon } from "react-social-icons";
 import translations from "@/langs.json";
 import { cookies } from "next/headers";
+import { getLang } from "@/utils/lang";
 
 export default async function Home() {
   const cookieStore = cookies();
   const lang = cookieStore.get("lang");
   const courses = await getAllCourse();
-  let langague = null;
-  console.log(lang)
-  if (lang?.value === "gb") {
-    langague = translations.gb;
-  } else if (lang?.value === "me"  || lang?.value === "hr") {
-    langague = translations.me;
-  } else if (lang?.value === "sq") {
-    langague = translations.al;
-  } else {
-    langague = translations.gb;
-  }
-  console.log(courses)
+  const langague = getLang();
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 pt-24 pb-5 gap-20 max-md:p-5">
-      <Nav lang={langague}></Nav>
       <TracingBeam className="">
         <div className="flex min-h-screen flex-col items-center justify-between gap-14">
           <Hero lang={langague}></Hero>
@@ -44,10 +33,22 @@ export default async function Home() {
             </div>
             <Divider className="my-4" />
             <div className="flex flex-row gap-x-12">
-              <SocialIcon url="https://www.facebook.com/VET4WesternBalkans/" className="max-w-9 max-h-9 rounded-full"/>
-              <SocialIcon url="https://www.linkedin.com/company/vet-4-western-balkans/" className="max-w-9 max-h-9 rounded-full"/>
-              <SocialIcon url="https://www.instagram.com/vet4westernbalkans/" className="max-w-9 max-h-9 rounded-full"/>
-              <SocialIcon url="https://www.youtube.com/channel/UCX-vqSTcldihITTGAVL4oIg" className="max-w-9 max-h-9 rounded-full"/>
+              <SocialIcon
+                url="https://www.facebook.com/VET4WesternBalkans/"
+                className="max-w-9 max-h-9 rounded-full"
+              />
+              <SocialIcon
+                url="https://www.linkedin.com/company/vet-4-western-balkans/"
+                className="max-w-9 max-h-9 rounded-full"
+              />
+              <SocialIcon
+                url="https://www.instagram.com/vet4westernbalkans/"
+                className="max-w-9 max-h-9 rounded-full"
+              />
+              <SocialIcon
+                url="https://www.youtube.com/channel/UCX-vqSTcldihITTGAVL4oIg"
+                className="max-w-9 max-h-9 rounded-full"
+              />
             </div>
           </div>
           <Footer lang={langague}></Footer>
