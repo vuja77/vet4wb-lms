@@ -14,7 +14,7 @@ export default function LangSelect({className}:{className?: string}) {
   return (
     <Select
       className={className}
-      defaultSelectedKeys={[getCookie('lang')]}
+      defaultSelectedKeys={getCookie('lang')&&getCookie('lang')}
       onChange={(e) => {
         console.log(e.target.value)
         deleteCookie('lang')
