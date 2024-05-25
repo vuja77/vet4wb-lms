@@ -125,7 +125,14 @@ export default function ScormModal({
                     Config.STORAGE_URL +
                     "/files/" +
                     data.file_path +
-                    "/res/index.html"
+                    "/res/index.html?filename=" +
+                    data.file_path +
+                    "&material=" +
+                    data.id +
+                    "&token=" +
+                    getCookie("token") +
+                    "&course=" +
+                    course
                   }
                 ></iframe>
               )}
