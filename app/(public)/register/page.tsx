@@ -253,6 +253,17 @@ export default function App() {
                       }
                       onChange={(e) => setPhone(e.target.value)}
                     />
+                     {
+                      //@ts-ignore
+                      error.phone && (
+                        <p className="text-red-600 text-xs">
+                          {
+                            //@ts-ignore
+                            error.phone[0]
+                          }
+                        </p>
+                      )
+                    }
                     <Input
                       isRequired
                       label="Social network"
