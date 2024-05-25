@@ -32,6 +32,8 @@ export default function UserCard() {
                 as="button"
                 avatarProps={{
                   isBordered: true,
+                  showFallback: true,
+ 
                   //@ts-ignore
                   src:
                     //@ts-ignore

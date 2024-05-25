@@ -46,7 +46,7 @@ export default function App() {
           email: email,
           school: school === "other" ? otherschool : school,
           phone: phone,
-          language: "gb",
+          language: langauth,
           social: social,
           country: country,
           password: password,
@@ -174,29 +174,22 @@ export default function App() {
                         </p>
                       )
                     }
-                    {
-                      //@ts-ignore
-                      error.email ? (
-                        <Input
-                          isRequired
-                          label="Email"
-                          defaultValue={email}
-                          placeholder="Enter your email"
-                          type="email"
-                          color="danger"
-                          onChange={(e) => setEmail(e.target.value)}
-                        />
-                      ) : (
-                        <Input
-                          isRequired
-                          label="Email"
-                          defaultValue={email}
-                          placeholder="Enter your email"
-                          type="email"
-                          onChange={(e) => setEmail(e.target.value)}
-                        />
-                      )
-                    }
+                    <Input
+                      isRequired
+                      label="Email"
+                      defaultValue={email}
+                      placeholder="Enter your email"
+                      type="email"
+                      name="email"
+                      id="email"
+                      alt="email"
+                      color={
+                        //@ts-ignore
+                        error.email ? "danger" : "default"
+                      }
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+
                     {
                       //@ts-ignore
                       error.email && (
@@ -243,6 +236,45 @@ export default function App() {
                   >
                     <Input
                       isRequired
+                      label="Password"
+                      className="hidden"
+                      placeholder="Enter your password"
+                      type="password"
+                      defaultValue={password}
+                      color={
+                        //@ts-ignore
+                        error.password ? "danger" : "default"
+                      }
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Input
+                      isRequired
+                      label="Password"
+                      className="hidden"
+                      placeholder="Enter your password"
+                      type="password"
+                      defaultValue={password}
+                      color={
+                        //@ts-ignore
+                        error.password ? "danger" : "default"
+                      }
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Input
+                      isRequired
+                      label="Password"
+                      className="hidden"
+                      placeholder="Enter your password"
+                      type="password"
+                      defaultValue={password}
+                      color={
+                        //@ts-ignore
+                        error.password ? "danger" : "default"
+                      }
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Input
+                      isRequired
                       label="Phone number"
                       defaultValue={phone}
                       placeholder="Enter your number"
@@ -253,7 +285,7 @@ export default function App() {
                       }
                       onChange={(e) => setPhone(e.target.value)}
                     />
-                     {
+                    {
                       //@ts-ignore
                       error.phone && (
                         <p className="text-red-600 text-xs">
@@ -269,7 +301,11 @@ export default function App() {
                       label="Social network"
                       placeholder="Enter your social link"
                       type="text"
+                      name="social"
                       defaultValue={social}
+                      
+                      id="social"
+                      alt="social"
                       color={
                         //@ts-ignore
                         error.social ? "danger" : "default"
@@ -290,17 +326,25 @@ export default function App() {
                     <Select
                       placeholder="Select Contry"
                       onChange={(e) => setCountry(e.target.value)}
+                      color={
+                        //@ts-ignore
+                        error.country ? "danger" : "default"
+                      }
                     >
-                      <SelectItem key={"me"}>Montengro</SelectItem>
-                      <SelectItem key={"ba"}>Bosna i Hercegovina</SelectItem>
-                      <SelectItem key={"al"}>Albanian</SelectItem>
-                      <SelectItem key={"ks"}>Kosovo</SelectItem>
+                      <SelectItem key={"Montenegro"}>Montengro</SelectItem>
+                      <SelectItem key={"Bosna i Hercegovina"}>Bosna i Hercegovina</SelectItem>
+                      <SelectItem key={"Albanian"}>Albanian</SelectItem>
+                      <SelectItem key={"Kosovo"}>Kosovo</SelectItem>
                     </Select>
                     <Select
                       placeholder="Select Langague"
                       onChange={(e) => setLangauth(e.target.value)}
+                      color={
+                        //@ts-ignore
+                        error.language ? "danger" : "default"
+                      }
                     >
-                      <SelectItem key={"hr"}>Montengrin - Bosnian</SelectItem>
+                      <SelectItem key={"me"}>Montengrin - Bosnian</SelectItem>
                       <SelectItem key={"sq"}>Albanian</SelectItem>
                       <SelectItem key={"gb"}>English</SelectItem>
                     </Select>

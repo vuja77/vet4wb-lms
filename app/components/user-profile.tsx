@@ -25,6 +25,8 @@ export default function UserProfile({ data }: { data: any }) {
           size: "lg",
           className: "w-24 aspect-square h-24",
           isBordered: true,
+          showFallback: true,
+
           //@ts-ignore
           src:
             //@ts-ignore
