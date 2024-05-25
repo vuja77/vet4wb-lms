@@ -80,15 +80,10 @@ export default function ScormModal({
           Authorization: "Bearer " + getCookie("token"),
         },
       });
-
       const url = window.URL.createObjectURL(new Blob([response.data]));
-
-      // Kreiramo link za preuzimanje
       const link = document.createElement("a");
       link.href = url;
       link.setAttribute("download", "certificate.pdf"); // Postavljamo naziv datoteke za preuzimanje
-
-      // Dodajemo link u DOM i simuliramo klik
       document.body.appendChild(link);
       link.click();
 
@@ -109,14 +104,15 @@ export default function ScormModal({
         onClose={() => setFinish(false)}
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        className="min-w-[80%] h-[90vh] overflow-hidden p-0 my-0"
+        className="min-w-[80%] h-[95vh] overflow-hidden p-0 my-0 "
         closeButton={<button>Close</button>}
         classNames={{
-          body: "py-0",
+          body: "py-0 items-center",
           backdrop: "bg-primary/20 backdrop-opacity-10",
           base: "border-[#292f46] bg-[#19172c] dark:bg-[#19172c] text-[#a8b0d3] py-0 my-0",
           header: "border-b-[1px] border-[#292f46]",
           footer: "border-t-[1px] border-[#292f46]",
+          wrapper: "items-center",
           closeButton:
             "hover:bg-red-500 transition-all w-[120px] h-[30px]  hover:text-white text-center flex justify-center items-center  text-white bg-red-500 active:bg-white/10 z-30 ",
         }}

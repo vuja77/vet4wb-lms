@@ -10,11 +10,11 @@ export default function LangSelect({className}:{className?: string}) {
     setLang(getCookie("lang-icon") ? getCookie("lang-icon") : "gb");
   }, []);
   const router = useRouter();
-  console.log(getCookie('lang'))
+  console.log()
   return (
     <Select
       className={className}
-      defaultSelectedKeys={"gb"}
+      defaultSelectedKeys={[getCookie('lang')]}
       onChange={(e) => {
         console.log(e.target.value)
         deleteCookie('lang')
@@ -26,7 +26,7 @@ export default function LangSelect({className}:{className?: string}) {
       startContent={
         <Avatar
           alt="Argentina"
-          className="w-[22px] object-cover h-5 aspect-square"
+          className="w-7 object-cover h-6 aspect-square"
           src={
             lang != "me"
               ? "https://flagcdn.com/" + lang + ".svg"
