@@ -10,6 +10,7 @@ import { CalendarIcon } from "../icons/CalendarIcon";
 import { FileIcon } from "../icons/FileIcon";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { usePathname } from "next/navigation";
+import { LayoutDashboard, LayoutDashboardIcon, LucideGraduationCap, UserIcon } from "lucide-react";
 
 export default function SideBar() {
   const pathname = usePathname();
@@ -35,7 +36,7 @@ export default function SideBar() {
                 pathname === "/dashboard" && "bg-transparent text-white"
               } bg-success/10 text-success`}
             >
-              <LayoutIcon />
+              <LayoutDashboardIcon size={17} />
             </IconWrapper>
           }
         >
@@ -60,7 +61,7 @@ export default function SideBar() {
         </ListboxItem>
         <ListboxItem
           key="actions"
-          href="/profile"
+          href="/certificates"
           className={`${
             pathname === "/certificates" && "bg-primary text-white"
           } rounded-2xl  `}
@@ -68,7 +69,7 @@ export default function SideBar() {
             <IconWrapper className={`${
               pathname === "/certificates" && "bg-transparent text-white"
             } bg-success/10 text-success`}>
-              <BookIcon></BookIcon>
+             <LucideGraduationCap size={17} />
             </IconWrapper>
           }
         >
@@ -84,7 +85,7 @@ export default function SideBar() {
             <IconWrapper className={`${
               pathname === "/profile" && "bg-transparent text-white"
             } bg-success/10 text-success`}>
-              <BookIcon></BookIcon>
+             <UserIcon size={17}/>
             </IconWrapper>
           }
         >
