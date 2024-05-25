@@ -39,7 +39,7 @@ export default async function ProfilePage({
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
   return (
     <>
-      <Tabs aria-label="Options" className="w-full">
+      <Tabs aria-label="Options" className="" classNames={{tabList: "min-w-full"}}>
         <Tab key="photos" title="Profile"
         >
           <Card className="lg:w-[700px]">
@@ -65,7 +65,7 @@ export default async function ProfilePage({
         <Tab
           key="photos2"
           title="Settings"
-          className="lg:w-[700px] flex flex-col gap-5 max-md:min-w-full"
+          className="lg:w-[700px] flex flex-col gap-5 "
         >
           <div className="">
             <h2 className="text-xl">Theme</h2>

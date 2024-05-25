@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Select, SelectItem, Avatar } from "@nextui-org/react";
-import { getCookie, setCookie } from "cookies-next";
+import { deleteCookie, getCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 export default function LangSelect({className}:{className?: string}) {
   //@ts-ignore
@@ -15,6 +15,7 @@ export default function LangSelect({className}:{className?: string}) {
       className={className}
       defaultSelectedKeys={"gb"}
       onChange={(e) => {
+        deleteCookie('lang')
         setLang(e.target.value);
         setCookie("lang", e.target.value === "al" ? "sq" : e.target.value);
         setCookie("lang-icon", e.target.value);

@@ -17,10 +17,10 @@ export default async function Home() {
   const lang = cookieStore.get("lang");
   const courses = await getAllCourse();
   let langague = null;
-
+  console.log(lang)
   if (lang?.value === "gb") {
     langague = translations.gb;
-  } else if (lang?.value === "me") {
+  } else if (lang?.value === "me"  || lang?.value === "hr") {
     langague = translations.me;
   } else if (lang?.value === "sq") {
     langague = translations.al;
