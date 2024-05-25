@@ -33,7 +33,7 @@ export function ThemeSwitcher() {
     <div>
       <button
         onClick={() => setIsSelected(!isSelected)}
-        className="border-border border rounded-lg flex justify-center items-center aspect-square w-12"
+        className="border-border border-gray-400/20 border rounded-lg flex justify-center items-center aspect-square w-10"
       >
         {isSelected ? <SunIcon /> : <MoonIcon />}
       </button>

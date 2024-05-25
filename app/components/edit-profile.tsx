@@ -81,7 +81,7 @@ export default function EditProfile({ data }: { data: any }) {
   }
   return (
     <>
-      <Button onPress={onOpen} className="bg-white">
+      <Button onPress={onOpen} className="bg-transparent aspect-square">
         <Settings2 color="#179440" />
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
