@@ -1,6 +1,5 @@
 import SideBar from "@/app/components/Sidebar/sidebar";
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
-import NavDashboard from "@/app/components/nav/nav-dashboard";
 import UserCard from "@/app/components/user-card";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";

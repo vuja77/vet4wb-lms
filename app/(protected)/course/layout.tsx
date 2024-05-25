@@ -1,7 +1,6 @@
 import SideBar from "@/app/components/Sidebar/sidebar";
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
 import Nav from "@/app/components/nav/nav";
-import NavDashboard from "@/app/components/nav/nav-dashboard";
 import CourseSideBar from "@/app/components/protected/sidebar/course-sidebar";
 import UserCard from "@/app/components/user-card";
 import type { Metadata } from "next";
