@@ -26,7 +26,6 @@ export default function MyCourseLayout({
 let langague = getLang()
   return (
     <div>
-      <Nav lang={langague}></Nav>
 
       <div className="flex">
         <SideBar lang={langague}></SideBar>

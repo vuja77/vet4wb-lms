@@ -43,12 +43,10 @@ export async function getCourse(id: number) {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
   const lang = cookieStore.get("lang");
-  if (lang?.value === "me") {
-    lang.value = "hr";
-  }
+ 
   try {
     const res = await axios.get(
-      process.env.API_URL + "/course/" + id + "?lang=" + lang?.value,
+      process.env.API_URL + "/course/" + id + "?lang=" + (lang?.value === "me" ? "hr" : lang?.value),
       {
         headers: {
           Authorization: "Bearer " + token?.value,
@@ -65,13 +63,11 @@ export async function getCourseNotAuth(id: number) {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
   const lang = cookieStore.get("lang");
-  if (lang?.value === "me") {
-    lang.value = "hr";
-  }
+ 
   console.log(token);
   try {
     const res = await axios.get(
-      process.env.API_URL + "/course-info/" + id + "/" + lang?.value,
+      process.env.API_URL + "/course-info/" + id + "/" + (lang?.value === "me" ? "hr" : lang?.value),
       {}
     );
     console.log(res.data);

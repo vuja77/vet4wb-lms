@@ -35,7 +35,6 @@ export default function DashboardLayout({
   }
   return (
     <div>
-      <Nav lang={langague}></Nav>
 
       <div className="flex">
         <SideBar lang={langague}></SideBar>
