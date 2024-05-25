@@ -303,7 +303,6 @@ export default function App() {
                       type="text"
                       name="social"
                       defaultValue={social}
-                      
                       id="social"
                       alt="social"
                       color={
@@ -332,7 +331,9 @@ export default function App() {
                       }
                     >
                       <SelectItem key={"Montenegro"}>Montengro</SelectItem>
-                      <SelectItem key={"Bosna i Hercegovina"}>Bosna i Hercegovina</SelectItem>
+                      <SelectItem key={"Bosna i Hercegovina"}>
+                        Bosna i Hercegovina
+                      </SelectItem>
                       <SelectItem key={"Albanian"}>Albanian</SelectItem>
                       <SelectItem key={"Kosovo"}>Kosovo</SelectItem>
                     </Select>

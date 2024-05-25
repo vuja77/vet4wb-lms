@@ -30,7 +30,7 @@ export default function ImageSlider() {
       {slides.map((slide, index) => (
         <>
           {index === currentSlide && (
-            <motion.div animate={{ x: [-100, 0] }}>
+            <motion.div animate={{ opacity: [40, 100] }}>
               <Image
                 src={slide.url}
                 className={

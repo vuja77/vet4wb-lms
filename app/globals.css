@@ -55,3 +55,8 @@ nav header.max-w-\[1024px\] {
   object-fit: contain;
   background-position: center;
 }
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}
