@@ -48,7 +48,7 @@ export default function CertCard({
     }
   }
   return (
-    <Card className="h-[370px] max-w-[350px] cursor-pointer border border-content1 hover:border-primary  transition-all">
+    <Card key={data.id} className="h-[370px] max-w-[350px] cursor-pointer border border-content1 hover:border-primary  transition-all">
       <CardBody className="overflow-visible rounded-[0px] py-2 p-0">
         <Image
           alt="Card background"
