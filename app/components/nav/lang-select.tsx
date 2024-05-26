@@ -3,21 +3,21 @@ import React, { useEffect, useState } from "react";
 import { Select, SelectItem, Avatar } from "@nextui-org/react";
 import { deleteCookie, getCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
-export default function LangSelect({className}:{className?: string}) {
+export default function LangSelect({ className }: { className?: string }) {
   //@ts-ignore
   const [lang, setLang] = React.useState(getCookie("lang-icon"));
   useEffect(() => {
     setLang(getCookie("lang-icon") ? getCookie("lang-icon") : "gb");
   }, []);
   const router = useRouter();
-  console.log()
+  console.log();
   return (
     <Select
       className={className}
-      defaultSelectedKeys={getCookie('lang')&&getCookie('lang')}
+      defaultSelectedKeys={getCookie("lang") && getCookie("lang")}
       onChange={(e) => {
-        console.log(e.target.value)
-        deleteCookie('lang')
+        console.log(e.target.value);
+        deleteCookie("lang");
         setLang(e.target.value);
         setCookie("lang", e.target.value === "al" ? "sq" : e.target.value);
         setCookie("lang-icon", e.target.value);

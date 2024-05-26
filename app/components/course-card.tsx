@@ -42,7 +42,7 @@ export default function CourseCard({
           </Button> */}
         </CardHeader>
         <CardBody className="overflow-visible py-2 gap-3 ">
-          {progress && <Progress label={true} value={22}></Progress>}
+          {progress && <Progress label={true} value={data.progress}></Progress>}
           
 
           <Image
