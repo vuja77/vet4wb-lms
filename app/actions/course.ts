@@ -91,6 +91,20 @@ export async function getMineCourse() {
   }
 }
 
+export async function getMineCert() {
+  const cookieStore = cookies();
+  const token = cookieStore.get("token");
+  try {
+    const res = await axios.get(process.env.API_URL + "/mine-cert/", {
+      headers: {
+        Authorization: "Bearer " + token?.value,
+      },
+    });
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
+}
 export async function getAllCourse() {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
