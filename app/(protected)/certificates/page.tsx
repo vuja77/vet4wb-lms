@@ -33,9 +33,7 @@ export default async function App() {
       <div className="grid grid-cols-2 max-sm:w-full justify-items-center gap-10 max-lg:grid-cols-2 max-[600px]:grid-cols-1">
         {cert &&
           cert.map((e: any, index: number) => {
-            return (
-              <CertCard data={e}/>
-            );
+            return <CertCard data={e} key={index}/>;
           })}
       </div>
     </main>
