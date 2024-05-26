@@ -26,6 +26,7 @@ export default function Nav({ lang }: any) {
     ? [
         { name: "Dashboard", link: "/dashboard" },
         { name: "My courses", link: "/my-course" },
+        { name: "Certificates", link: "/certificates" },
         { name: "Profile", link: "/profile" },
         { name: "Site", link: "https://vet4wb.com/news/" },
       ]

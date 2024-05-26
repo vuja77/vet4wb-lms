@@ -42,7 +42,11 @@ export default async function ProfilePage({
       <Tabs
         aria-label="Options"
         className=""
-        classNames={{ tabList: "min-w-full", tabContent: "space-y-5 gap-5", panel: "space-y-5" }}
+        classNames={{
+          tabList: "min-w-full",
+          tabContent: "space-y-5 gap-5",
+          panel: "space-y-5",
+        }}
       >
         <Tab key="photos" title="Profile">
           <Card className="lg:w-[700px]">
@@ -56,15 +60,13 @@ export default async function ProfilePage({
                 <Divider className="my-4" />
               </div>
             </div>
-
-            
           </div>
           <div className="grid grid-cols-3 max-sm:w-full justify-items-center gap-10 max-lg:grid-cols-2 max-[600px]:grid-cols-1">
-              {courses &&
-                courses.map((e: any, index: number) => {
-                  return <CourseCard data={e} key={index}></CourseCard>;
-                })}
-            </div>
+            {courses &&
+              courses.map((e: any, index: number) => {
+                return <CourseCard data={e} key={index} progress></CourseCard>;
+              })}
+          </div>
         </Tab>
         <Tab
           key="photos2"
