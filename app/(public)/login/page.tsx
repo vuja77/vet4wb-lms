@@ -10,6 +10,7 @@ import {
   CardBody,
   CardHeader,
   Image,
+  Checkbox,
 } from "@nextui-org/react";
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
 import { Config } from "@/Config";
@@ -19,6 +20,7 @@ import { setCookie, getCookie } from "cookies-next";
 import translations from "@/langs.json";
 import LangSelect from "@/app/components/nav/lang-select";
 import ImageSlider from "@/app/components/image-slider";
+import { Check } from "lucide-react";
 
 export default function App() {
   const [selected, setSelected] = React.useState<string | number>("login");
@@ -148,6 +150,8 @@ export default function App() {
                   </p>
                 )
               }
+            <Checkbox>Remember me</Checkbox>
+
               <p className="text-center text-small">
                 {
                   //@ts-ignore
@@ -171,6 +175,7 @@ export default function App() {
                   </p>
                 )
               }
+
               <div className="flex gap-2 justify-end">
                 <Button fullWidth color="primary" onClick={() => login()}>
                   {
