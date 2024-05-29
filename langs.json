@@ -32,7 +32,7 @@
     "settings": "Settings",
     "activities": "Activities",
     "log_out": "Log out",
-    "Resume_course": "Resume course",
+    "resume_course": "Resume course",
     "no_course": "No course on your language"
   },
   "me": {
@@ -69,7 +69,7 @@
     "lang_desc":"Prilagodite izgled sajta.",
     "theme_desc":"Prilagotite jezik na sajtu",
     "settings": "Podešavanja",
-    "Resume_course": "Nastavi kurs",
+    "resume_course": "Nastavi kurs",
     "no_course": "Trenutno nema kursa na vašem jeziku"
 
 
@@ -104,7 +104,7 @@
     "Congratulations_you_have successfully completed the course": "Urime, ju keni kryer me sukses kursin",
     "Certificate was sent to your email!": "Certifikata u dërgua në e-maili-n tuaj",
     "Download certificate": "Shkarkoni certificatën",
-    "Resume_course": "Vazhdoni kursin",
+    "resume_course": "Vazhdoni kursin",
     "select_lang": "Zgjidhni një gjuhë",
     "theme": "Tema",
     "settings_desc":"Personalizo cilësimet, preferencat e postës elektronike dhe pamjen në ueb.",
