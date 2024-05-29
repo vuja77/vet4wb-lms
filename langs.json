@@ -31,20 +31,22 @@
     "theme_desc":"Change the language of the web.",
     "settings": "Settings",
     "activities": "Activities",
-    "log_out": "Log out"
+    "log_out": "Log out",
+    "Resume_course": "Resume course",
+    "no_course": "No course on your language"
   },
   "me": {
     "home": "Početna",
     "activities": "Aktivnosti",
     "dashboard": "Kontrolna tabla",
-    "welcome": "Dobro došli na VET4WB learning platformu",
+    "welcome": "Dobro došli na VET4WB platformu za učenje",
     "courses": "Kursevi",
     "author": "Autor",
     "social": "Društvene Mreže",
     "login": "Prijavi se",
     "signup": "Registruj se",
     "footer": "Podrška Evropske komisije u izradi ove publikacije ne predstavlja odobravanje sadržaja koji odražavaju samo stavove autora, pa se Komisija ne može smatrati odgovornom za bilo kakvu upotrebu informacija sadržanih u njoj.",
-    "start": "Započni kurs",
+    "start": "Započni sada",
     "Lessons": "Lekcije",
     "need": "Need to create an account?",
     "already": "Already have an account?",
@@ -66,7 +68,11 @@
     "settings_desc":"Prilagodite nalog, jezik i temu",
     "lang_desc":"Prilagodite izgled sajta.",
     "theme_desc":"Prilagotite jezik na sajtu",
-    "settings": "Podešavanja"
+    "settings": "Podešavanja",
+    "Resume_course": "Nastavi kurs",
+    "no_course": "Trenutno nema kursa na vašem jeziku"
+
+
   },
   "al": {
     "home": "Shtëpi",
@@ -78,7 +84,7 @@
     "signup": "Regjistrohu",
     "social": "Rrjete sociale",
     "footer": "Mbështetja e Komisionit Evropian për prodhimin e këtij botimi nuk përbën një miratim të përmbajtjes, e cila pasqyron vetëm pikëpamjet e autorëve, dhe Komisioni nuk mund të mbahet përgjegjës për çdo përdorim që mund t'i bëhet informacionit të përmbajtur në të.",
-    "start": "Filloni kursin",
+    "start": "futeni tani",
     "Lessons": "Mësimet",
     "need": "Keni nevojë për të krijuar një llogari?",
     "already": "Posedoni një llogari?",
@@ -98,13 +104,15 @@
     "Congratulations_you_have successfully completed the course": "Urime, ju keni kryer me sukses kursin",
     "Certificate was sent to your email!": "Certifikata u dërgua në e-maili-n tuaj",
     "Download certificate": "Shkarkoni certificatën",
-    "Resume course": "Vazhdoni kursin",
+    "Resume_course": "Vazhdoni kursin",
     "select_lang": "Zgjidhni një gjuhë",
     "theme": "Tema",
     "settings_desc":"Personalizo cilësimet, preferencat e postës elektronike dhe pamjen në ueb.",
     "lang_desc":"Ndryshoni pamjen e uebit.",
     "theme_desc":"Ndryshoni gjuhën e uebit.",
     "settings": "Cilësimet",
-    "activities": "Aktivitetet"
+    "activities": "Aktivitetet",
+    "no_course": "Asnjë kurs në gjuhën tuaj"
+
   }
 }
