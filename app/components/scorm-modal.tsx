@@ -25,10 +25,12 @@ export default function ScormModal({
   data,
   course,
   progress,
+  lang,
 }: {
   data: any;
   course: any;
   progress: any;
+  lang:any;
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   var triangle = confetti.shapeFromPath({ path: "M0 10 L5 0 L10 10z" });
@@ -96,8 +98,8 @@ export default function ScormModal({
   }
   return (
     <>
-      <Button onPress={onOpen} color="primary">
-        {progress > 0 ? "Resume course" : "Start course"}
+      <Button onPress={onOpen} color="primary" className="uppercase">
+        {progress > 0 ? lang.resume_course : lang.start}
       </Button>
 
       <Modal

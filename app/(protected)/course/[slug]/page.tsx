@@ -74,6 +74,7 @@ export default async function App({ params }: { params: any }) {
                         ? e.langague === cookieStore.get("lang")?.value
                         : e.langague === "gb"
                     )[0] ?  <ScormModal
+                    lang={langague}
                     data={
                       course.lessons[0].materials.filter((e: any) =>
                         cookieStore.has("lang")
