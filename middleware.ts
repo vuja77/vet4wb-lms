@@ -7,7 +7,7 @@ const ADMIN_API_URL = 'https://moodle.edu4wb.com/api/details';
 
 export async function middleware(request:NextRequest) {
   const url = request.nextUrl.clone();
-
+  let role = 1;
   // Provjerite da li ruta sadrži /admin
   if (url.pathname.startsWith('/admin')) {
     // Uzimanje tokena iz kolačića
@@ -19,16 +19,16 @@ export async function middleware(request:NextRequest) {
     }
 
     // Provjerite da li korisnik ima administratorske privilegije
-    const response = await fetch(ADMIN_API_URL, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    });
+    // const response = await fetch(ADMIN_API_URL, {
+    //   method: 'GET',
+    //   headers: {
+    //     'Authorization': `Bearer ${token}`
+    //   }
+    // });
 
-    const data = await response.json();
+    // const data = await response.json();
 
-    if (!token) {
+    if (role === 1) {
       // Ako korisnik nije admin, preusmjerite ga na stranicu za login ili neku drugu stranicu
       return NextResponse.redirect(new URL('/login', request.url));
     }
