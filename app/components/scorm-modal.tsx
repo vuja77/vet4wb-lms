@@ -30,7 +30,7 @@ export default function ScormModal({
   data: any;
   course: any;
   progress: any;
-  lang:any;
+  lang?:any;
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   var triangle = confetti.shapeFromPath({ path: "M0 10 L5 0 L10 10z" });
