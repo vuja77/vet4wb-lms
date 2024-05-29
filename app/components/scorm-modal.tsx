@@ -35,7 +35,7 @@ export default function ScormModal({
   const [finish, setFinish] = useState(false);
   useEffect(() => {
     const handleIframeMessage = (event: any) => {
-      if (event.data === "FUNCTION_CALLED") {
+      if (event.data === "FUNCTION_CALLED" && progress < 100) {
         console.log("Funkcija je pozvana u iFrame-u");
         setFinish(true);
         confetti({
