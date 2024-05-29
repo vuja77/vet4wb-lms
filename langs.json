@@ -29,19 +29,21 @@
     "settings_desc":"Customize settings, email preferences, and web appearance.",
     "lang_desc":"Change the appearance of the web.",
     "theme_desc":"Change the language of the web.",
-    "settings": "Settings"
+    "settings": "Settings",
+    "activities": "Activities"
 
   },
   "me": {
     "home": "Početna",
-    "dashboard": "Dashboard",
+    "activities": "Aktivnosti",
+    "dashboard": "Kontrolna tabla",
     "welcome": "Dobro došli na VET4WB learning platformu",
     "courses": "Kursevi",
     "author": "Autor",
     "social": "Društvene Mreže",
     "login": "Prijavi se",
     "signup": "Registruj se",
-    "footer": "The European Commission’s support for the production of this publication does not constitute an endorsement of the contents, which reflect the views only of the authors, and the Commission cannot be held responsible for any use which may be made of the information contained therein.",
+    "footer": "Podrška Evropske komisije u izradi ove publikacije ne predstavlja odobravanje sadržaja koji odražavaju samo stavove autora, pa se Komisija ne može smatrati odgovornom za bilo kakvu upotrebu informacija sadržanih u njoj.",
     "start": "Započni kurs",
     "Lessons": "Lekcije",
     "need": "Need to create an account?",
@@ -74,7 +76,7 @@
     "login": "Identifikohu",
     "signup": "Regjistrohu",
     "social": "Rrjete sociale",
-    "footer": "Mbështetja e Komisionit Evropian për prodhimin e këtij publikimi nuk përbën një miratim të përmbajtjes, e cila pasqyron vetëm pikëpamjet e autorëve, dhe Komisioni nuk mund të mbahet përgjegjës për çdo përdorim që mund të bëhet i informacionit që përmban.",
+    "footer": "Mbështetja e Komisionit Evropian për prodhimin e këtij botimi nuk përbën një miratim të përmbajtjes, e cila pasqyron vetëm pikëpamjet e autorëve, dhe Komisioni nuk mund të mbahet përgjegjës për çdo përdorim që mund t'i bëhet informacionit të përmbajtur në të.",
     "start": "Filloni kursin",
     "Lessons": "Mësimet",
     "need": "Keni nevojë për të krijuar një llogari?",
@@ -101,7 +103,7 @@
     "settings_desc":"Personalizo cilësimet, preferencat e postës elektronike dhe pamjen në ueb.",
     "lang_desc":"Ndryshoni pamjen e uebit.",
     "theme_desc":"Ndryshoni gjuhën e uebit.",
-    "settings": "Cilësimet"
-
+    "settings": "Cilësimet",
+    "activities": "Aktivitetet"
   }
 }
