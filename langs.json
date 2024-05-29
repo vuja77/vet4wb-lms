@@ -33,7 +33,10 @@
     "activities": "Activities",
     "log_out": "Log out",
     "resume_course": "Resume course",
-    "no_course": "No course on your language"
+    "no_course": "No course on your language",
+    "Congratulations_you_have": "Congratulations, you have successfully completed the course",
+    "certificate_was_sent": "The certificate has been sent to you by e-mail",
+    "download_certificate": "Download certificate"
   },
   "me": {
     "home": "Početna",
@@ -70,8 +73,10 @@
     "theme_desc":"Prilagotite jezik na sajtu",
     "settings": "Podešavanja",
     "resume_course": "Nastavi kurs",
-    "no_course": "Trenutno nema kursa na vašem jeziku"
-
+    "no_course": "Trenutno nema kursa na vašem jeziku",
+    "Congratulations_you_have": "Čestitamo uspješno ste završili kurs",
+    "certificate_was_sent": "Sertifikat je posalt na vas e-mail",
+    "download_certificate": "Preuzmi sertifikat"
 
   },
   "al": {
@@ -101,9 +106,9 @@
     "have_a_question2": "Nëse keni ndonjë pyetje, ju lutemi na kontaktoni!",
     "contact_us": "Na kontaktoni",
     "log_out": "log out (dilni)",
-    "Congratulations_you_have successfully completed the course": "Urime, ju keni kryer me sukses kursin",
-    "Certificate was sent to your email!": "Certifikata u dërgua në e-maili-n tuaj",
-    "Download certificate": "Shkarkoni certificatën",
+    "Congratulations_you_have": "Urime, ju keni kryer me sukses kursin",
+    "certificate_was_sent": "Certifikata u dërgua në e-maili-n tuaj",
+    "download_certificate": "Shkarkoni certificatën",
     "resume_course": "Vazhdoni kursin",
     "select_lang": "Zgjidhni një gjuhë",
     "theme": "Tema",
