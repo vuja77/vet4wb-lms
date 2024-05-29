@@ -86,7 +86,7 @@ export default function Nav({ lang }: any) {
             </>
           ) : (
             <NavbarItem>
-              <UserCard></UserCard>
+              <UserCard lang={lang}></UserCard>
             </NavbarItem>
           )}
           <NavbarItem>

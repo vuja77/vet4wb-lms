@@ -14,11 +14,13 @@ import { Config } from "@/Config";
 import { getCookie, deleteCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-export default function UserCard() {
+export default function UserCard({lang}:any) {
   const [user, setUser] = useState();
   useEffect(() => {
     //@ts-ignore
     setUser(JSON.parse(localStorage.getItem("data")));
+  console.log(lang)
+
   }, []);
   const router = useRouter();
   return (
@@ -71,7 +73,7 @@ export default function UserCard() {
           }
         </DropdownTrigger>
         <DropdownMenu aria-label="User Actions" variant="flat">
-          <DropdownItem key="settings" href="/profile">My Profile</DropdownItem>
+          <DropdownItem key="settings" href="/profile">{lang && lang.my_profile}</DropdownItem>
           <DropdownItem
             key="logout"
             color="danger"
@@ -89,7 +91,7 @@ export default function UserCard() {
               ));
             }}
           >
-            Log Out
+           {lang && lang.log_out}
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
