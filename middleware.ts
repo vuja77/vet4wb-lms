@@ -30,7 +30,7 @@ export async function middleware(request:NextRequest) {
 
     if (role === 1) {
       // Ako korisnik nije admin, preusmjerite ga na stranicu za login ili neku drugu stranicu
-      return NextResponse.redirect(new URL('/login', request.url));
+     // return NextResponse.redirect(new URL('/login', request.url));
     }
   }
 

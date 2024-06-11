@@ -306,7 +306,6 @@ export default function App() {
                       )
                     }
                     <Input
-                      isRequired
                       label="Social network"
                       placeholder="Enter your social link"
                       type="text"
