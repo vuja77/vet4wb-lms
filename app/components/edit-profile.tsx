@@ -22,7 +22,7 @@ import { useRouter } from "next/navigation";
 import { Settings2 } from "lucide-react";
 
 export default function EditProfile({ data }: { data: any }) {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange,onClose } = useDisclosure();
   //@ts-ignore
   const [name, setName] = useState(
   //@ts-ignore
@@ -67,6 +67,7 @@ export default function EditProfile({ data }: { data: any }) {
       .then((res) => {
         console.log(res);
         router.refresh();
+        onClose();
         toast.custom((t) => (
           <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
             <CardBody>
