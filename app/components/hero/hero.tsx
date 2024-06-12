@@ -46,7 +46,7 @@ export default function Hero({ lang }: any) {
 
         <div className="space-x-10">
           <Button className="text-white bg-white text-primary">
-            {lang.start}
+            <Link href="/login">{lang.start}</Link>
           </Button>
         </div>
       </div>
