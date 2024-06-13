@@ -18,7 +18,7 @@ const config = {
         white: "#FFFFFF",
         primary2: "#104421",
         secondary: "#F47A45",
-        primary: "#179440",
+        primary: "#104421",
         black: "#000000",
         blue: {
           50: "#e6f1fe",

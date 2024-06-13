@@ -26,7 +26,7 @@ export default function CourseCard({
 
   return (
     <Link href={"course/" + data.id}>
-      <Card className="max-h-[370px] max-w-[350px] cursor-pointer hover:border-primary border border-content1 transition-all">
+      <Card className="max-h-[370px] max-w-[320px] cursor-pointer hover:border-primary border border-content1 transition-all">
         <CardBody className="overflow-visible rounded-[0px] py-2 p-0">
           {/* <p className="text-tiny uppercase font-bold absolute z-20 m-2 self-end bg-primary rounded-full p-2 w-[240px] text-center text-white">
                     {e.course_type.name}
