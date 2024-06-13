@@ -50,9 +50,10 @@ nav header.max-w-\[1024px\] {
 }
 
 .bg-photo {
-  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/IMG_5673.jpg');
+  background:linear-gradient(rgba(16,68,33,0.5), rgba(16,68,33,0.5)), url('/WhatsApp slika 2024-06-13 u 22.18.50_7cab49c3.jpg');
   object-position: center;
-  object-fit: contain;
+  object-fit: cover;
+  background-size: cover;
   background-position: center;
 }
 input[type='text'],
