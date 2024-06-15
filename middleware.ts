@@ -18,17 +18,16 @@ export async function middleware(request:NextRequest) {
       return NextResponse.redirect(new URL('/login', request.url));
     }
 
-    // Provjerite da li korisnik ima administratorske privilegije
-    // const response = await fetch(ADMIN_API_URL, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Authorization': `Bearer ${token}`
-    //   }
-    // });
+    
+    const response = await (await fetch(ADMIN_API_URL, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })).json();
 
     // const data = await response.json();
-
-    if (role === 1) {
+    if (response.role_id === 795734325693) {
       // Ako korisnik nije admin, preusmjerite ga na stranicu za login ili neku drugu stranicu
      // return NextResponse.redirect(new URL('/login', request.url));
      return NextResponse.redirect(new URL('/login', request.url));

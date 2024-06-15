@@ -28,9 +28,9 @@ export default function Nav({ lang }: any) {
         { name: "My courses", link: "/my-course" },
         { name: "Certificates", link: "/certificates" },
         { name: "Profile", link: "/profile" },
-        { name: "Site", link: "https://vet4wb.com/news/" },
+        { name: "Activities", link: "https://vet4wb.com/news/" },
       ]
-    : [{ name: "Site", link: "https://vet4wb.com/news/" }];
+    : [{ name: "Activities", link: "https://vet4wb.com/news/" }];
   console.log(pathname.split("/"));
   if (pathname.includes("login") || pathname === "/register") {
     return <></>;

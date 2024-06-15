@@ -57,7 +57,7 @@ export default function FileList({
                     hasCookie("token") && enable === 1 ? (
                       <>
                         {e.langague}
-                        <ScormModal progress={0}data={e} course={course}></ScormModal>
+                        {/* <ScormModal  progress={0}data={e} course={course}></ScormModal> */}
                       </>
                     ) : null
                   }
