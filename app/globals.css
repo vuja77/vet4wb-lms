@@ -3,22 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 0, 0, 0; /* Black */
+  --background-start-rgb: 214, 219, 220; /* Light gray */
+  --background-end-rgb: 255, 255, 255; /* White */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255; /* White */
+    --background-start-rgb: 34, 34, 34; /* Dark gray */
+    --background-end-rgb: 34, 34, 34; /* Dark gray */
   }
 }
 
-body {
- 
-}
 
 @layer utilities {
   .text-balance {
@@ -35,14 +32,14 @@ nav header.max-w-\[1024px\] {
 .Typewriter span {
   font-weight: 800;
   font-size: 50px;
-  color: white;
+  color: rgb(var(--foreground-rgb));
 }
 
 @media only screen and (max-width: 768px) {
   .Typewriter span {
     font-weight: 800;
     font-size: 30px;
-    color: white;
+    color: rgb(var(--foreground-rgb));
   }
   button.user div {
     display: none;

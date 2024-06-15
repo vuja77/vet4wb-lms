@@ -50,6 +50,7 @@ export function ThemeSwitcher({ variant }: { variant?: string }) {
     return (
       <div>
         <button
+        aria-label="theme"
           onClick={() => setIsSelected(!isSelected)}
           className="border-border border-gray-400/20 border rounded-lg flex justify-center items-center aspect-square w-10"
         >

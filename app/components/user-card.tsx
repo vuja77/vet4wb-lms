@@ -19,7 +19,6 @@ export default function UserCard({lang}:any) {
   useEffect(() => {
     //@ts-ignore
     setUser(JSON.parse(localStorage.getItem("data")));
-  console.log(lang)
 
   }, []);
   const router = useRouter();
