@@ -27,7 +27,7 @@ export async function middleware(request:NextRequest) {
     })).json();
 
     // const data = await response.json();
-    if (response.role_id === 795734325693) {
+    if (response.role_id != 795734325693) {
       // Ako korisnik nije admin, preusmjerite ga na stranicu za login ili neku drugu stranicu
      // return NextResponse.redirect(new URL('/login', request.url));
      return NextResponse.redirect(new URL('/login', request.url));
