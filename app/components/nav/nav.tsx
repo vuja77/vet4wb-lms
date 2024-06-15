@@ -47,31 +47,31 @@ export default function Nav({ lang }: any) {
             className="sm:hidden"
           />
           <NavbarBrand>
-            <Link href="/">
-              <Image src="/logo.png" width={70}></Image>
+            <Link aria-label="link home" href="/" >
+              <Image src="/logo.png" width={70} alt="logo"></Image>
             </Link>
           </NavbarBrand>
         </NavbarContent>
 
         <NavbarContent className="hidden dark:text-white sm:flex gap-4" justify="center">
           <NavbarItem isActive>
-            <Link href="/" className="dark:text-white">{lang.home}</Link>
+            <Link aria-label="link home" href="/" className="dark:text-white">{lang.home}</Link>
           </NavbarItem>
           {hasCookie("token") && (
             <NavbarItem>
-              <Link href="/dashboard" className="dark:text-white">{lang.dashboard}</Link>
+              <Link aria-label="link home" href="/dashboard" className="dark:text-white">{lang.dashboard}</Link>
             </NavbarItem>
           )}
 
           <NavbarItem>
-            <Link href="https://vet4wb.com/news/" className="dark:text-white">{lang.activities}</Link>
+            <Link aria-label="link home" href="https://vet4wb.com/news/"  className="dark:text-white">{lang.activities}</Link>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justify="end">
           {!hasCookie("token") ? (
             <>
               <NavbarItem className="hidden lg:flex">
-                <Link href="/login">{lang.login}</Link>
+                <Link aria-label="link home" href="/login">{lang.login}</Link>
               </NavbarItem>
               <NavbarItem>
                 <Button
@@ -96,7 +96,7 @@ export default function Nav({ lang }: any) {
         </NavbarContent>
         <NavbarMenu className="gap-10 pt-10">
           <NavbarMenuItem key={"pocetna"}>
-            <Link
+            <Link aria-label="link home"
               color={pathname.split("/")[1] === "" ? "primary" : "secondary"}
               className="w-full"
               href={"/"}
@@ -107,7 +107,7 @@ export default function Nav({ lang }: any) {
           </NavbarMenuItem>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
+              <Link aria-label="link home"
                 color={
                   pathname.split("/")[1].includes(item.link)
                     ? "primary"
