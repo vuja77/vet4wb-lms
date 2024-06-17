@@ -31,7 +31,7 @@ export default function Nav({ lang }: any) {
         { name: "Activities", link: "https://vet4wb.com/news/" },
       ]
     : [{ name: "Activities", link: "https://vet4wb.com/news/" }];
-  if (pathname.includes("login") || pathname === "/register") {
+  if (pathname.includes("login") || pathname === "/register" || pathname === "/3d-town") {
     return <></>;
   } else {
     return (
