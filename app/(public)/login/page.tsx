@@ -42,11 +42,8 @@ export default function App() {
         setCookie("user", res.data.data, { maxAge: 31536000 });
         setCookie("lang", res.data.data.user.language, { maxAge: 31536000 });
 
-        if (res.data.data.user.role_id === 2) {
-          router.push("/admin/dashboard");
-        } else if (res.data.data.user.role_id === 1) {
+        
           router.push("dashboard");
-        }
       })
       .catch((error) => {
         console.log(error);
