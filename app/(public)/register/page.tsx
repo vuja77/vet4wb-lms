@@ -58,19 +58,19 @@ export default function App() {
         }
       )
       .then((res) => {
-        localStorage.setItem("data", JSON.stringify(res.data.data));
-        localStorage.setItem("user", JSON.stringify(res.data.data.user));
+        // localStorage.setItem("data", JSON.stringify(res.data.data));
+        // localStorage.setItem("user", JSON.stringify(res.data.data.user));
 
-        setCookie("token", res.data.data.token);
-        setCookie("user", res.data.data);
-        setCookie("lang", res.data.data.user.language);
+        // setCookie("token", res.data.data.token);
+        // setCookie("user", res.data.data);
+        // setCookie("lang", res.data.data.user.language);
 
-        router.push("/");
+        router.push("/login");
         console.log(res);
         toast.custom((t) => (
           <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
             <CardBody>
-              <p>👏, {res.data.data.user && res.data.data.user.name} Welcome</p>
+              <p>Verify your mail</p>
             </CardBody>
           </Card>
         ));
