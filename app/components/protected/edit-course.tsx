@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, { useState } from "react";
 import {
@@ -22,20 +22,15 @@ import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import { Config } from "@/Config";
 import toast, { Toaster } from "react-hot-toast";
-import { Blob } from "buffer";
 import { getCookie } from "cookies-next";
-import { useRouter } from "next/navigation";
-export default function AddMaterials({id}: {id:number}) {
+import { Edit } from "lucide-react";
+export default function EditCourse({data}:any) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [previewImage, setPreviewImage] = useState(null);
   const [name, setName] = useState("");
-  const [lang, setLang] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState();
-  const [file, setFile] = useState<Blob>();
-  const [type, setType] = useState("");
-  const router = useRouter()
-  console.log(id)
+  const [category, setCategory] = useState("");
   const { getRootProps, getInputProps } = useDropzone({
     //@ts-ignore
     accept: "image/*",
@@ -52,44 +47,35 @@ export default function AddMaterials({id}: {id:number}) {
     },
   });
 
-  async function handleSubmit() {
+  const handleSubmit = () => {
+  
     const formData = new FormData();
     //@ts-ignore
-    formData.append("type", type);
-    //@ts-ignore
-    formData.append("file", file);
-    //@ts-ignore
-    formData.append("lesson_id", id);
-    formData.append("lang", lang);
-    console.log(formData);
-    console.log(type)
-    await axios
-      .post(Config.API_URL + "/material", formData, {
+    formData.append("cover_photo", photo);
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("course_type_id", category);
+
+    axios
+      .post(`${Config.API_URL}/update-course/${data.id}`, formData, {
         headers: {
-          Authorization:
-            "Bearer "+getCookie('token'),
+          Authorization: `Bearer ${getCookie('token')}`,
         },
       })
       .then((res) => {
         console.log(res);
-        toast.custom((t) => (
-          <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
-            <CardBody>
-              <p>👏, Material added successfuly</p>
-            </CardBody>
-          </Card>
-        ));
-        router.refresh()
+        toast.success('👏 Blog edited successfully');
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
+        toast.error('Failed to edit the blog');
       });
-  }
+  };
   const notify = () => toast("Here is your toast.");
   return (
     <>
-      <Button onPress={onOpen} color="primary" className="w-full">
-        Add new material<PlusIcon></PlusIcon>
+      <Button onPress={onOpen} color="primary">
+        Edit course<Edit></Edit>
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
         <ModalContent>
@@ -99,48 +85,50 @@ export default function AddMaterials({id}: {id:number}) {
                 Create course
               </ModalHeader>
               <ModalBody>
+                <div
+                  {...getRootProps()}
+                  className="border-border border-dashed border-content3 border-2 rounded-lg min-h-[200px] flex items-center justify-center text-center text-content4"
+                >
+                  <input {...getInputProps()} />
+                  {previewImage ? (
+                    <img
+                      src={previewImage}
+                      alt="Preview"
+                      className="rounded-lg w-full "
+                    />
+                  ) : (
+                    <img
+                    src={Config.STORAGE_URL+"/"+data.thumbnail}
+                    alt="Preview"
+                    className="rounded-lg w-full "
+                  />
+                  )}
+                </div>
+
                 <Input
-                  type="file"
-                  name="file"
-                  label="File"
-                  placeholder="Select a file"
-                  className="max-w-full"
+                  label="Course Name"
+                  placeholder="Enter course name"
                   variant="bordered"
-                //@ts-ignore
-                  onChange={(e) => setFile(e.target.files[0])}
-                ></Input>
-
+                  name="course name"
+                  defaultValue={data.name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <Input
+                  label="Description"
+                  placeholder="Enter course description"
+                  variant="bordered"
+                  defaultValue={data.description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
                 <Select
-                  label="Type"
-                  placeholder="Select an type"
+                  label="Category"
+                  placeholder="Select an category"
                   className="max-w-full"
                   variant="bordered"
-                  onChange={(e) => setType(e.target.value)}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
-                  <SelectItem value="scorm1" key="scorm1">
-                    Articulate
-                  </SelectItem>
-                  <SelectItem value="scorm2" key="scorm2">
-                   Ispring
-                  </SelectItem>
-                </Select>
-
-
-                <Select
-                  label="Type"
-                  placeholder="Select an lang"
-                  className="max-w-full"
-                  variant="bordered"
-                  onChange={(e) => setLang(e.target.value)}
-                >
-                  <SelectItem value="scorm" key="gb">
-                    English
-                  </SelectItem>
-                  <SelectItem value="scorm" key="me">
-                    Montenegrin
-                  </SelectItem>
-                  <SelectItem value="scorm" key="sq">
-                    Albanian
+                  <SelectItem value={1} key={1}>
+                    aaa
                   </SelectItem>
                 </Select>
               </ModalBody>

@@ -23,33 +23,44 @@ import { getCourse } from "@/app/actions/course";
 import AccordionLesson from "@/app/components/lessons/accordion";
 import AccordionLessonAdmin from "@/app/components/lessons/accordion-admin";
 import { Config } from "@/Config";
+import { cookies } from "next/headers";
+import { getLang } from "@/utils/lang";
+import EditCourse from "@/app/components/protected/edit-course";
 
 export default async function App({ params }: { params: any }) {
   const course = await getCourse(params.slug);
-  
+  const cookieStore = cookies();
+  const hasCookie = cookieStore.has("theme");
+ 
+  const langague = getLang();
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
   return (
     <main className=" min-h-[100vh] pt-[100px] p-32 space-y-10 max-md:p-5 max-md:pt-[100px] mr-[100px]">
       <Card>
-        <CardBody className="grid grid-cols-2 max-md:grid-cols-1 max-md:grid-rows-2">
+      <Card>
+        <CardBody className="grid grid-cols-2 p-0 max-md:grid-cols-1 max-md:grid-rows-2 max-md:w-full ">
           <Image
-            src={Config.STORAGE_URL+"/" + course.thumbnail}
-            className="aspect-video"
+            src={Config.STORAGE_URL + "/" + course.thumbnail}
+            className="aspect-video object-cover"
           ></Image>
-          <div className="p-5 space-y-5">
-            <p className="text-tiny uppercase font-bold ">
-              {" "}
-               {course.course_type.name}
-            </p>
-            <small className="text-default-500">
-            Teacher: {course.course_type.name}
+          <div className="p-5 space-y-5 max-md:p-1 flex flex-col justify-between">
+            {/* <p className="text-tiny uppercase font-bold ">
+              {course.course_type.name}
+            </p> */}
+
+            <small className="text-default-500 text-sm flex flex-row gap-1">
+              {langague?.author}:{" "}
+              <div dangerouslySetInnerHTML={{ __html: course.teacher }}></div>
             </small>
             <h4 className="font-bold text-large line-clamp-2">{course.name}</h4>
-            <small className="text-default-500 line-clamp-2"> {course.description}</small>
-            <Progress aria-label="Loading..." value={60} className="max-w-md" />
+            <small className="text-default-500 line-clamp-2">
+              {course.description}
+            </small>
+              <EditCourse data={course}></EditCourse>
           </div>
         </CardBody>
+      </Card>
       </Card>
       <div className="">
         <div className="space-y-1 flex justify-between">
