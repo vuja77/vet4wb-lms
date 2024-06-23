@@ -43,7 +43,9 @@ export default async function ProfilePage({
         aria-label="Options"
         className=""
         classNames={{
-          tabList: "min-w-full",
+          tabList: "w-[700px]",
+          base: "w-full",
+
           tabContent: "space-y-5 gap-5",
           panel: "space-y-5",
         }}
@@ -61,7 +63,7 @@ export default async function ProfilePage({
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-2 max-sm:w-full justify-items-center gap-10 max-lg:grid-cols-2 max-[600px]:grid-cols-1">
+          <div className="grid grid-cols-4 max-sm:w-full justify-items-center gap-5 max-lg:grid-cols-2 max-[600px]:grid-cols-1 min-w-full">
             {courses &&
               courses.map((e: any, index: number) => {
                 return <CourseCard data={e} key={index} progress></CourseCard>;

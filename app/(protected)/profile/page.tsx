@@ -28,7 +28,7 @@ export default async function Page({ params }: { params: any }) {
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
   return (
-    <main className="w-fit max-sm:w-full pl-24 min-h-[100vh] pt-[100px] flex flex-col  space-y-5 max-md:p-5 max-md:pt-[100px]  ">
+    <main className="min-h-[100vh] pt-[100px] p-12 max-sm:p-2 max-sm:pt-24 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:w-full w-full">
       <h1 className="font-bold text-3xl">{language.my_profile}</h1>
       <p className="text-small">
       {language.settings_desc}
