@@ -80,11 +80,12 @@ export async function getMineCourse() {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
   try {
-    const res = await axios.get(process.env.API_URL + "/mine-courses/", {
+    const res = await axios.get(process.env.API_URL + "/mine-courses", {
       headers: {
         Authorization: "Bearer " + token?.value,
       },
     });
+    console.log(res)
     return res.data;
   } catch (err) {
     console.log(err);

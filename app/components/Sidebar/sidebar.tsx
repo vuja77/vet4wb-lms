@@ -35,7 +35,7 @@ export default function SideBar({ lang }: any) {
     <>
       <Listbox
         aria-label="User Menu"
-        className="p-0 px-5 gap-4 space-y-5   sticky  inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/10 max-w-[270px] pt-[100px] max-md:hidden border-r dark:border-gray-400/20"
+        className="p-0 px-5 gap-4 space-y-5   sticky  inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/10 max-w-[240px] pt-[100px] max-md:hidden border-r dark:border-gray-400/20"
         itemClasses={{
           base: "px-3 rounded-none gap-3 h-12 data-[hover=true]:bg-transparent",
         }}

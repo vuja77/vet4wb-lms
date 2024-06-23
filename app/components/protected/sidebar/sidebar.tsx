@@ -15,7 +15,7 @@ export default function SideBar() {
     
     <Listbox
       aria-label="User Menu"
-      className="p-0 gap-0  data-[menu-open=true]:border-none sticky  inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/40 max-w-[270px] pt-[100px] max-md:hidden"
+      className="p-0 gap-0  data-[menu-open=true]:border-none sticky  inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/40 max-w-[250px] pt-[100px] max-md:hidden"
       itemClasses={{
         base: "px-3 rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80",
       }}
