@@ -1,34 +1,13 @@
 "use client";
 import React from "react";
 import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
+
   Link,
   Button,
-  Image,
 } from "@nextui-org/react";
 import Typewriter from "typewriter-effect";
 
 export default function Hero({ lang }: any) {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
 
   return (
     <div className="bg-photo min-w-full   rounded-3xl px-12 max-md:px-3 max-md:flex max-md:flex-col grid grid-cols-3 h-[680px] max-sm:max-h-[550px] max-md:h-space-y-10 max-md:mt-[100px]">
@@ -46,7 +25,7 @@ export default function Hero({ lang }: any) {
         />
 
         <div className="space-x-10">
-          <Button className="text-white bg-white text-primary">
+          <Button className=" bg-white text-primary">
             <Link href="/login">{lang.start}</Link>
           </Button>
         </div>
