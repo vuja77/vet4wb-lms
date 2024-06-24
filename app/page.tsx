@@ -7,7 +7,7 @@ import { TracingBeam } from "./components/tracking-beam";
 import { SocialIcon } from "react-social-icons";
 import { cookies } from "next/headers";
 import { getLang } from "@/utils/lang";
-
+export const dynamic = 'force-static';
 export default async function Home() {
   const courses = await getAllCourse();
   const langague = getLang();
