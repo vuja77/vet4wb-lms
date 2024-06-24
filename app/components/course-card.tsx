@@ -2,10 +2,8 @@
 import React from "react";
 import {
   Card,
-  CardHeader,
   CardBody,
   Image,
-  Button,
   Progress,
   CardFooter,
 } from "@nextui-org/react";
@@ -44,7 +42,7 @@ export default function CourseCard({
             <div>
               <small className="text-default-500 flex gap-1">
                 Author:{" "}
-                <div dangerouslySetInnerHTML={{ __html: data.teacher }} className="p-3 mr-5 teacher"></div>
+                <div dangerouslySetInnerHTML={{ __html: data.teacher }} ></div>
               </small>
               <h4 className="font-bold text-large line-clamp-2">{data.name}</h4>
             </div>

@@ -1,20 +1,12 @@
 "use client";
 import React from "react";
 import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
+
   Link,
-  Button,
   Divider,
 } from "@nextui-org/react";
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   Image,
@@ -27,7 +19,6 @@ export default function Featured({
   courses: any;
   lang: any;
 }) {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
     <>
@@ -47,10 +38,7 @@ export default function Featured({
                 className="py-4 p-0 border border-[#104421] dark:border-[#104421] hover:border-primary transition-all cursor-pointer rounded-none h-[430px]"
               >
                 <CardBody className="overflow-visible rounded-[0px] py-2 p-0">
-                  {/* <p className="text-tiny uppercase font-bold absolute z-20 m-2 self-end bg-primary rounded-full p-2 w-[240px] text-center text-white">
-                    {e.course_type.name}
-                  </p> */}
-
+                
                   <Image
                     alt="Card background"
                     className="object-cover   z-10 min-w-full h-[300px]"
@@ -61,7 +49,7 @@ export default function Featured({
                   />
                   <CardFooter className="flex flex-col items-start gap-2">
                     <small className="text-default-500 flex gap-1">
-                      {lang.author}: <div dangerouslySetInnerHTML={{ __html: e.teacher }}></div>
+                      {lang.author}: <div dangerouslySetInnerHTML={{ __html: e.teacher }} className="p-2"></div>
                     </small>
                     <h4 className="font-bold text-large">{e.name}</h4>
                   </CardFooter>
