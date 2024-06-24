@@ -20,6 +20,7 @@ import toast from "react-hot-toast";
 import { useDropzone } from "react-dropzone";
 import { useRouter } from "next/navigation";
 import { Settings2 } from "lucide-react";
+import Image from "next/image";
 
 export default function EditProfile({ data }: { data: any }) {
   const { isOpen, onOpen, onOpenChange,onClose } = useDisclosure();
@@ -99,7 +100,9 @@ export default function EditProfile({ data }: { data: any }) {
                 >
                   <input {...getInputProps()} />
                   {previewImage ? (
-                    <img
+                    <Image
+                    width={600}
+                    height={600}
                       src={previewImage}
                       alt="Preview"
                       className="aspect-square rounded-full object-cover cursor-pointer hover:brightness-50 transition-all"

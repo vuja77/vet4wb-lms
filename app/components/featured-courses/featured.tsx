@@ -53,7 +53,7 @@ export default function Featured({
 
                   <Image
                     alt="Card background"
-                    className="object-cover rounded-none rounded-[0px] z-10 min-w-full h-[300px]"
+                    className="object-cover   z-10 min-w-full h-[300px]"
                     width={1000}
                     radius="none"
                     src={Config.STORAGE_URL + "/" + e.thumbnail}

@@ -24,6 +24,7 @@ import { Config } from "@/Config";
 import toast, { Toaster } from "react-hot-toast";
 import { getCookie } from "cookies-next";
 import { Edit } from "lucide-react";
+import Image from "next/image";
 export default function EditCourse({data}:any) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [previewImage, setPreviewImage] = useState(null);
@@ -91,13 +92,17 @@ export default function EditCourse({data}:any) {
                 >
                   <input {...getInputProps()} />
                   {previewImage ? (
-                    <img
+                    <Image
+                    height={600}
+                    width={600}
                       src={previewImage}
                       alt="Preview"
                       className="rounded-lg w-full "
                     />
                   ) : (
-                    <img
+                    <Image
+                    height={600}
+                    width={600}
                     src={Config.STORAGE_URL+"/"+data.thumbnail}
                     alt="Preview"
                     className="rounded-lg w-full "

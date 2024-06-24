@@ -47,7 +47,7 @@ export default function Nav({ lang }: any) {
           />
           <NavbarBrand>
             <Link aria-label="link home" href="/" >
-              <Image src="/logo.webp" width={70} alt="logo"></Image>
+              <Image src="/logo.webp" width={70} height={70} alt="logo"></Image>
             </Link>
           </NavbarBrand>
         </NavbarContent>

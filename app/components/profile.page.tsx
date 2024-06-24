@@ -2,29 +2,17 @@
 import {
   Tabs,
   Tab,
-  Input,
-  Link,
-  Button,
+
   Card,
-  CardBody,
-  CardHeader,
-  Image,
-  Progress,
+
 } from "@nextui-org/react";
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
 import CourseCard from "@/app/components/course-card";
 import { Divider } from "@nextui-org/react";
-import { Accordion, AccordionItem } from "@nextui-org/react";
-import AccordionLesson from "@/app/components/lessons/accordion";
-import { getCourse, getMineCourse } from "@/app/actions/course";
-import EditProfile from "@/app/components/edit-profile";
 import UserProfile from "@/app/components/user-profile";
-import { getDetails } from "@/app/actions/user";
 
 import LangSelect from "./nav/lang-select";
-import { useEffect, useState } from "react";
-import { tree } from "next/dist/build/templates/app-page";
-export default async function ProfilePage({
+export default function ProfilePage({
   params,
   user,
   courses,
@@ -35,8 +23,7 @@ export default async function ProfilePage({
   courses: any;
   lang?: any;
 }) {
-  const defaultContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+ 
   return (
     <>
       <Tabs

@@ -30,13 +30,13 @@ export default function Footer({ lang }: any) {
         <div className="grid grid-cols-5">
           <div className="col-span-2 max-sm:col-span-5 flex max-md:flex-col items-center gap-3 ">
             <Link href="https://vet4wb.com">
-              <Image src="/logo.webp" width={100} alt="logo footer 2"></Image>
+              <Image src="/logo.webp" width={100} height={100} alt="logo footer 2"></Image>
             </Link>
             <p className="w-full col-span-3 max-md:text-[13px] hidden max-sm:block">
               {lang.footer}
             </p>
             <Link href="https://european-union.europa.eu/index_en">
-              <Image src="/co-funded-vertical3.webp" width={250} alt="logo footer"></Image>
+              <Image src="/co-funded-vertical3.webp" width={250} height={100} alt="logo footer"></Image>
             </Link>
           </div>
           <p className="w-full col-span-3 max-md:text-small max-sm:hidden">

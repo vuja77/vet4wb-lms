@@ -33,6 +33,7 @@ export default function ImageSlider() {
             <motion.div animate={{ opacity: [40, 100] }}>
               <Image
                 src={slide.url}
+                alt="1000"
                 className={
                   index === currentSlide
                     ? "rounded-none max-md:brightness-50 filter  object-cover min-h-[100vh] "

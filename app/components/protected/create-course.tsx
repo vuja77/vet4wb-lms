@@ -23,6 +23,7 @@ import axios from "axios";
 import { Config } from "@/Config";
 import toast, { Toaster } from "react-hot-toast";
 import { getCookie } from "cookies-next";
+import Image from "next/image";
 export default function CreateCourse() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [previewImage, setPreviewImage] = useState(null);
@@ -93,7 +94,9 @@ export default function CreateCourse() {
                 >
                   <input {...getInputProps()} />
                   {previewImage ? (
-                    <img
+                    <Image
+                    width={600}
+                    height={600}
                       src={previewImage}
                       alt="Preview"
                       className="rounded-lg w-full "

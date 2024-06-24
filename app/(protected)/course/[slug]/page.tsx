@@ -48,6 +48,9 @@ export default async function App({ params }: { params: any }) {
           <Image
             src={Config.STORAGE_URL + "/" + course.thumbnail}
             className="aspect-video object-cover rounded-r-none"
+            alt="image"
+            width={1000}
+            height={500}
           ></Image>
           <div className="p-5 space-y-5 max-md:p-1 flex flex-col justify-between">
             {/* <p className="text-tiny uppercase font-bold ">

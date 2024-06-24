@@ -423,6 +423,7 @@ export default function App({ params }: { params: any }) {
       <Card>
         <CardBody className="flex flex-row gap-5">
           <Image
+          alt="image"
             src={"http://127.0.0.1:8000/storage/" + course?.thumbnail}
             width={100}
           />
