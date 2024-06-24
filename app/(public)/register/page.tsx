@@ -76,16 +76,18 @@ export default function App() {
         ));
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data['name']);
         setError(error && error.response.data);
-        console.log(error['name']);
-        console.log(error.email);
-        if (
-          
-          error.response.data.name[0] ||
-          error.response.data.email[0] ||
-          error.response.data.password[0]
-        ) {
+        console.log(error.response.data.password[0]);
+        console.log(error.response.data.email[0]);
+        console.log(error.response.data.name[0]);
+
+        const passwordError = error.response.data.password?.[0] ?? "";
+        const emailError = error.response.data.email?.[0] ?? "";
+        const nameError = error.response.data.name?.[0] ?? "";
+
+        const firstError = passwordError || emailError || nameError;
+        if (error.response.data['name']) {
           setStep(1);
         } else {
           setStep(2);

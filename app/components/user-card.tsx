@@ -34,7 +34,7 @@ export default function UserCard({lang}:any) {
                 avatarProps={{
                   isBordered: true,
                   showFallback: true,
- 
+                  alt: "user",
                   //@ts-ignore
                   src:
                     //@ts-ignore

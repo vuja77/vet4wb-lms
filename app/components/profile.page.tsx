@@ -73,7 +73,7 @@ export default async function ProfilePage({
         <Tab
           key="photos2"
           title={lang.settings}
-          className="lg:w-[700px] flex flex-col gap-5 "
+          className="lg:w-[700px] max-md:w-full flex flex-col gap-5 "
         >
           <div className="">
             <h2 className="text-xl">{lang.theme}</h2>
