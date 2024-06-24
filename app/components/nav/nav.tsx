@@ -70,7 +70,7 @@ export default function Nav({ lang }: any) {
           {!hasCookie("token") ? (
             <>
               <NavbarItem className="hidden lg:flex">
-                <Link aria-label="link home" href="/login">{lang.login}</Link>
+                <Link aria-label="link home" href="/login" className="dark:text-white">{lang.login}</Link>
               </NavbarItem>
               <NavbarItem>
                 <Button
@@ -78,6 +78,7 @@ export default function Nav({ lang }: any) {
                   color="primary"
                   href="/register"
                   variant="flat"
+                  className="dark:text-white dark:bg-white/20"
                 >
                   {lang.signup}
                 </Button>
