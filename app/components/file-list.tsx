@@ -14,7 +14,6 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import ScormModal from "./scorm-modal";
-import VideoModal from "./video-modal";
 import { getCookie, hasCookie } from "cookies-next";
 
 export default function FileList({
@@ -72,18 +71,19 @@ export default function FileList({
               );
             } else if (e.type === "video") {
               return (
-                <ListboxItem
-                  key="issues"
-                  className="w-full"
-                  endContent={<VideoModal data={e}></VideoModal>}
-                  startContent={
-                    <IconWrapper className="bg-success/10 text-success">
-                      <PlayCircleIcon></PlayCircleIcon>
-                    </IconWrapper>
-                  }
-                >
-                  {e.file_path}
-                </ListboxItem>
+                <></>
+                // <ListboxItem
+                //   key="issues"
+                //   className="w-full"
+                //   endContent={<VideoModal data={e}></VideoModal>}
+                //   startContent={
+                //     <IconWrapper className="bg-success/10 text-success">
+                //       <PlayCircleIcon></PlayCircleIcon>
+                //     </IconWrapper>
+                //   }
+                // >
+                //   {e.file_path}
+                // </ListboxItem>
               );
             }
           })

@@ -1,12 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Avatar,
-  User,
   Card,
   CardBody,
   Button,

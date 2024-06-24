@@ -1,21 +1,14 @@
-import { Divider, Image } from "@nextui-org/react";
-import Nav from "./components/nav/nav";
+import { Divider } from "@nextui-org/react";
 import Hero from "./components/hero/hero";
 import Featured from "./components/featured-courses/featured";
-import Popular from "./components/popular-courses/popular";
 import { getAllCourse } from "./actions/course";
 import Footer from "./components/footer/footer";
-import { CardBody, CardContainer, CardItem } from "@/app/components/3d-card";
 import { TracingBeam } from "./components/tracking-beam";
-import Skills from "./components/skills";
 import { SocialIcon } from "react-social-icons";
-import translations from "@/langs.json";
 import { cookies } from "next/headers";
 import { getLang } from "@/utils/lang";
 
 export default async function Home() {
-  const cookieStore = cookies();
-  const lang = cookieStore.get("lang");
   const courses = await getAllCourse();
   const langague = getLang();
   return (

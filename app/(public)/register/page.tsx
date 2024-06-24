@@ -1,14 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import {
-  Tabs,
-  Tab,
   Input,
   Link,
   Button,
   Card,
   CardBody,
-  CardHeader,
   Image,
   Select,
   SelectItem,
@@ -16,15 +13,13 @@ import {
 import { Config } from "@/Config";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { setCookie, getCookie } from "cookies-next";
+import {  getCookie } from "cookies-next";
 import translations from "@/langs.json";
 import toast from "react-hot-toast";
-import LangSelect from "@/app/components/nav/lang-select";
 import { motion } from "framer-motion";
 import { MoveLeft, MoveRight } from "lucide-react";
 import ImageSlider from "@/app/components/image-slider";
 export default function App() {
-  const [selected, setSelected] = React.useState<string | number>("login");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [name, setName] = useState("");
@@ -112,14 +107,7 @@ export default function App() {
     }
   });
   const [step, setStep] = useState(1);
-  const images = [
-    "IMG_5673.jpg",
-    "1713126423.webp",
-    "1713126470.jpg",
-    "1713126456.webp",
-    "1713126443.jpg",
-  ];
-  const [activeImage, setIamage] = useState("IMG_5673.jpg");
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     { url: "IMG_5673.jpg", caption: "Slika 1" },

@@ -9,9 +9,6 @@ export const metadata: Metadata = {
   description:
   'The "VET for Western Balkans" project aims to contribute to the improvement and modernization of VET systems in four partner countries in the Western Balkans: Albania, Bosnia and Herzegovina, Montenegro and Kosovo, and reinforcement of the links between VET and labour market.',
 };
-import { cookies } from "next/headers";
-import Image from "next/image";
-import translations from "@/langs.json";
 import Nav from "./components/nav/nav";
 import { getLang } from "@/utils/lang";
 import { Suspense } from "react";
@@ -21,7 +18,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const langague = getLang();
-
   return (
     <html lang="en">
       <head></head>
