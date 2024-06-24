@@ -109,6 +109,7 @@ export default function App({ params }: { params: any }) {
           <Image
             src={"http://127.0.0.1:8000/storage/" + course?.thumbnail}
             width={100}
+            alt="thumb"
           />
           <div>
             <small className="text-default-500">12 Tracks</small>
