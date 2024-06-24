@@ -140,11 +140,11 @@ export default function App() {
       <main className="grid grid-cols-2 h-[100vh] p-0 max-md:grid-cols-1 overflow-hidden">
         <ImageSlider></ImageSlider>
         <div className="flex justify-center items-center min-h-full">
-          <div className="absolute top-0 right-0 m-10">
-            <Link href="/">
-              <Image src="/logo.png" className="w-20"></Image>
-            </Link>
-          </div>
+        <div className="absolute top-0 right-0 m-10 flex justify-center max-sm:w-full max-sm:m-0 max-sm:pt-12">
+          <Link href="/">
+            <Image src="/logo.webp" className="w-20 z-60 opacity-100"></Image>
+          </Link>
+        </div>
           <Card className="w-[340px]">
             <CardBody className="overflow-hidden  space-y-5 pt-5">
               <h1 className="text-center font-bold text-2xl ">

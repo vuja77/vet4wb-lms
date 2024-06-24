@@ -41,9 +41,7 @@ export default function App() {
         setCookie("token", res.data.data.token, { maxAge: 31536000 });
         setCookie("user", res.data.data, { maxAge: 31536000 });
         setCookie("lang", res.data.data.user.language, { maxAge: 31536000 });
-
-        
-          router.push("dashboard");
+        router.push("dashboard");
       })
       .catch((error) => {
         console.log(error);
@@ -72,9 +70,9 @@ export default function App() {
     <main className="grid grid-cols-2 h-[100vh] p-0 max-md:grid-cols-1 overflow-hidden">
       <ImageSlider />
       <div className="flex justify-center items-center min-h-full">
-        <div className="absolute top-0 right-0 m-10">
+        <div className="absolute top-0 right-0 m-10 flex justify-center max-sm:w-full max-sm:m-0 max-sm:pt-12">
           <Link href="/">
-            <Image src="/logo.png" className="w-20"></Image>
+            <Image src="/logo.webp" className="w-20 z-60 opacity-100"></Image>
           </Link>
         </div>
         <Card className="w-[340px] max-h-[450px]">
@@ -85,7 +83,6 @@ export default function App() {
                 langague ? langague.login : translations.gb.login
               }
             </h1>
-
             <form className="flex flex-col gap-4">
               {
                 //@ts-ignore
