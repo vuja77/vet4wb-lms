@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255; /* Black */
+  --foreground-rgb: 0, 0, 0; /* Black */
   --background-start-rgb: 214, 219, 220; /* Light gray */
   --background-end-rgb: 255, 255, 255; /* White */
 }
@@ -32,7 +32,7 @@ nav header.max-w-\[1024px\] {
 .Typewriter span {
   font-weight: 800;
   font-size: 50px;
-  color: rgb(var(--foreground-rgb));
+  color: white;
 }
 
 @media only screen and (max-width: 768px) {
