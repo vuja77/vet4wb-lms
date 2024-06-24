@@ -44,7 +44,7 @@ export default function CourseCard({
             <div>
               <small className="text-default-500 flex gap-1">
                 Author:{" "}
-                <div dangerouslySetInnerHTML={{ __html: data.teacher }}></div>
+                <div dangerouslySetInnerHTML={{ __html: data.teacher }} className="p-3"></div>
               </small>
               <h4 className="font-bold text-large line-clamp-2">{data.name}</h4>
             </div>
