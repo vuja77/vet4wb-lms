@@ -47,7 +47,7 @@ export function ThemeSwitcher({ variant }: { variant?: string }) {
 
         <button
           aria-label="theme"
-          onClick={() => setTheme("dark")}
+          onClick={() => {localStorage.removeItem("theme");setTheme("dark")}}
           className={`border-border border-gray-400/20 border rounded-lg flex justify-center items-center p-5 hover:bg-slate-200/15 transition-all ${
             theme === "dark" && "bg-slate-200/15 "
           }`}
