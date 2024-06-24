@@ -7,11 +7,8 @@ import {
   Progress,
   CardFooter,
 } from "@nextui-org/react";
-import { HeartIcon } from "./icons/HeartIcon";
 import Link from "next/link";
 import { Config } from "@/Config";
-import axios from "axios";
-import { getCookie } from "cookies-next";
 
 export default function CourseCard({
   data,

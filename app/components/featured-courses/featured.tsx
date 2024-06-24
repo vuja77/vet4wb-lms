@@ -49,7 +49,7 @@ export default function Featured({
                   />
                   <CardFooter className="flex flex-col items-start gap-2">
                     <small className="text-default-500 flex gap-1">
-                      {lang.author}: <div dangerouslySetInnerHTML={{ __html: e.teacher }} className="p-2"></div>
+                      {lang.author}: <div dangerouslySetInnerHTML={{ __html: e.teacher }} ></div>
                     </small>
                     <h4 className="font-bold text-large">{e.name}</h4>
                   </CardFooter>

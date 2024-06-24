@@ -106,7 +106,7 @@ export default function ScormModal({
         onClose={() => setFinish(false)}
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        className="min-w-[80%] h-[95vh] max-sm:h-[90vh] overflow-hidden p-0 my-0 "
+        className="min-w-[80%] h-[95vh] max-sm:h-[85vh] overflow-hidden p-0 my-0 "
         closeButton={<button>Close</button>}
         classNames={{
           body: "py-0 items-center",
@@ -124,7 +124,7 @@ export default function ScormModal({
             <>
               {data.type === "scorm1" ? (
                 <iframe
-                  className="min-h-[95vh] max-sm:h-[90vh]"
+                  className="min-h-[95vh] max-sm:h-[85vh]"
                   src={
                     "https://edu4wb.com/files/a.html?filename=" +
                     data.file_path +
@@ -138,7 +138,7 @@ export default function ScormModal({
                 ></iframe>
               ) : (
                 <iframe
-                  className="min-h-[95vh] max-sm:h-[90vh]"
+                  className="min-h-[95vh] max-sm:h-[85vh]"
                   src={
                     Config.STORAGE_URL +
                     "/files/" +
