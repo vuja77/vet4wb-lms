@@ -1,13 +1,18 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  i18n: {
-    
-    locales: ["en-US", "fr", "nl-NL"],
-  
-    defaultLocale: "en-US",
+import withBundleAnalyzer from '@next/bundle-analyzer';
 
-  },
+// Define your Next.js configuration object
+const nextConfig = {
+
   compress: true,
 };
 
-export default nextConfig;
+// Create the bundle analyzer configuration
+const bundleAnalyzerConfig = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+// Export the merged configuration
+export default {
+  ...bundleAnalyzerConfig,
+  ...nextConfig,
+};

@@ -30,6 +30,7 @@
     "vet4wb-lms": "file:"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-big-calendar": "^1.8.9",
