@@ -26,6 +26,7 @@ import { Config } from "@/Config";
 import { cookies } from "next/headers";
 import { getLang } from "@/utils/lang";
 import EditCourse from "@/app/components/protected/edit-course";
+import AddVideo from "@/app/components/protected/add-video";
 
 export default async function App({ params }: { params: any }) {
   const course = await getCourse(params.slug);
@@ -71,6 +72,7 @@ export default async function App({ params }: { params: any }) {
             </p>
           </div>
           <CreateLesson id={params.slug}></CreateLesson>
+          <AddVideo id={params.slug}></AddVideo>
         </div>
 
         <Divider className="my-4" />
