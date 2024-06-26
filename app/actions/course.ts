@@ -85,7 +85,8 @@ export async function getVideo(id: number) {
   console.log(token);
   try {
     const res = await axios.get(
-      process.env.API_URL + "/course-videos/" + id + "/" + (lang?.value),
+      process.env.API_URL + "/course-videos/" + id + "/" + (lang ? lang?.value : "gb"),
+
       {}
     );
     return res.data;

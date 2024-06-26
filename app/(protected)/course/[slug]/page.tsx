@@ -106,9 +106,8 @@ export default async function App({ params }: { params: any }) {
           </div>
         </CardBody>
       </Card>
-      {video.videos ?  <video width="1920" height="240" controls preload="true" className="rounded-xl" autoPlay muted>
+      {video.videos ?  <video width="1920" height="240" controls  className="rounded-xl" autoPlay muted poster="/POZADINA-VET-BALKANS-EDITED-NEW 1.webp">
       <source src={"https://moodle.edu4wb.com/"+video.videos[0].url} type="video/mp4" className="rounded-md" />
-   
     </video> : <div className="flex-1 flex justify-center items-center"><p>No video</p></div>}
      
       {/* <div className="">
