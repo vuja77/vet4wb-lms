@@ -32,7 +32,7 @@ export default async function App({ params }: { params: any }) {
   const cookieStore = cookies();
   const hasCookie = cookieStore.has("theme");
   let course = null;
-  const video = await getVideo(params.slug,cookieStore.get("lang")?.value)
+  const video = await getVideo(params.slug)
   console.log(video)
   if (cookieStore.has("token")) {
     course = await getCourse(params.slug);
@@ -106,14 +106,9 @@ export default async function App({ params }: { params: any }) {
           </div>
         </CardBody>
       </Card>
-      {video.videos ?  <video width="1920" height="240" controls preload="none">
-      <source src="https://moodle.edu4wb.com/storage/videos/MUPK1d67YqNM2VzE1r8Q5urF9IXPA7YeYiq69QBw.mp4" type="video/mp4" />
-      <track
-        src="/path/to/captions.vtt"
-        kind="subtitles"
-        srcLang="en"
-        label="English"
-      />
+      {video.videos ?  <video width="1920" height="240" controls preload="true" className="rounded-xl" autoPlay muted>
+      <source src={"https://moodle.edu4wb.com/"+video.videos[0].url} type="video/mp4" className="rounded-md" />
+   
     </video> : <div className="flex-1 flex justify-center items-center"><p>No video</p></div>}
      
       {/* <div className="">

@@ -58,7 +58,7 @@ export default function AddVideo({ id }: { id: number }) {
     const formData = new FormData();
     //@ts-ignore
     //@ts-ignore
-    formData.append("video", file);
+    formData.append("video_zip", file);
     //@ts-ignore
     formData.append("course_id", id);
     formData.append("display_name",name);
