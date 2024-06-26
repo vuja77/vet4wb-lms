@@ -76,6 +76,25 @@ export async function getCourseNotAuth(id: number) {
     console.log(err);
   }
 }
+
+export async function getVideo(id: number) {
+  const cookieStore = cookies();
+  const token = cookieStore.get("token");
+  const lang = cookieStore.get("lang");
+ 
+  console.log(token);
+  try {
+    const res = await axios.get(
+      process.env.API_URL + "/course-videos/" + id + "/" + (lang?.value),
+      {}
+    );
+    return res.data;
+  } catch (err:any) {
+    console.log(err);
+    return err.data
+  }
+}
+
 export async function getMineCourse() {
   const cookieStore = cookies();
   const token = cookieStore.get("token");

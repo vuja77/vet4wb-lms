@@ -19,7 +19,7 @@ import CreateCourse from "@/app/components/protected/create-course";
 import FileList from "@/app/components/file-list";
 import CreateLesson from "@/app/components/protected/lesson-create";
 import { PlusIcon } from "@/app/components/icons/PlusIcon";
-import { getCourse, getCourseNotAuth, startCourse } from "@/app/actions/course";
+import { getCourse, getCourseNotAuth, getVideo, startCourse } from "@/app/actions/course";
 import AccordionLesson from "@/app/components/lessons/accordion";
 import AccordionLessonAdmin from "@/app/components/lessons/accordion-admin";
 import { cookies } from "next/headers";
@@ -32,6 +32,8 @@ export default async function App({ params }: { params: any }) {
   const cookieStore = cookies();
   const hasCookie = cookieStore.has("theme");
   let course = null;
+  const video = await getVideo(params.slug,cookieStore.get("lang")?.value)
+  console.log(video)
   if (cookieStore.has("token")) {
     course = await getCourse(params.slug);
   } else {
@@ -104,6 +106,16 @@ export default async function App({ params }: { params: any }) {
           </div>
         </CardBody>
       </Card>
+      {video.videos ?  <video width="1920" height="240" controls preload="none">
+      <source src="https://moodle.edu4wb.com/storage/videos/MUPK1d67YqNM2VzE1r8Q5urF9IXPA7YeYiq69QBw.mp4" type="video/mp4" />
+      <track
+        src="/path/to/captions.vtt"
+        kind="subtitles"
+        srcLang="en"
+        label="English"
+      />
+    </video> : <div className="flex-1 flex justify-center items-center"><p>No video</p></div>}
+     
       {/* <div className="">
         <div className="space-y-1 flex justify-between">
           <div className="space-y-1">
