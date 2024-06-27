@@ -53,7 +53,7 @@ export async function getCourse(id: number) {
         },
       }
     );
-    console.log(res.data);
+    console.log(res);
     return res.data[0];
   } catch (err) {
     console.log(err);

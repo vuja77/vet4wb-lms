@@ -63,7 +63,7 @@ export default async function App({ params }: { params: any }) {
               {langague?.author}:{" "}
               <div dangerouslySetInnerHTML={{ __html: course.teacher }}></div>
             </small>
-            <h4 className="font-bold text-large line-clamp-2">{course.name}</h4>
+            <h4 className="font-bold text-large line-clamp-2 uppercase">{course.name}</h4>
             <small className="text-default-500 line-clamp-2">
               {course.description}
             </small>
