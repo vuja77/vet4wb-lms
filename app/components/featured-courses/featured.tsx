@@ -51,7 +51,7 @@ export default function Featured({
                     <small className="text-default-500 flex gap-1">
                       {lang.author}: <div dangerouslySetInnerHTML={{ __html: e.teacher }} ></div>
                     </small>
-                    <h4 className="font-bold text-large">{e.name}</h4>
+                    <h4 className="font-bold text-large uppercase">{e.name}</h4>
                   </CardFooter>
                 </CardBody>
               </Card>
