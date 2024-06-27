@@ -29,6 +29,8 @@ export default function EditCourse({data}:any) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [previewImage, setPreviewImage] = useState(null);
   const [name, setName] = useState("");
+  const [sq_name, setSqName] = useState("");
+  const [me_name, setMeName] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState();
   const [category, setCategory] = useState("");
@@ -54,6 +56,8 @@ export default function EditCourse({data}:any) {
     //@ts-ignore
     formData.append("cover_photo", photo);
     formData.append("name", name);
+    formData.append("sq_name", sq_name);
+    formData.append("me_name", me_name);
     formData.append("description", description);
     formData.append("course_type_id", category);
 
@@ -118,7 +122,24 @@ export default function EditCourse({data}:any) {
                   defaultValue={data.name}
                   onChange={(e) => setName(e.target.value)}
                 />
+                
                 <Input
+                  label="Course Sq Name"
+                  placeholder="Enter albanian course name"
+                  variant="bordered"
+                  name="course name"
+                  defaultValue={data.name}
+                  onChange={(e) => setSqName(e.target.value)}
+                />
+                 <Input
+                  label="Course Me Name"
+                  placeholder="Enter montenegrin course name"
+                  variant="bordered"
+                  name="course name"
+                  defaultValue={data.name}
+                  onChange={(e) => setMeName(e.target.value)}
+                />
+                {/* <Input
                   label="Description"
                   placeholder="Enter course description"
                   variant="bordered"
@@ -135,7 +156,7 @@ export default function EditCourse({data}:any) {
                   <SelectItem value={1} key={1}>
                     aaa
                   </SelectItem>
-                </Select>
+                </Select> */}
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="flat" onPress={onClose}>
