@@ -13,7 +13,7 @@ import {
 import { Config } from "@/Config";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import {  getCookie } from "cookies-next";
+import { getCookie } from "cookies-next";
 import translations from "@/langs.json";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
@@ -71,7 +71,7 @@ export default function App() {
         ));
       })
       .catch((error) => {
-        console.log(error.response.data['name']);
+        console.log(error.response.data["name"]);
         setError(error && error.response.data);
         console.log(error.response.data.password[0]);
         console.log(error.response.data.email[0]);
@@ -82,7 +82,7 @@ export default function App() {
         const nameError = error.response.data.name?.[0] ?? "";
 
         const firstError = passwordError || emailError || nameError;
-        if (error.response.data['name']) {
+        if (error.response.data["name"]) {
           setStep(1);
         } else {
           setStep(2);
@@ -128,11 +128,15 @@ export default function App() {
       <main className="grid grid-cols-2 h-[100vh] p-0 max-md:grid-cols-1 overflow-hidden">
         <ImageSlider></ImageSlider>
         <div className="flex justify-center items-center min-h-full">
-        <div className="absolute top-0 right-0 m-10 flex justify-center max-sm:w-full max-sm:m-0 max-sm:pt-12">
-          <Link href="/">
-            <Image src="/logo.webp" className="w-20 z-60 opacity-100" alt="logo"></Image>
-          </Link>
-        </div>
+          <div className="absolute top-0 right-0 m-10 flex justify-center max-sm:w-full max-sm:m-0 max-sm:pt-12">
+            <Link href="/">
+              <Image
+                src="/logo.webp"
+                className="w-20 z-60 opacity-100"
+                alt="logo"
+              ></Image>
+            </Link>
+          </div>
           <Card className="w-[340px]">
             <CardBody className="overflow-hidden  space-y-5 pt-5">
               <h1 className="text-center font-bold text-2xl ">
@@ -450,6 +454,27 @@ export default function App() {
                 </div>
               </form>
             </CardBody>
+            <div className="flex flex-row gap-3 p-4">
+              <p className="font-medium">
+              Instruction: 
+              </p>
+              <a
+                href="EDU4WB Instruction-EN.pdf"
+                target="_blank"
+                className="underline text-primary"
+                rel="noopener noreferrer"
+              >
+                ENG
+              </a>
+              <a
+                href="EDU4WB Instruction-ALB.pdf"
+                target="_blank"
+                className="underline text-primary"
+                rel="noopener noreferrer"
+              >
+                ALB
+              </a>
+            </div>
           </Card>
         </div>
       </main>
