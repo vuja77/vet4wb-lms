@@ -22,9 +22,11 @@ import axios from "axios";
 import { Config } from "@/Config";
 import toast, { Toaster } from "react-hot-toast";
 import { getCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 export default function AddUsers({ id, data }: { id: any, data: any }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   console.log("alo");
+  const router = useRouter()
   const [user, setUser] = useState("");
   useEffect(() => {
     console.log(data);
@@ -46,6 +48,7 @@ export default function AddUsers({ id, data }: { id: any, data: any }) {
       })
       .then((res) => {
         console.log(res);
+        router.refresh()
         toast.custom((t) => (
           <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
             <CardBody>

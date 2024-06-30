@@ -48,6 +48,7 @@ import course from "@/lib/types";
 import { Config } from "@/Config";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
+import AddUsers from "@/app/components/protected/add-users";
 
 const statusColorMap: Record<string, ChipProps["color"]> = {
   active: "success",
@@ -159,8 +160,26 @@ export default function App({ params }: { params: any }) {
       })
       .then((e) => {
         console.log(e.data);
-        setAllUsers(e.data);
         setUsers(e.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  async function getAll() {
+    await axios
+      .get(Config.API_URL + "/all-users/", {
+        headers: {
+          Authorization:
+            //@ts-ignore
+            "Bearer " + getCookie("token").value,
+        },
+      })
+      .then((e) => {
+        console.log(e.data);
+        setAllUsers(e.data);
+        
       })
       .catch((error) => {
         console.log(error);
@@ -168,6 +187,7 @@ export default function App({ params }: { params: any }) {
   }
   useEffect(() => {
     getAllUsers();
+   getAll()
     getCourse()
   }, []);
 
@@ -266,7 +286,6 @@ export default function App({ params }: { params: any }) {
         );
       case "status":
         return (
-          <div className="relative flex justify-end items-center gap-2">
             <Dropdown>
               <DropdownTrigger>
                 <Chip
@@ -293,7 +312,6 @@ export default function App({ params }: { params: any }) {
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
-          </div>
         );
       case "actions":
         return (
@@ -425,6 +443,7 @@ export default function App({ params }: { params: any }) {
                 ))}
               </DropdownMenu>
             </Dropdown>
+            <AddUsers id={params.slug} data={allusers && allusers}></AddUsers> 
           </div>
         </div>
         <div className="flex justify-between items-center">
