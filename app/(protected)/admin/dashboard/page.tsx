@@ -9,6 +9,7 @@ import {
   CardBody,
   CardHeader,
   user,
+  CardFooter,
 } from "@nextui-org/react";
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
 import CourseCard from "@/app/components/course-card";
@@ -17,25 +18,46 @@ import CreateCourse from "@/app/components/protected/create-course";
 import { getMineCourse } from "@/app/actions/course";
 import { count } from "console";
 import { countUsers } from "@/app/actions/analytics";
+import { UsersIcon } from "lucide-react";
 export default async function Page() {
   const courses = await getMineCourse();
-  const users = await countUsers()
+  const users = await countUsers();
   return (
-    <main className=" h-[100vh] pt-[100px] p-12 grid grid-cols-4 grid-rows-3 gap-5">
-      <div className="grid grid-cols-3 gap-12 col-span-4">
-        <Card className="flex-1">
-          <CardBody>
-            <h1>{users}</h1>
+    <main className=" h-[100vh] pt-[100px] p-12 grid grid-cols-4  gap-5">
+      <div className="flex  w-full col-span-4  gap-5 flex-wrap ">
+        <Link className="flex-1 h-[100px]" href="/admin/users">
+        <Card className="flex-1 hover:translate-y-[-5px] cursor-pointer min-w-[250px] h-[100px]">
+          <CardBody className="flex flex-row items-center gap-5">
+            <div className="bg-primary aspect-square flex justify-center items-center rounded-xl p-5">
+              <UsersIcon color="white"></UsersIcon>
+            </div>
+            <div>
+              <h1 className="font-bold">Total users</h1>
+              <h1>{users}</h1>
+            </div>
           </CardBody>
         </Card>
-        <Card>
-          <CardBody>
-            <h1>1</h1>
+        </Link>
+        <Card className="flex-1 hover:translate-y-[-5px] cursor-pointer min-w-[250px] h-[100px]">
+          <CardBody className="flex flex-row items-center gap-5 ">
+            <div className="bg-primary aspect-square flex justify-center items-center rounded-xl p-5">
+              <UsersIcon color="white"></UsersIcon>
+            </div>
+            <div>
+              <h1 className="font-bold">Total users</h1>
+              <h1>{users}</h1>
+            </div>
           </CardBody>
         </Card>
-        <Card>
-          <CardBody>
-            <h1>1</h1>
+        <Card className="flex-1 hover:translate-y-[-5px] cursor-pointer min-w-[250px] h-[100px]">
+          <CardBody className="flex flex-row items-center gap-5">
+            <div className="bg-primary aspect-square flex justify-center items-center rounded-xl p-5">
+              <UsersIcon color="white"></UsersIcon>
+            </div>
+            <div>
+              <h1 className="font-bold">Total users</h1>
+              <h1>{users}</h1>
+            </div>
           </CardBody>
         </Card>
       </div>
@@ -56,6 +78,7 @@ export default async function Page() {
                 data={e}
                 key={index}
                 className="row-span-1"
+                admin
               ></CourseCard>
             );
           })

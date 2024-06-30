@@ -11,6 +11,7 @@ const columns = [
 const statusOptions = [
   {name: "Active", uid: "active"},
   {name: "Pending", uid: "pending"},
+  {name: "Disabled", uid: "disabled"},
 ];
 
 
