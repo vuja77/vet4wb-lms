@@ -13,14 +13,16 @@ import { Config } from "@/Config";
 export default function CourseCard({
   data,
   progress,
+  className
 }: {
   data: any;
   progress?: any;
+  className?: string;
 }) {
   console.log(data);
 
   return (
-    <Link href={"course/" + data.id}>
+    <Link href={"course/" + data.id} className={className}>
       <Card className="max-h-[370px] max-w-[320px] cursor-pointer hover:border-primary border border-content1 transition-all">
         <CardBody className="overflow-visible rounded-[0px] py-2 p-0">
           {/* <p className="text-tiny uppercase font-bold absolute z-20 m-2 self-end bg-primary rounded-full p-2 w-[240px] text-center text-white">
