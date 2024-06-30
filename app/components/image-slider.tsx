@@ -14,7 +14,7 @@ export default function ImageSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     { url: "IMG_5673.jpg", caption: "Slika 1" },
-    { url: "1713126423.webp", caption: "Slika 2" },
+    { url: "POZADINA-VET-BALKANS-EDITED-NEW 1.webp", caption: "Slika 2" },
     { url: "viber_slika_2024-05-11_13-34-39-081.jpg", caption: "Slika 3" },
     { url: "1713126470.jpg", caption: "Slika 3" },
   ];
