@@ -80,7 +80,6 @@ export default function App() {
     if (error.name || error.email || error.password) {
       setStep(1);
     }  else {
-      setStep(2)
     }
   },[error])
   const [lang, setLang] = useState(getCookie("lang"));
