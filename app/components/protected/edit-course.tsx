@@ -79,8 +79,8 @@ export default function EditCourse({data}:any) {
   const notify = () => toast("Here is your toast.");
   return (
     <>
-      <Button onPress={onOpen} color="primary">
-        Edit course<Edit></Edit>
+      <Button onPress={onOpen} color="primary" isIconOnly className="bg-transparent text-primary aspect-square hover:scale-105">
+        <Edit ></Edit>
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
         <ModalContent>
@@ -128,7 +128,7 @@ export default function EditCourse({data}:any) {
                   placeholder="Enter albanian course name"
                   variant="bordered"
                   name="course name"
-                  defaultValue={data.name}
+                  defaultValue={data.sq_name}
                   onChange={(e) => setSqName(e.target.value)}
                 />
                  <Input

@@ -23,7 +23,7 @@ export default async function Page() {
   const courses = await getMineCourse();
   const users = await countUsers();
   return (
-    <main className=" h-[100vh] pt-[100px] p-12 grid grid-cols-4  gap-5">
+    <main className=" h-[100vh] pt-[100px] p-12 grid grid-cols-4 gap-5">
       <div className="flex  w-full col-span-4  gap-5 flex-wrap ">
         <Link className="flex-1 h-[100px]" href="/admin/users">
         <Card className="flex-1 hover:translate-y-[-5px] cursor-pointer min-w-[250px] h-[100px]">

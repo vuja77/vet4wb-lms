@@ -73,6 +73,8 @@ export default function UserCard({lang}:any) {
         </DropdownTrigger>
         <DropdownMenu aria-label="User Actions" variant="flat">
           <DropdownItem key="settings" href="/profile">{lang && lang.my_profile}</DropdownItem>
+          {/* @ts-ignore */}
+          {user && user.user.role_id === 795734325693  ? <DropdownItem key="settings" href="/admin/dashboard">Admin panel</DropdownItem>: <></>}
           <DropdownItem
             key="logout"
             color="danger"

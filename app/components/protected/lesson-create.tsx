@@ -67,12 +67,12 @@ export default function CreateLesson({id}:{id:number}) {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                Create course
+                Create Section
               </ModalHeader>
               <ModalBody>
                 <Input
                   label="Name"
-                  placeholder="Enter lesson name"
+                  placeholder="Enter section name"
                   variant="bordered"
                   onChange={(e) => setName(e.target.value)}
                 />

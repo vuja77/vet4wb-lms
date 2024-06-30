@@ -40,11 +40,6 @@ export default function FileList({
       {
         //@ts-ignore
         data
-          .filter((e: any) =>
-            getCookie("lang")
-              ? e.langague === getCookie("lang")
-              : e.langague === "gb"
-          )
           .map((e: any, index: any) => {
             console.log(e);
             if (e.type === "scorm1" || e.type === "scorm2") {
@@ -66,7 +61,7 @@ export default function FileList({
                     </IconWrapper>
                   }
                 >
-                  {e.type}
+                  {"scorm material"}
                 </ListboxItem>
               );
             } else if (e.type === "video") {

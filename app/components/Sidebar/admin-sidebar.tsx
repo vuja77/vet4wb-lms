@@ -25,7 +25,7 @@ import {
   LayoutDashboard,
   LayoutDashboardIcon,
   LucideGraduationCap,
-  UserIcon,
+  UsersIcon,
 } from "lucide-react";
 
 export default function AdminSideBar({ lang }: any) {
@@ -72,7 +72,7 @@ export default function AdminSideBar({ lang }: any) {
                 pathname === "/admin/users" && "bg-transparent text-white"
               } bg-success/10 text-success`}
             >
-              <BookIcon></BookIcon>
+              <UsersIcon size={18}></UsersIcon>
             </IconWrapper>
           }
         >
