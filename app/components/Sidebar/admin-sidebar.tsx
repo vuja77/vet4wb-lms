@@ -25,6 +25,7 @@ import {
   LayoutDashboard,
   LayoutDashboardIcon,
   LucideGraduationCap,
+  MessageCircleWarning,
   UsersIcon,
 } from "lucide-react";
 
@@ -78,8 +79,24 @@ export default function AdminSideBar({ lang }: any) {
         >
           Users
         </ListboxItem>
- 
-        
+        <ListboxItem
+          key="discussions"
+          href="/admin/reports"
+          className={`${
+            pathname === "/admin/reports" && "bg-primary text-white"
+          } rounded-2xl  `}
+          startContent={
+            <IconWrapper
+              className={`${
+                pathname === "/admin/reports" && "bg-transparent text-white"
+              } bg-success/10 text-success`}
+            >
+              <MessageCircleWarning size={18} />
+            </IconWrapper>
+          }
+        >
+          Reports
+        </ListboxItem>
       </Listbox>
     </>
   );

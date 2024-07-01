@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Listbox,
@@ -12,6 +12,8 @@ import {
   ModalFooter,
   useDisclosure,
   Textarea,
+  Card,
+  CardBody,
 } from "@nextui-org/react";
 import { IconWrapper } from "./IconWrapper";
 
@@ -27,10 +29,41 @@ import {
   LucideGraduationCap,
   UserIcon,
 } from "lucide-react";
+import { Config } from "@/Config";
+import { getCookie } from "cookies-next";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function SideBar({ lang }: any) {
   const pathname = usePathname();
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+  const [message, setMessage] = useState("")
+  async function sendReport() {
+    try {
+      const response = await axios.post(
+        `${Config.API_URL}/reports`,
+        {message: message },
+        {
+          headers: {
+            Authorization: `Bearer ${getCookie("token")}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      onClose();
+        toast.custom((t) => (
+          <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
+            <CardBody>
+              <p>👏, Report sent</p>
+            </CardBody>
+          </Card>
+        ));
+      return response.data;
+    } catch (error) {
+      console.error('Error sending report:', error);
+      throw error;
+    }
+  }
   return (
     <>
       <Listbox
@@ -150,11 +183,12 @@ export default function SideBar({ lang }: any) {
                       label="Your question"
                       placeholder="
                       Describe your problem"
+                      onChange={(e) => setMessage(e.target.value)}
                     />
                   </ModalBody>
                   <ModalFooter>
                     
-                    <Button color="primary" className="w-full" onPress={onClose}>
+                    <Button color="primary" className="w-full" type="submit" onPress={() => sendReport()}>
                       Send report
                     </Button>
                   </ModalFooter>
