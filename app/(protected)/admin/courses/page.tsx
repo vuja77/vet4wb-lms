@@ -17,12 +17,14 @@ import { Divider } from "@nextui-org/react";
 import CreateCourse from "@/app/components/protected/create-course";
 import { getMineCourse } from "@/app/actions/course";
 import { count } from "console";
-import { countUsers } from "@/app/actions/analytics";
+import { countCourse, countUsers } from "@/app/actions/analytics";
 import { UsersIcon } from "lucide-react";
 import CountryChart from "@/app/components/country-chart";
+import CourseChart from "@/app/components/course-chart";
 export default async function Page() {
   const courses = await getMineCourse();
   const users = await countUsers();
+  const courseUsers = await countCourse()
   return (
     <main className=" h-[100vh] pt-[100px] p-12 grid grid-cols-4 gap-5">
       <div className="grid  min-w-full grid-cols-3 col-span-4  gap-5  ">
@@ -55,9 +57,9 @@ export default async function Page() {
           </Link>
         </div>
         <Card className="col-span-2   cursor-pointer  h-[23 0px]">
-         <p className="px-10 pt-5 text-lg text-black font-medium">Users per country</p>
+         <p className="px-10 pt-5 text-lg  font-medium">Users per course</p>
           <CardBody className="flex flex-row items-center gap-5 ">
-            <CountryChart></CountryChart>
+            <CourseChart data={courseUsers}></CourseChart>
           </CardBody>
         </Card>
       </div>

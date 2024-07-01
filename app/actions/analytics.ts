@@ -35,3 +35,14 @@ export async function getReports() {
       console.log(err);
     }
 }
+export async function countCourse() {
+  const cookieStore = cookies()
+  const token = cookieStore.get('token')
+    try {
+      const res = await axios.get(Config.API_URL+"/count-course-user");
+      console.log(res.data);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+}
