@@ -185,7 +185,7 @@ export default function App({ params }: { params: any }) {
 
     if (hasSearchFilter) {
       filteredUsers = filteredUsers.filter((user: any) =>
-        user.name.toLowerCase().includes(filterValue.toLowerCase())
+        user.user.name.toLowerCase().includes(filterValue.toLowerCase())
       );
     }
     if (
@@ -334,7 +334,7 @@ export default function App({ params }: { params: any }) {
           <Input
             isClearable
             className="w-full sm:max-w-[44%]"
-            placeholder="Search by name..."
+            placeholder="Search by user name..."
             startContent={<SearchIcon />}
             value={filterValue}
             onClear={() => onClear()}
@@ -463,7 +463,7 @@ export default function App({ params }: { params: any }) {
     <main className="pt-[100px] p-12 w-full  max-md:p-5 max-md:pt-[100px] min-w-[70%] self-center space-y-5">
       <div className="">
         <div className="space-y-1">
-          <h4 className="text-3xl font-medium">Users</h4>
+          <h4 className="text-3xl font-medium">Reports</h4>
         </div>
         <Divider className="my-4" />
       </div>

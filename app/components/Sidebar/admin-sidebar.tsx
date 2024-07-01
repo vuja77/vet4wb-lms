@@ -60,7 +60,24 @@ export default function AdminSideBar({ lang }: any) {
         >
           Dashobard
         </ListboxItem>
-
+        <ListboxItem
+          key="discussions"
+          href="/admin/courses"
+          className={`${
+            pathname === "/admin/courses" && "bg-primary text-white"
+          } rounded-2xl  `}
+          startContent={
+            <IconWrapper
+              className={`${
+                pathname === "/admin/courses" && "bg-transparent text-white"
+              } bg-success/10 text-success`}
+            >
+              <BookIcon size={18}></BookIcon>
+            </IconWrapper>
+          }
+        >
+          Courses
+        </ListboxItem>
         <ListboxItem
           key="discussions"
           href="/admin/users"
