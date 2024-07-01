@@ -67,7 +67,7 @@ export default async function Page() {
           </Link>
         </div>
         <Card className="col-span-2   cursor-pointer  h-[23 0px]">
-          <p className="px-10 pt-5 text-lg text-black font-medium">
+          <p className="px-10 pt-5 text-lg  font-medium">
             Users per country
           </p>
           <CardBody className="flex flex-row items-center gap-5 ">
@@ -76,7 +76,7 @@ export default async function Page() {
         </Card>
       </div>
       <Card className="col-span-2  row-span-10 h-full flex flex-col p-2">
-        <CardHeader className="flex justify-between"><h1>Latest reports</h1> <Link href="/admin/reports" className="text-xs">View all</Link></CardHeader>
+        <CardHeader className="flex justify-between"><h1>Latest reports</h1> <Link href="/admin/reports" className="text-xs dark:text-white/50">View all</Link></CardHeader>
         <CardBody className="gap-5">
           {reports.map((report: any) => {
             return (<>
@@ -93,14 +93,14 @@ export default async function Page() {
                 />
                 <p className="text-xs line-clamp-2">{report.message}</p>
               </div>
-              <hr className="w-[90%] self-center"></hr>
+              <hr className="w-[90%] self-center dark:border-white/10"></hr>
 </>
             );
           })}
         </CardBody>
       </Card>
       <Card className="col-span-2  row-span-10 h-full flex flex-col p-2">
-        <CardHeader className="flex justify-between"><h1>Latest registred users</h1> <Link href="/admin/users" className="text-xs">View all</Link></CardHeader>
+        <CardHeader className="flex justify-between"><h1>Newest Registered Users</h1> <Link href="/admin/users" className="text-xs dark:text-white/50">View all</Link></CardHeader>
         <CardBody className="gap-5">
           {lastusers.map((user: any) => {
             return (<>
@@ -125,7 +125,7 @@ export default async function Page() {
                   {user.status}
                 </Chip>
               </div>
-              <hr className="w-[90%] self-center  dark:bg-white/50"></hr>
+              <hr className="w-[90%] self-center  dark:border-white/10"></hr>
 </>
             );
           })}

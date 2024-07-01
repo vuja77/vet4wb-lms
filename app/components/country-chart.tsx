@@ -1,4 +1,5 @@
 "use client";
+import { Card } from "@nextui-org/react";
 import React, { PureComponent } from "react";
 import {
   BarChart,
@@ -37,9 +38,9 @@ export default function CountryChart() {
   const CustomTooltip = ({ active, payload, label }:{active?:boolean,payload?:any, label?:string}) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white rounded-lg border p-3">
-          <p className="label">{`${label} : ${payload[0].value}`}</p>
-        </div>
+        <Card className="rounded-lg border p-3">
+          <p className="">{`${label} : ${payload[0].value}`}</p>
+        </Card>
       );
     }
 
