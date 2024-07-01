@@ -9,6 +9,7 @@ import {
   User,
   Card,
   CardBody,
+  Divider,
 } from "@nextui-org/react";
 import { Config } from "@/Config";
 import { getCookie, deleteCookie } from "cookies-next";
@@ -74,7 +75,7 @@ export default function UserCard({lang}:any) {
         <DropdownMenu aria-label="User Actions" variant="flat">
           <DropdownItem key="settings" href="/profile">{lang && lang.my_profile}</DropdownItem>
           {/* @ts-ignore */}
-          {user && user.user.role_id === 795734325693  ? <DropdownItem key="settings" href="/admin/dashboard">Admin panel</DropdownItem>: <></>}
+          {user && user.user.role_id === 795734325693  ? <DropdownItem key="settings" href="/admin/dashboard">Admin panel</DropdownItem>:<DropdownItem classNames={{base: "hover:bg-transparent"}}></DropdownItem>}
           <DropdownItem
             key="logout"
             color="danger"
