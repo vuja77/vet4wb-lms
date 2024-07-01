@@ -13,3 +13,25 @@ export async function countUsers() {
       console.log(err);
     }
 }
+export async function lastUsers() {
+  const cookieStore = cookies()
+  const token = cookieStore.get('token')
+    try {
+      const res = await axios.get(Config.API_URL+"/last-users");
+      console.log(res.data);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+}
+export async function getReports() {
+  const cookieStore = cookies()
+  const token = cookieStore.get('token')
+    try {
+      const res = await axios.get(Config.API_URL+"/reports");
+      console.log(res.data);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+}
