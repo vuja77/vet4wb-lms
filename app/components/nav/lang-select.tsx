@@ -14,7 +14,7 @@ export default function LangSelect({ className }: { className?: string }) {
   return (
     <Select
       className={className}
-      defaultSelectedKeys={getCookie("lang") && getCookie("lang")}
+      defaultSelectedKeys={getCookie("lang") && [getCookie("lang") === "sq" ? "al" : getCookie("lang")]}
       onChange={(e) => {
         console.log(e.target.value);
         deleteCookie("lang");
@@ -29,7 +29,7 @@ export default function LangSelect({ className }: { className?: string }) {
           className="w-7 object-cover h-6 aspect-square"
           src={
             lang != "me"
-              ? "https://flagcdn.com/" + lang + ".svg"
+              ? "https://flagcdn.com/" + getCookie("lang-icon") + ".svg"
               : "/ikonica-cg-bh.png"
           }
         />
