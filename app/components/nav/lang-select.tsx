@@ -14,6 +14,7 @@ export default function LangSelect({ className }: { className?: string }) {
   return (
     <Select
       className={className}
+      //@ts-ignore
       defaultSelectedKeys={getCookie("lang") && [getCookie("lang") === "sq" ? "al" : getCookie("lang")]}
       onChange={(e) => {
         console.log(e.target.value);
