@@ -72,7 +72,11 @@ export default function App() {
       <div className="flex justify-center items-center min-h-full">
         <div className="absolute top-0 right-0 m-10 flex justify-center max-sm:w-full max-sm:m-0 max-sm:pt-12">
           <Link href="/">
-            <Image src="/logo.webp" className="w-20 z-60 opacity-100" alt="logo"></Image>
+            <Image
+              src="/logo.webp"
+              className="w-20 z-60 opacity-100"
+              alt="logo"
+            ></Image>
           </Link>
         </div>
         <Card className="w-[340px] max-h-[450px]">
@@ -144,14 +148,14 @@ export default function App() {
                   </p>
                 )
               }
-            <Checkbox>Remember me</Checkbox>
+              <Checkbox>Remember me</Checkbox>
 
               <p className="text-center text-small">
                 {
                   //@ts-ignore
                   langague && langague.need
                 }{" "}
-                <Link size="sm" onPress={() => router.push("register")}>
+                <Link size="sm" href="/register">
                   {
                     //@ts-ignore
                     langague && langague.signup
