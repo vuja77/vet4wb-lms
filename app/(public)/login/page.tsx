@@ -185,7 +185,7 @@ export default function App() {
               </div>
               <Link size="sm" href="/resend-email">
                 <span className="text-white pr-1">
-                  Didn't receive the verification email?
+                  Didn&apos;t receive the verification email?
                 </span>
                 Resend.
               </Link>
