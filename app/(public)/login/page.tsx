@@ -162,6 +162,7 @@ export default function App() {
                   }
                 </Link>
               </p>
+
               {
                 //@ts-ignore
                 error.message && (
@@ -182,6 +183,12 @@ export default function App() {
                   }
                 </Button>
               </div>
+              <Link size="sm" href="/resend-email">
+                <span className="text-white pr-1">
+                  Didn't receive the verification email?
+                </span>
+                Resend.
+              </Link>
             </form>
           </CardBody>
         </Card>

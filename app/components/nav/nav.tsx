@@ -31,7 +31,12 @@ export default function Nav({ lang }: any) {
         { name: "Activities", link: "https://vet4wb.com/news/" },
       ]
     : [{ name: "Activities", link: "https://vet4wb.com/news/" }];
-  if (pathname.includes("login") || pathname === "/register" || pathname === "/3d-town") {
+  if (
+    pathname.includes("login") ||
+    pathname === "/register" ||
+    pathname === "/3d-town" ||
+    pathname === "/resend-email"
+  ) {
     return <></>;
   } else {
     return (
@@ -46,31 +51,54 @@ export default function Nav({ lang }: any) {
             className="sm:hidden"
           />
           <NavbarBrand>
-            <Link aria-label="link home" href="/" >
+            <Link aria-label="link home" href="/">
               <Image src="/logo.webp" width={70} height={70} alt="logo"></Image>
             </Link>
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden dark:text-white sm:flex gap-4" justify="center">
+        <NavbarContent
+          className="hidden dark:text-white sm:flex gap-4"
+          justify="center"
+        >
           <NavbarItem isActive>
-            <Link aria-label="link home" href="/" className="dark:text-white">{lang.home}</Link>
+            <Link aria-label="link home" href="/" className="dark:text-white">
+              {lang.home}
+            </Link>
           </NavbarItem>
           {hasCookie("token") && (
             <NavbarItem>
-              <Link aria-label="link home" href="/dashboard" className="dark:text-white">{lang.dashboard}</Link>
+              <Link
+                aria-label="link home"
+                href="/dashboard"
+                className="dark:text-white"
+              >
+                {lang.dashboard}
+              </Link>
             </NavbarItem>
           )}
 
           <NavbarItem>
-            <Link aria-label="link home" href="https://vet4wb.com/news/"  className="dark:text-white">{lang.activities}</Link>
+            <Link
+              aria-label="link home"
+              href="https://vet4wb.com/news/"
+              className="dark:text-white"
+            >
+              {lang.activities}
+            </Link>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justify="end">
           {!hasCookie("token") ? (
             <>
               <NavbarItem className="hidden lg:flex">
-                <Link aria-label="link home" href="/login" className="dark:text-white">{lang.login}</Link>
+                <Link
+                  aria-label="link home"
+                  href="/login"
+                  className="dark:text-white"
+                >
+                  {lang.login}
+                </Link>
               </NavbarItem>
               <NavbarItem>
                 <Button
@@ -96,7 +124,8 @@ export default function Nav({ lang }: any) {
         </NavbarContent>
         <NavbarMenu className="gap-10 pt-10">
           <NavbarMenuItem key={"pocetna"}>
-            <Link aria-label="link home"
+            <Link
+              aria-label="link home"
               color={pathname.split("/")[1] === "" ? "primary" : "secondary"}
               className="w-full"
               href={"/"}
@@ -107,7 +136,8 @@ export default function Nav({ lang }: any) {
           </NavbarMenuItem>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link aria-label="link home"
+              <Link
+                aria-label="link home"
                 color={
                   pathname.split("/")[1].includes(item.link)
                     ? "primary"
