@@ -28,6 +28,7 @@ export default function App() {
   const [phone, setPhone] = useState("");
   const [social, SetSocial] = useState("");
   const [country, setCountry] = useState("");
+  const [othercountry, setOtherCountry] = useState("");
   const [password, setPassword] = useState("");
   const [langauth, setLangauth] = useState("");
 
@@ -43,7 +44,7 @@ export default function App() {
           phone: phone,
           language: langauth,
           social: social,
-          country: country,
+          country: country === "other" ? othercountry : country,
           password: password,
         },
         {
@@ -75,13 +76,13 @@ export default function App() {
       });
   }
   useEffect(() => {
-    console.log(error)
+    console.log(error);
     //@ts-ignore
     if (error.name || error.email || error.password) {
       setStep(1);
-    }  else {
+    } else {
     }
-  },[error])
+  }, [error]);
   const [lang, setLang] = useState(getCookie("lang"));
   let [langague, setLangague] = useState();
   useEffect(() => {
@@ -331,7 +332,21 @@ export default function App() {
                       </SelectItem>
                       <SelectItem key={"Albanian"}>Albanian</SelectItem>
                       <SelectItem key={"Kosovo"}>Kosovo</SelectItem>
+                      <SelectItem key={"other"}>Other</SelectItem>
                     </Select>
+                    {country === "other" && (
+                      <Input
+                        isRequired
+                        label="country"
+                        placeholder="Enter your country"
+                        type="text"
+                        color={
+                          //@ts-ignore
+                          error.country ? "danger" : "default"
+                        }
+                        onChange={(e) => setOtherCountry(e.target.value)}
+                      />
+                    )}
                     <Select
                       placeholder="Select Langague"
                       onChange={(e) => setLangauth(e.target.value)}
@@ -448,9 +463,7 @@ export default function App() {
               </form>
             </CardBody>
             <div className="flex flex-row gap-3 p-4">
-              <p className="font-medium">
-              Instruction: 
-              </p>
+              <p className="font-medium">Instruction:</p>
               <a
                 href="EDU4WB Instruction-EN.pdf"
                 target="_blank"
