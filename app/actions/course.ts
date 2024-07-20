@@ -43,10 +43,14 @@ export async function getCourse(id: number) {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
   const lang = cookieStore.get("lang");
- 
+
   try {
     const res = await axios.get(
-      process.env.API_URL + "/course/" + id + "?lang=" + (lang?.value === "me" ? "hr" : lang?.value),
+      process.env.API_URL +
+        "/course/" +
+        id +
+        "?lang=" +
+        (lang?.value === "me" ? "hr" : lang?.value),
       {
         headers: {
           Authorization: "Bearer " + token?.value,
@@ -63,11 +67,15 @@ export async function getCourseNotAuth(id: number) {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
   const lang = cookieStore.get("lang");
- 
+
   console.log(token);
   try {
     const res = await axios.get(
-      process.env.API_URL + "/course-info/" + id + "/" + (lang?.value === "me" ? "hr" : lang?.value),
+      process.env.API_URL +
+        "/course-info/" +
+        id +
+        "/" +
+        (lang?.value === "me" ? "hr" : lang?.value),
       {}
     );
     console.log(res.data);
@@ -81,18 +89,22 @@ export async function getVideo(id: number) {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
   const lang = cookieStore.get("lang");
- 
+
   console.log(token);
   try {
     const res = await axios.get(
-      process.env.API_URL + "/course-videos/" + id + "/" + (lang ? lang?.value : "gb"),
+      process.env.API_URL +
+        "/course-videos/" +
+        id +
+        "/" +
+        (lang ? lang?.value : "gb"),
 
       {}
     );
     return res.data;
-  } catch (err:any) {
+  } catch (err: any) {
     console.log(err);
-    return err.data
+    return err.data;
   }
 }
 
@@ -105,7 +117,7 @@ export async function getMineCourse() {
         Authorization: "Bearer " + token?.value,
       },
     });
-    console.log(res)
+    console.log(res);
     return res.data;
   } catch (err) {
     console.log(err);
@@ -133,12 +145,29 @@ export async function getAllCourse() {
     ? cookieStore.get("lang")
     : { value: "gb" };
 
-
-    try {
+  try {
     const res = await axios.get(
-      process.env.API_URL + "/courses/" + (lang?.value === "me" ? "hr" : lang?.value),
+      process.env.API_URL +
+        "/courses/" +
+        (lang?.value === "me" ? "hr" : lang?.value),
       {}
     );
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function getMineFiles() {
+  const cookieStore = cookies();
+  const token = cookieStore.get("token");
+  try {
+    const res = await axios.get(process.env.API_URL + "/my-files", {
+      headers: {
+        Authorization: "Bearer " + token?.value,
+      },
+    });
+    console.log(res);
     return res.data;
   } catch (err) {
     console.log(err);

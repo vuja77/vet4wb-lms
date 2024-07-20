@@ -25,7 +25,7 @@ export default function App() {
   const [name, setName] = useState("");
   const [school, setSchool] = useState("");
   const [otherschool, setotherSchool] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("disable");
   const [social, SetSocial] = useState("");
   const [country, setCountry] = useState("");
   const [othercountry, setOtherCountry] = useState("");
@@ -281,7 +281,7 @@ export default function App() {
                       }
                       onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Input
+                    {/* <Input
                       isRequired
                       label="Phone number"
                       defaultValue={phone}
@@ -303,7 +303,7 @@ export default function App() {
                           }
                         </p>
                       )
-                    }
+                    } */}
                     <Input
                       label="Social network"
                       placeholder="Enter your social link"
