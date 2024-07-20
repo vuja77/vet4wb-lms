@@ -15,12 +15,11 @@ import { Config } from "@/Config";
 import { getCookie, deleteCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-export default function UserCard({lang}:any) {
+export default function UserCard({ lang }: any) {
   const [user, setUser] = useState();
   useEffect(() => {
     //@ts-ignore
     setUser(JSON.parse(localStorage.getItem("data")));
-
   }, []);
   const router = useRouter();
   return (
@@ -66,16 +65,26 @@ export default function UserCard({lang}:any) {
 
                 description={""}
                 //@ts-ignore
-                
+
                 name={user && user.user.name}
               />
             )
           }
         </DropdownTrigger>
         <DropdownMenu aria-label="User Actions" variant="flat">
-          <DropdownItem key="settings" href="/profile">{lang && lang.my_profile}</DropdownItem>
+          <DropdownItem key="settings" href="/profile">
+            {lang && lang.my_profile}
+          </DropdownItem>
           {/* @ts-ignore */}
-          {user && user.user.role_id === 795734325693  ? <DropdownItem key="settings" href="/admin/dashboard">Admin panel</DropdownItem>:<DropdownItem classNames={{base: "hover:bg-transparent"}}></DropdownItem>}
+          {user && user.user.role_id === 795734325693 ? (
+            <DropdownItem key="settings" href="/admin/dashboard">
+              Admin panel
+            </DropdownItem>
+          ) : (
+            <DropdownItem
+              classNames={{ base: "hover:bg-transparent" }}
+            ></DropdownItem>
+          )}
           <DropdownItem
             key="logout"
             color="danger"
@@ -83,7 +92,7 @@ export default function UserCard({lang}:any) {
               deleteCookie("token");
               deleteCookie("user");
               deleteCookie("lang");
-              router.refresh();
+              router.push("/login");
               toast.custom((t) => (
                 <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
                   <CardBody>
@@ -93,7 +102,7 @@ export default function UserCard({lang}:any) {
               ));
             }}
           >
-           {lang && lang.log_out}
+            {lang && lang.log_out}
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>

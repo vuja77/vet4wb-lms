@@ -45,12 +45,11 @@ export default function UserProfile({ data }: { data: any }) {
       />
       <div className="p-3 space-y-2 w-full max-md:text-center">
         <h4 className="font-bold text-large line-clamp-2">{data.name}</h4>
-        <small className="text-default-500 line-clamp-2"> Student</small>
+        {/* <small className="text-default-500 line-clamp-2"> Student</small> */}
 
         <small className="text-default-500 line-clamp-2"> {data.email}</small>
       </div>
       <EditProfile data={data}></EditProfile>
-
     </CardBody>
   );
 }
