@@ -4,6 +4,7 @@ import { Divider } from "@nextui-org/react";
 import { getMineCourse, getMineFiles } from "@/app/actions/course";
 import { getLang } from "@/utils/lang";
 import AddFiles from "@/app/components/add-files";
+import { Download } from "lucide-react";
 export default async function App() {
   const files = await getMineFiles();
   let language = getLang();
@@ -34,7 +35,7 @@ export default async function App() {
                     <p>{index + 1}</p>
                     <p className="col-span-2">{file.display_name}</p>
                     <p className=" col-span-2  ">{file.description}</p>
-                    <div className="text-end">
+                    <div className="text-end flex justify-center items-center">
                       <a
                         target="_blank"
                         className=""
@@ -49,6 +50,18 @@ export default async function App() {
                         }
                       >
                         <Button color="primary">Open</Button>
+                      </a>
+                      <a
+                        target="_blank"
+                        className=""
+                        download
+                        href={
+                          "https://moodle.edu4wb.com/storage/" + file.file_name
+                        }
+                      >
+                        <Button color="primary" isIconOnly>
+                          <Download />
+                        </Button>
                       </a>
                     </div>
                   </div>
