@@ -32,9 +32,12 @@ export default async function App() {
             return <CourseCard data={e} key={index} progress></CourseCard>;
           })
         ) : (
-          <div className="border-dashed rounded-md border col-span-4 w-full flex flex-col items-center justify-center h-full">
-            <h1>You dont have courses</h1>
-            <Button color="primary">Start learning</Button>
+          <div className="border-dashed rounded-md border dark:border-white/20 border-black/20 col-span-4 w-full flex flex-col items-center justify-center h-full">
+            <h1>No courses</h1>
+            <br />
+            <a href="/dashboard">
+              <Button color="primary">Start learning</Button>
+            </a>
           </div>
         )}
       </div>

@@ -21,6 +21,7 @@ import { Config } from "@/Config";
 import CertCard from "@/app/components/cert-card";
 export default async function App() {
   const cert = await getMineCert();
+  console.log(cert);
   let language = getLang();
   return (
     <main className="min-h-[100vh] pt-[100px] p-12 max-sm:p-2 max-sm:pt-24 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:w-full w-full">
@@ -31,12 +32,22 @@ export default async function App() {
         <Divider className="my-4" />
       </div>
       <div className="grid grid-cols-4 max-sm:w-full justify-items-center gap-5 max-lg:grid-cols-2 max-[600px]:grid-cols-1 min-w-full">
-        {cert ?
+        {cert &&
           cert.map((e: any, index: number) => {
-            return <CertCard data={e} key={index}/>;
-          }): <h1 className="text-black">ALo</h1>}
+            return <CertCard data={e} key={index} />;
+          })}
 
-          {cert.length <1 && <h1 className="text-black flex flex-1 justify-center items-center col-span-4">Currently, there are no certificates available.</h1>}
+        {cert.length < 1 && (
+          <div className="border-dashed rounded-md border dark:border-white/20 border-black/20 col-span-4 w-full flex flex-col items-center justify-center h-full">
+            <h1 className="text-black flex flex-1 justify-center items-center col-span-4">
+              Currently, there are no certificates available.
+            </h1>
+            <br />
+            <a href="/dashboard">
+              <Button color="primary">Start learning</Button>
+            </a>
+          </div>
+        )}
       </div>
     </main>
   );
