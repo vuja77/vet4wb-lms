@@ -36,6 +36,7 @@ export default async function App() {
                     <p className=" col-span-2  ">{file.description}</p>
                     <div className="text-end">
                       <a
+                        target="_blank"
                         className=""
                         href={
                           "https://moodle.edu4wb.com/storage/" + file.file_name
