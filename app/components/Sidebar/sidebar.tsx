@@ -37,30 +37,30 @@ import toast from "react-hot-toast";
 export default function SideBar({ lang }: any) {
   const pathname = usePathname();
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
   async function sendReport() {
     try {
       const response = await axios.post(
         `${Config.API_URL}/reports`,
-        {message: message },
+        { message: message },
         {
           headers: {
             Authorization: `Bearer ${getCookie("token")}`,
-            'Content-Type': 'application/json'
-          }
+            "Content-Type": "application/json",
+          },
         }
       );
       onClose();
-        toast.custom((t) => (
-          <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
-            <CardBody>
-              <p>👏, Report sent</p>
-            </CardBody>
-          </Card>
-        ));
+      toast.custom((t) => (
+        <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
+          <CardBody>
+            <p>👏, Report sent</p>
+          </CardBody>
+        </Card>
+      ));
       return response.data;
     } catch (error) {
-      console.error('Error sending report:', error);
+      console.error("Error sending report:", error);
       throw error;
     }
   }
@@ -149,6 +149,24 @@ export default function SideBar({ lang }: any) {
         </ListboxItem>
         <ListboxItem
           key="actions"
+          className={`${
+            pathname === "/profile" && "bg-primary text-white"
+          } rounded-2xl  `}
+          href="/profile"
+          startContent={
+            <IconWrapper
+              className={`${
+                pathname === "/profile" && "bg-transparent text-white"
+              } bg-success/10 text-success`}
+            >
+              <UserIcon size={17} />
+            </IconWrapper>
+          }
+        >
+          My files
+        </ListboxItem>
+        <ListboxItem
+          key="actions"
           className="h-[250px]  w-full justify-self-end relative top-[50%] flex flex-col hover:bg-transparent  hover:backdrop-blur-0 justify-center items-center text-center"
         >
           <div className="w-full gap-5 p-5 flex  justify-center flex-col items-center text-center rounded-2xl  bg-white/10 backdrop-blur-md border-1  dark:border-gray-400/20 pb-12">
@@ -179,7 +197,7 @@ export default function SideBar({ lang }: any) {
                   </ModalHeader>
                   <ModalBody>
                     <Textarea
-                    variant="faded"
+                      variant="faded"
                       label="Your question"
                       placeholder="
                       Describe your problem"
@@ -187,8 +205,12 @@ export default function SideBar({ lang }: any) {
                     />
                   </ModalBody>
                   <ModalFooter>
-                    
-                    <Button color="primary" className="w-full" type="submit" onPress={() => sendReport()}>
+                    <Button
+                      color="primary"
+                      className="w-full"
+                      type="submit"
+                      onPress={() => sendReport()}
+                    >
                       Send report
                     </Button>
                   </ModalFooter>
