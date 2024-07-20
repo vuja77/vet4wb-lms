@@ -24,7 +24,7 @@ const DocxViewer = ({ file }) => {
   }, [file]);
 
   return (
-    <div>
+    <div className="w-screen h-screen">
       <pre>{content}</pre>
     </div>
   );

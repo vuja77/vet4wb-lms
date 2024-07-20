@@ -39,7 +39,10 @@ export default async function App() {
                         target="_blank"
                         className=""
                         href={
-                          "https://moodle.edu4wb.com/storage/" + file.file_name
+                          "https://docs.google.com/gview?url=" +
+                          "https://moodle.edu4wb.com/storage/" +
+                          file.file_name +
+                          "&embeded=true"
                         }
                       >
                         <Button color="primary">Open</Button>
