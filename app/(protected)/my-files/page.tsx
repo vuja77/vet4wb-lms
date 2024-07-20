@@ -35,7 +35,7 @@ export default async function App() {
                     <p>{index + 1}</p>
                     <p className="col-span-2">{file.display_name}</p>
                     <p className=" col-span-2  ">{file.description}</p>
-                    <div className="text-end flex justify-center items-center">
+                    <div className="text-end flex justify-end items-center">
                       <a
                         target="_blank"
                         className=""
@@ -51,10 +51,10 @@ export default async function App() {
                       >
                         <Button color="primary">Open</Button>
                       </a>
-                      <a
-                        target="_blank"
+                      {/* <a
                         className=""
                         download
+                        target="_blank"
                         href={
                           "https://moodle.edu4wb.com/storage/" + file.file_name
                         }
@@ -62,7 +62,7 @@ export default async function App() {
                         <Button color="primary" isIconOnly>
                           <Download />
                         </Button>
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                   <hr className="w-[90%] self-center  dark:border-white/10"></hr>

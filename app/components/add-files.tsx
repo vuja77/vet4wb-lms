@@ -101,10 +101,15 @@ export default function AddFiles() {
                   {previewImage ? (
                     <div className="bg-white/10 rounded-md py-5  w-full">
                       {/* @ts-ignore */}
-                      <p className="text-white">{photo.path}</p>
+                      <p className=" dark:text-white text-black">
+                        {/* @ts-ignore */}
+                        {photo.path}
+                      </p>
                     </div>
                   ) : (
-                    <p>Drag n drop your file here, or click to select file</p>
+                    <p className="dark:text-white text-black">
+                      Drag n drop your file here, or click to select file
+                    </p>
                   )}
                 </div>
 
