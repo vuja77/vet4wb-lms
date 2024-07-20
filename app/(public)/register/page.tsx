@@ -67,13 +67,13 @@ export default function App() {
           (t) => (
             <Card className="inset-x-0 backdrop-blur-md bg-primary p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 ">
               <CardBody>
-                <p className="text-white  gap-3">
-                  <span className="flex justify-center  items-center">
-                    <Mail></Mail>
-                    Please go to <span className="font-bold">{email}</span>
-                  </span>
-                  and verify your account to Log in!
-                </p>
+                <div className="text-white  gap-3">
+                  <p className="max-sm:text-xs">Please go to</p>
+                  <span className="font-bold max-sm:text-xs">{email}</span>
+                  <p className="max-sm:text-xs">
+                    and verify your account to Log in!
+                  </p>
+                </div>
               </CardBody>
             </Card>
           ),
