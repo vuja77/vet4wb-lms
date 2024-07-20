@@ -5,9 +5,9 @@ import { deleteCookie, getCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 export default function LangSelect({ className }: { className?: string }) {
   //@ts-ignore
-  const [lang, setLang] = React.useState(getCookie("lang-icon"));
+  const [lang, setLang] = React.useState(getCookie("lang"));
   useEffect(() => {
-    setLang(getCookie("lang-icon") ? getCookie("lang-icon") : "gb");
+    setLang(getCookie("lang") ? getCookie("lang") : "gb");
   }, []);
   const router = useRouter();
   console.log();
@@ -15,7 +15,11 @@ export default function LangSelect({ className }: { className?: string }) {
     <Select
       className={className}
       //@ts-ignore
-      defaultSelectedKeys={getCookie("lang") && [getCookie("lang") === "sq" ? "al" : getCookie("lang")]}
+      defaultSelectedKeys={
+        getCookie("lang") && [
+          getCookie("lang") === "sq" ? "al" : getCookie("lang"),
+        ]
+      }
       onChange={(e) => {
         console.log(e.target.value);
         deleteCookie("lang");

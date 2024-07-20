@@ -93,8 +93,8 @@ export default function App() {
                 error.email ? (
                   <Input
                     isRequired
+                    name="email"
                     //@ts-ignore
-
                     label={langague && langague.email}
                     placeholder="Enter your email"
                     type="email"
@@ -104,8 +104,8 @@ export default function App() {
                 ) : (
                   <Input
                     isRequired
+                    name="email"
                     //@ts-ignore
-
                     label={langague && langague.email}
                     placeholder="Enter your email"
                     type="email"
@@ -126,6 +126,7 @@ export default function App() {
               }
               <Input
                 isRequired
+                name="password"
                 placeholder="Enter your password"
                 type="password"
                 //@ts-ignore

@@ -20,7 +20,7 @@ export default async function App() {
       </div>
       <div className=" max-sm:w-full justify-items-center gap-5 max-lg:grid-cols-2 max-[600px]:grid-cols-1 min-w-full">
         <Card className="max-md:col-span-4 min-w-full flex-1 h-full flex flex-col p-2">
-          <CardHeader className="flex justify-between bg-white/10 rounded-md ">
+          <CardHeader className="flex justify-between dark:bg-white/10 bg-black/10  rounded-lg ">
             <p>id</p>
             <p>name</p>
             <p>description</p>
@@ -30,18 +30,20 @@ export default async function App() {
             {files.map((file: any, index: number) => {
               return (
                 <>
-                  <div className="w-full flex items-center gap-5  justify-between">
+                  <div className="w-full   items-center gap-12 grid grid-cols-6  justify-between">
                     <p>{index + 1}</p>
-                    <p>{file.display_name}</p>
-                    <p>{file.description}</p>
-                    <a
-                      className=""
-                      href={
-                        "https://moodle.edu4wb.com/storage/" + file.file_name
-                      }
-                    >
-                      <Button color="primary">Open</Button>
-                    </a>
+                    <p className="col-span-2">{file.display_name}</p>
+                    <p className=" col-span-2  ">{file.description}</p>
+                    <div className="text-end">
+                      <a
+                        className=""
+                        href={
+                          "https://moodle.edu4wb.com/storage/" + file.file_name
+                        }
+                      >
+                        <Button color="primary">Open</Button>
+                      </a>
+                    </div>
                   </div>
                   <hr className="w-[90%] self-center  dark:border-white/10"></hr>
                 </>

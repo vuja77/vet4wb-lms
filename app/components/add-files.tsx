@@ -26,7 +26,7 @@ import Image from "next/image";
 import { PlusIcon } from "./icons/PlusIcon";
 import { useRouter } from "next/navigation";
 export default function AddFiles() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [previewImage, setPreviewImage] = useState(null);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -54,7 +54,8 @@ export default function AddFiles() {
     const formData = new FormData();
     //@ts-ignore
     formData.append("file", photo);
-    formData.append("display_name", name);
+    //@ts-ignore
+    formData.append("display_name", photo.path);
     formData.append("description", description);
     console.log(formData);
     axios
@@ -65,6 +66,7 @@ export default function AddFiles() {
       })
       .then((res) => {
         router.refresh();
+        onClose();
         toast.custom((t) => (
           <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
             <CardBody>
@@ -106,13 +108,13 @@ export default function AddFiles() {
                   )}
                 </div>
 
-                <Input
+                {/* <Input
                   label="File display name"
                   placeholder="Enter display name"
                   variant="bordered"
                   name="course name"
                   onChange={(e) => setName(e.target.value)}
-                />
+                /> */}
                 <Input
                   label="Description"
                   placeholder="Enter file description"

@@ -168,7 +168,7 @@ export default function SideBar({ lang }: any) {
         </ListboxItem>
         <ListboxItem
           key="actions"
-          className="h-[250px]  w-full justify-self-end relative top-[50%] flex flex-col hover:bg-transparent  hover:backdrop-blur-0 justify-center items-center text-center"
+          className="h-[250px]  w-full justify-self-end relative top-[35%] flex flex-col hover:bg-transparent  hover:backdrop-blur-0 justify-center items-center text-center"
         >
           <div className="w-full gap-5 p-5 flex  justify-center flex-col items-center text-center rounded-2xl  bg-white/10 backdrop-blur-md border-1  dark:border-gray-400/20 pb-12">
             <h1 className="font-medium text-xl">
