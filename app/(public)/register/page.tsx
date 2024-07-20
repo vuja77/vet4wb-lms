@@ -17,7 +17,7 @@ import { getCookie } from "cookies-next";
 import translations from "@/langs.json";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
-import { MoveLeft, MoveRight } from "lucide-react";
+import { Mail, MoveLeft, MoveRight } from "lucide-react";
 import ImageSlider from "@/app/components/image-slider";
 export default function App() {
   const [email, setEmail] = useState("");
@@ -63,13 +63,24 @@ export default function App() {
 
         router.push("/login");
         console.log(res);
-        toast.custom((t) => (
-          <Card className="inset-x-0 backdrop-blur-md p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 bg-background/20">
-            <CardBody>
-              <p>Verify your mail</p>
-            </CardBody>
-          </Card>
-        ));
+        toast.custom(
+          (t) => (
+            <Card className="inset-x-0 backdrop-blur-md bg-primary p-2 rounded-full data-[menu-open=true]:backdrop-blur-lg backdrop-saturate-150 ">
+              <CardBody>
+                <p className="text-white  gap-3">
+                  <span className="flex justify-center  items-center">
+                    <Mail></Mail>
+                    Please go to <span className="font-bold">{email}</span>
+                  </span>
+                  and verify your account to Log in!
+                </p>
+              </CardBody>
+            </Card>
+          ),
+          {
+            duration: 216000,
+          }
+        );
       })
       .catch((error) => {
         setError(error && error.response.data);
@@ -319,8 +330,11 @@ export default function App() {
                       )
                     }
                     <Select
-                      placeholder="Select Contry"
+                      defaultSelectedKeys={country && [country]}
+                      placeholder="Select Contry*"
                       onChange={(e) => setCountry(e.target.value)}
+                      isRequired
+                      required
                       color={
                         //@ts-ignore
                         error.country ? "danger" : "default"
@@ -348,8 +362,11 @@ export default function App() {
                       />
                     )}
                     <Select
-                      placeholder="Select Langague"
+                      defaultSelectedKeys={langauth && [langauth]}
+                      placeholder="Select Langague*"
                       onChange={(e) => setLangauth(e.target.value)}
+                      isRequired
+                      required
                       color={
                         //@ts-ignore
                         error.language ? "danger" : "default"
@@ -360,13 +377,15 @@ export default function App() {
                       <SelectItem key={"gb"}>English</SelectItem>
                     </Select>
                     <Select
-                      placeholder="Select Scholl"
+                      defaultSelectedKeys={school && [school]}
+                      placeholder={"Select Organization*"}
                       onChange={(e) => setSchool(e.target.value)}
+                      required
+                      isRequired
                       color={
                         //@ts-ignore
                         error.school ? "danger" : "default"
                       }
-                      defaultSelectedKeys={school}
                     >
                       <SelectItem key={"Etš “Vaso Aligrudić“"} value={"other"}>
                         Etš “Vaso Aligrudić“
@@ -405,8 +424,8 @@ export default function App() {
                     {school === "other" && (
                       <Input
                         isRequired
-                        label="School"
-                        placeholder="Enter your school"
+                        label="Organization"
+                        placeholder="Enter your Organization"
                         type="text"
                         color={
                           //@ts-ignore
