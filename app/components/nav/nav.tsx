@@ -28,6 +28,7 @@ export default function Nav({ lang }: any) {
         { name: "My courses", link: "/my-course" },
         { name: "Certificates", link: "/certificates" },
         { name: "Profile", link: "/profile" },
+        { name: "My files", link: "/my-files" },
         { name: "Activities", link: "https://vet4wb.com/news/" },
       ]
     : [{ name: "Activities", link: "https://vet4wb.com/news/" }];

@@ -24,6 +24,7 @@ import { CalendarIcon } from "../icons/CalendarIcon";
 import { FileIcon } from "../icons/FileIcon";
 import { usePathname } from "next/navigation";
 import {
+  FilesIcon,
   LayoutDashboard,
   LayoutDashboardIcon,
   LucideGraduationCap,
@@ -150,16 +151,16 @@ export default function SideBar({ lang }: any) {
         <ListboxItem
           key="actions"
           className={`${
-            pathname === "/profile" && "bg-primary text-white"
-          } rounded-2xl  `}
-          href="/profile"
+            pathname === "/my-files" && "bg-primary text-white"
+          } rounded-2xl`}
+          href="/my-files"
           startContent={
             <IconWrapper
               className={`${
-                pathname === "/profile" && "bg-transparent text-white"
+                pathname === "/my-files" && "bg-transparent text-white"
               } bg-success/10 text-success`}
             >
-              <UserIcon size={17} />
+              <FilesIcon size={17}></FilesIcon>
             </IconWrapper>
           }
         >
