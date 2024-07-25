@@ -42,9 +42,9 @@ export default async function App() {
                   <>
                     <div className="w-full   items-center gap-12 grid grid-cols-6  justify-between">
                       <p>{`${file.type}${index + 1}`}</p>
+                      <p className=" col-span-2  ">{file.description}</p>
 
                       <p className="col-span-2">{file.display_name}</p>
-                      <p className=" col-span-2  ">{file.description}</p>
                       <div className="text-end flex justify-end items-center">
                         <a
                           target="_blank"
