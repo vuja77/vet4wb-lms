@@ -25,12 +25,13 @@ import { getCookie } from "cookies-next";
 import Image from "next/image";
 import { PlusIcon } from "./icons/PlusIcon";
 import { useRouter } from "next/navigation";
-export default function AddFiles() {
+export default function AddFilesS() {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [previewImage, setPreviewImage] = useState(null);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState();
+  const [type, setType] = useState("");
   const [category, setCategory] = useState("");
   const router = useRouter();
   const { getRootProps, getInputProps } = useDropzone({
@@ -57,8 +58,7 @@ export default function AddFiles() {
     //@ts-ignore
     formData.append("display_name", photo.path);
     formData.append("description", description);
-    formData.append("type", "D");
-
+    formData.append("type", "S");
     console.log(formData);
     axios
       .post(Config.API_URL + "/my-files", formData, {
