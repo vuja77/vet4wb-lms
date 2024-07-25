@@ -123,8 +123,8 @@ export default function AddFilesS() {
                   onChange={(e) => setName(e.target.value)}
                 /> */}
                 <Input
-                  label="Description"
-                  placeholder="Enter file description"
+                  label="Title of supporting document"
+                  placeholder="Enter title of supporting document"
                   variant="bordered"
                   onChange={(e) => setDescription(e.target.value)}
                 />
