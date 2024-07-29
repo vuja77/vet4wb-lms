@@ -41,9 +41,12 @@ export default async function App() {
                   <>
                     <div className="w-full   items-center gap-12 grid grid-cols-3  justify-between">
                       <p>{`${file.type}.${index + 1}.`}</p>
-                      <p className=" col-span-1  text-left">
-                        {file.description}
-                      </p>
+                      <div
+                        className="col-span-1  text-left"
+                        dangerouslySetInnerHTML={{
+                          __html: file && file.description,
+                        }}
+                      ></div>
                       {/* 
                       <p className="col-span-2">{file.display_name}</p> */}
                       <div className="text-end flex justify-end items-center">
@@ -112,7 +115,12 @@ export default async function App() {
                   <>
                     <div className="w-full   items-center gap-12 grid grid-cols-3  justify-between">
                       <p>{`${file.type}.${index + 1}.`}</p>
-                      <p className=" col-span-1  ">{file.description}</p>
+                      <div
+                        className="col-span-1  text-left"
+                        dangerouslySetInnerHTML={{
+                          __html: file && file.description,
+                        }}
+                      ></div>
                       <div className="text-end flex justify-end items-center">
                         <a
                           target="_blank"

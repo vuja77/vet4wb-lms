@@ -5,7 +5,11 @@ import { useEffect, useState } from "react";
 import { SunIcon } from "./icons/SunIcon";
 import { MoonIcon } from "./icons/MoonIcon";
 
-export function ThemeSwitcher({ variant }: { variant?: string }) {
+interface ThemeSwitcherProps {
+  variant?: string;
+}
+
+export function ThemeSwitcher({ variant }: ThemeSwitcherProps) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -27,7 +31,7 @@ export function ThemeSwitcher({ variant }: { variant?: string }) {
           aria-label="theme"
           onClick={() => handleThemeChange("light")}
           className={`border-border border-gray-400/20 border rounded-lg flex justify-center items-center p-5 hover:bg-slate-200/15 transition-all ${
-            theme === "dark" && "bg-slate-200/15"
+            theme === "dark" ? "bg-slate-200/15" : ""
           }`}
         >
           <SunIcon />
@@ -37,7 +41,7 @@ export function ThemeSwitcher({ variant }: { variant?: string }) {
           aria-label="theme"
           onClick={() => handleThemeChange("dark")}
           className={`border-border border-gray-400/20 border rounded-lg flex justify-center items-center p-5 hover:bg-slate-200/15 transition-all ${
-            theme === "dark" && "bg-slate-200/15"
+            theme === "dark" ? "bg-slate-200/15" : ""
           }`}
         >
           <MoonIcon />
@@ -53,7 +57,7 @@ export function ThemeSwitcher({ variant }: { variant?: string }) {
             onClick={() => handleThemeChange("light")}
             className="border-border border-gray-400/20 border rounded-lg flex justify-center items-center aspect-square w-10"
           >
-            <MoonIcon />
+            <SunIcon />
           </button>
         ) : (
           <button
@@ -61,7 +65,7 @@ export function ThemeSwitcher({ variant }: { variant?: string }) {
             onClick={() => handleThemeChange("dark")}
             className="border-border border-gray-400/20 border rounded-lg flex justify-center items-center aspect-square w-10"
           >
-            <SunIcon />
+            <MoonIcon />
           </button>
         )}
       </div>

@@ -55,7 +55,7 @@ export default function AddFiles() {
     //@ts-ignore
     formData.append("file", photo);
     //@ts-ignore
-    formData.append("display_name", photo.path);
+    formData.append("display_name", name.length < 1 ? photo.path : name);
     formData.append("description", description);
     formData.append("type", "D");
 
@@ -122,6 +122,7 @@ export default function AddFiles() {
                   name="course name"
                   onChange={(e) => setName(e.target.value)}
                 /> */}
+
                 <Input
                   label="Description"
                   placeholder="Enter file description"
