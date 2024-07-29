@@ -50,21 +50,23 @@ export default async function App() {
                       {/* 
                       <p className="col-span-2">{file.display_name}</p> */}
                       <div className="text-end flex justify-end items-center">
-                        <a
-                          target="_blank"
-                          className=""
-                          href={
-                            file.file_name.split(".")[1] === "docx"
-                              ? "https://docs.google.com/gview?url=" +
-                                "https://moodle.edu4wb.com/storage/" +
-                                file.file_name +
-                                "&embeded=true"
-                              : "https://moodle.edu4wb.com/storage/" +
-                                file.file_name
-                          }
-                        >
-                          <Button color="primary">Open</Button>
-                        </a>
+                        {file.file_name && (
+                          <a
+                            target="_blank"
+                            className=""
+                            href={
+                              file.file_name.split(".")[1] === "docx"
+                                ? "https://docs.google.com/gview?url=" +
+                                  "https://moodle.edu4wb.com/storage/" +
+                                  file.file_name +
+                                  "&embeded=true"
+                                : "https://moodle.edu4wb.com/storage/" +
+                                  file.file_name
+                            }
+                          >
+                            <Button color="primary">Open</Button>
+                          </a>
+                        )}
                         {/* <a
                         className=""
                         download
@@ -122,21 +124,23 @@ export default async function App() {
                         }}
                       ></div>
                       <div className="text-end flex justify-end items-center">
-                        <a
-                          target="_blank"
-                          className=""
-                          href={
-                            file.file_name.split(".")[1] === "docx"
-                              ? "https://docs.google.com/gview?url=" +
-                                "https://moodle.edu4wb.com/storage/" +
-                                file.file_name +
-                                "&embeded=true"
-                              : "https://moodle.edu4wb.com/storage/" +
-                                file.file_name
-                          }
-                        >
-                          <Button color="primary">Open</Button>
-                        </a>
+                        {file.file_name && (
+                          <a
+                            target="_blank"
+                            className=""
+                            href={
+                              file.file_name.split(".")[1] === "docx"
+                                ? "https://docs.google.com/gview?url=" +
+                                  "https://moodle.edu4wb.com/storage/" +
+                                  file.file_name +
+                                  "&embeded=true"
+                                : "https://moodle.edu4wb.com/storage/" +
+                                  file.file_name
+                            }
+                          >
+                            <Button color="primary">Open</Button>
+                          </a>
+                        )}
                         {/* <a
                         className=""
                         download

@@ -55,7 +55,7 @@ export default function AddFiles() {
     //@ts-ignore
     formData.append("file", photo);
     //@ts-ignore
-    formData.append("display_name", name.length < 1 ? photo.path : name);
+    formData.append("display_name", photo ? photo.path : "undefined");
     formData.append("description", description);
     formData.append("type", "D");
 
