@@ -8,6 +8,22 @@ import AddFilesS from "@/app/components/add-files-s";
 export default async function App() {
   const files = await getMineFiles();
   let language = getLang();
+
+  function extractHrefFromString(str: string) {
+    // Regular expression to find href attributes within <a> tags
+    const hrefRegex = /<a[^>]*href=['"]([^'"]*)['"][^>]*>/gi;
+    const hrefs: string[] = [];
+    let match;
+
+    // Iterate through all matches of the regular expression
+    while ((match = hrefRegex.exec(str)) !== null) {
+      hrefs.push(match[1]);
+    }
+    return hrefs;
+  }
+
+  // Vrati niz href vrednosti
+
   return (
     <main className="min-h-[100vh] pt-[100px] w-full p-12 max-sm:p-2 max-sm:pt-24 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:w-full">
       <div className="w-full">
@@ -50,7 +66,7 @@ export default async function App() {
                       {/* 
                       <p className="col-span-2">{file.display_name}</p> */}
                       <div className="text-end flex justify-end items-center">
-                        {file.file_name && (
+                        {file.file_name ? (
                           <a
                             target="_blank"
                             className=""
@@ -63,6 +79,15 @@ export default async function App() {
                                 : "https://moodle.edu4wb.com/storage/" +
                                   file.file_name
                             }
+                          >
+                            <Button color="primary">Open</Button>
+                          </a>
+                        ) : (
+                          <a
+                            target="_blank"
+                            className=""
+                            //@ts-ignore
+                            href={extractHrefFromString(file.description)}
                           >
                             <Button color="primary">Open</Button>
                           </a>
@@ -124,7 +149,7 @@ export default async function App() {
                         }}
                       ></div>
                       <div className="text-end flex justify-end items-center">
-                        {file.file_name && (
+                        {file.file_name ? (
                           <a
                             target="_blank"
                             className=""
@@ -140,7 +165,17 @@ export default async function App() {
                           >
                             <Button color="primary">Open</Button>
                           </a>
+                        ) : (
+                          <a
+                            target="_blank"
+                            className=""
+                            //@ts-ignore
+                            href={extractHrefFromString(file.description)}
+                          >
+                            <Button color="primary">Open</Button>
+                          </a>
                         )}
+
                         {/* <a
                         className=""
                         download
